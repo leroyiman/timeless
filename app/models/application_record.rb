@@ -15,7 +15,7 @@ class ApplicationRecord < ActiveRecord::Base
   # #   redirect_to(root_path)
   # # end
 
-  # private
+  # private d
 
   # def skip_pundit?
   #   devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
