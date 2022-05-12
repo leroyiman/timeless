@@ -62,3 +62,20 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+#faker for fake Seeds
+gem 'faker', '~> 2.20'
+
+#hosting images
+gem 'cloudinary', '~> 1.16.0'
+
+#hide secret keys
+# gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+
+#geocoder
+gem "geocoder"
+
+
+#authorization
+gem 'pundit', '~> 2.2'
