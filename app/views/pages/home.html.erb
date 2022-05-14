@@ -1,2 +1,16 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%= form_with url: "/offers", method: :get do |form| %>
+<%# <%= form_tag offers_path, method: :get do %>
+  <%= form.select :category, ["Sofa", "Table", "Lamp"]%>
+  <%# <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+
+  <%# <%= select_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find Furniture"
+  %>
+  <%#= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>

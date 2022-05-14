@@ -1,0 +1,5 @@
+<h1><%= @offer.title %></h1>
+<% @offer.timeslots.each do |timeslot| %>
+<%= timeslot.timeslot %>
+<% end %>
+<%= render "timeslots/new" %>

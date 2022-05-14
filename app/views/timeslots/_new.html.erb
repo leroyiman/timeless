@@ -1,0 +1,4 @@
+<%= simple_form_for [@offer, @timeslot] do |f| %>
+  <%= f.input :timeslot, as: :datetime, html5: true, label: "Time Slot" %>
+  <%= f.submit 'Submit' %>
+<% end %>
