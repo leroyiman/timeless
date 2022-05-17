@@ -83,3 +83,6 @@ gem 'pundit', '~> 2.2'
 
 # Gemfile
 gem 'pg_search', '~> 2.3.0'
+
+#Mailjet
+gem 'mailjet'

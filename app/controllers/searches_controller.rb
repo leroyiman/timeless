@@ -37,6 +37,7 @@ class SearchesController < ApplicationController
       @search.user = current_user
     end
     if @search.save
+
       redirect_to searches_path
     else
       raise
@@ -66,4 +67,5 @@ class SearchesController < ApplicationController
   def search_params
     params.require(:search).permit(:title, :location, :price, :size, :color, :condition, :style, :material, :smoke_free, :pet_free, :receipt)
   end
+
 end

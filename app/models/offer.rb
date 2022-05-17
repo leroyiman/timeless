@@ -5,4 +5,32 @@ class Offer < ApplicationRecord
   has_many :timeslots, dependent: :destroy
   has_many :statuses, dependent: :destroy
 
+  after_create :find_matches
+
+  def find_matches
+    searches = Search.all
+    # search = Search.find(params[:id])
+    searches = searches.where(color: color) if color.present?
+    searches = searches.where(size: size) if size.present?
+    searches = searches.where(material: material) if material.present?
+    searches = searches.where(condition: condition) if condition.present?
+
+
+    return unless searches.present?
+
+    searches.each do |search|
+      Match.create(search_id: search.id, offer_id: id)
+    end
+
+
+
+    # matching_searches = searches.where(color: color)
+
+    # return unless matching_searches.present?
+
+    # matching_searches.each do |offer|
+    #   Match.create(search_id: id, offer_id: offer.id)
+    # end
+  end
+
 end
