@@ -16,15 +16,20 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @timeslot = Timeslot.find(params[:timeslot_id])
     @booking.timeslot = @timeslot
-  end
-
-  def is_confirmed
     if @booking.save
-      true
+      @is_confirmed = true
     else
       false
     end
   end
+
+  # def is_confirmed
+  #   if @booking.save
+  #     true
+  #   else
+  #     false
+  #   end
+  # end
 
   def destroy
     @booking = Booking.find(params[:id])
