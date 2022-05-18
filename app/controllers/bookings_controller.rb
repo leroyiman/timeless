@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
+  def initialize
+    @is_confirmed == false
+  end
+
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
   end
 
   def show
@@ -16,20 +20,19 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @timeslot = Timeslot.find(params[:timeslot_id])
     @booking.timeslot = @timeslot
+
     if @booking.save
-      @is_confirmed = true
+      redirect_to booking_path, notice: "Your request has been sent. The owner will confirm your request within the next 24 hours"
     else
-      false
+      redirect_to offer_path, notice: "Request unsuccessful"
     end
   end
 
-  # def is_confirmed
-  #   if @booking.save
-  #     true
-  #   else
-  #     false
-  #   end
-  # end
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to bookings_path, notice: "Booking accepted"
+  end
 
   def destroy
     @booking = Booking.find(params[:id])
@@ -40,6 +43,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :timeslot_id)
+    params.require(:booking).permit(:user_id, :timeslot_id, :is_confirmed)
   end
 end
