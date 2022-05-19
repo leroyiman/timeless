@@ -25,6 +25,7 @@ class OffersController < ApplicationController
     #   # info_window: render_to_string(partial: "info_window", locals: { offer: @offer }),
     #   # image_url: helpers.asset_url("anchor2.png")
     # }]
+    @booking = Booking.new
   end
 
   def new

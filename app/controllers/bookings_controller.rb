@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.where(user: current_user)
+    @bookings = Booking.all
+    @bookings_as_owner = sort_by_created(@bookings.filter { |booking| booking.timeslot.offer.user == current_user })
   end
 
   def show
@@ -13,18 +14,17 @@ class BookingsController < ApplicationController
 
   def new
     @timeslot = Timeslot.find(params[:timeslot_id])
-    @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @timeslot = Timeslot.find(params[:timeslot_id])
-    @booking.timeslot = @timeslot
+    @booking.user = current_user
+    @offer = Offer.find(params[:offer_id])
 
     if @booking.save
-      redirect_to booking_path, notice: "Your request has been sent. The owner will confirm your request within the next 24 hours"
+      redirect_to offer_path(@offer), notice: "Your request has been sent. The owner will confirm your request within the next 24 hours"
     else
-      redirect_to offer_path, notice: "Request unsuccessful"
+      render :new, notice: "Request unsuccessful"
     end
   end
 
@@ -43,6 +43,10 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :timeslot_id, :is_confirmed)
+    params.require(:booking).permit(:timeslot_id, :is_confirmed)
+  end
+
+  def sort_by_created(collection)
+    collection.sort_by { |boo| boo.created_at }.reverse
   end
 end
