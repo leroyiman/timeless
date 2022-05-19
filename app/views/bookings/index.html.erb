@@ -1,0 +1,14 @@
+<h1>All your requests</h1>
+  <div>
+    <% @bookings.each do |booking| %>
+      <div class="card-product">
+        <div class="card-product-infos">
+          <h2> <%= booking.timeslot_id %> </h2>
+          <p>   <%= link_to "Remove",
+                    booking_path(booking.id),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
