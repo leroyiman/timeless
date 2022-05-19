@@ -6,7 +6,8 @@ class Match < ApplicationRecord
 
   # belongs_to :user, :through => :search
 
-  after_create :send_email
+  # after_create :send_email
+
 
   def send_email
     p "Mail sended?"

@@ -29,6 +29,7 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
+    @offer.timeslots.build(timeslot: Date.today)
   end
 
   def create
@@ -66,7 +67,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:title, :description, :location, :price, :category, :size, :color, :condition, :style, :material, :smoke_free, :pet_free, :receipt, photos: [])
+    params.require(:offer).permit(:title, :description, :location, :price, :category, :size, :color, :condition, :style, :material, :smoke_free, :pet_free, :receipt, photos: [], timeslots_attributes: [:timeslot])
   end
 
 end
