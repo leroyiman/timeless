@@ -8,11 +8,11 @@ class Search < ApplicationRecord
     offers = Offer.all
     # search = Search.find(params[:id])
     offers = offers.where(color: color)
-    offers = offers.where(category: category)
-    offers = offers.where(color: color) if category.present?
-    offers = offers.where(size: size) if category.present?
-    offers = offers.where(material: material) if category.present?
-    offers = offers.where(condition: condition) if category.present?
+    # offers = offers.where(category: category)
+    offers = offers.where(color: color) if color.present?
+    offers = offers.where(size: size) if size.present?
+    offers = offers.where(material: material) if material.present?
+    offers = offers.where(condition: condition) if condition.present?
 
     return unless offers.present?
 

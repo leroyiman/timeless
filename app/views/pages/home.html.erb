@@ -1,5 +1,5 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Timeless</h1>
+<p>Search for Furniture</p>
 
 <%= form_with url: "/offers", method: :get do |form| %>
 <%# <%= form_tag offers_path, method: :get do %>
@@ -14,3 +14,5 @@
   %>
   <%#= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+
+<%= link_to "See All Items", offers_path, class: "nav-link" %>

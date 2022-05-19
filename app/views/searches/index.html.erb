@@ -1,1 +1,7 @@
-<h1>Works!</h1>
+<h1>Here are all the searches </h1>
+
+<% @searches.each do |search| %>
+<ul>
+  <li><%= search.title %></li>
+</ul>
+<% end  %>
