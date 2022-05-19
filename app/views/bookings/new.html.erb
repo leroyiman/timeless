@@ -1,0 +1,12 @@
+<div class = 'card p-3 bg-light'>
+  <%= simple_form_for [@offer, @timeslot, @booking] do |f| %>
+      <div style="display:flex;">
+        <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+          <%= f.association :timeslot, collection: Timeslot.all %>
+        </div>
+      </div>
+      <div style="margin-left: 12px;">
+        <%= f.submit 'Book', class: 'btn btn-secondary' %>
+      </div>
+      <% end %>
+</div>

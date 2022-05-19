@@ -1,13 +1,17 @@
 <h1>All your requests</h1>
   <div>
-    <% @bookings.each do |booking| %>
+    <% @bookings_as_owner.each do |booking| %>
       <div class="card-product">
         <div class="card-product-infos">
           <h2> <%= booking.timeslot_id %> </h2>
-          <p>   <%= link_to "Remove",
-                    booking_path(booking.id),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></p>
+          <%= simple_form_for booking do |f|%>
+            <%= f.input :is_confirmed, input_html: { value: "confirmed" }, as: :hidden %>
+            <%= f.button :submit, "Confirm", class: "btn btn-sm btn-success" %>
+          <% end %>
+          <%= simple_form_for booking do |f|%>
+            <%= f.input :is_confirmed, input_html: { value: "declined" }, as: :hidden %>
+            <%= f.button :submit, "Decline", class: "btn btn-sm btn-warning" %>
+          <% end %>
         </div>
       </div>
     <% end %>
