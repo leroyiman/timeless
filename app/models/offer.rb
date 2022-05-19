@@ -2,8 +2,9 @@ class Offer < ApplicationRecord
 
   belongs_to :user
   has_many :matches, dependent: :destroy
-  has_many :timeslots, dependent: :destroy
+  has_many :timeslots, dependent: :destroy, autosave: true
   has_many :statuses, dependent: :destroy
+  accepts_nested_attributes_for :timeslots
 
   after_create :find_matches
 
