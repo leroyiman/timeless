@@ -1,14 +1,20 @@
-<h1>Here are all the offers for your search</h1>
-
-<% @offers.each do |offer| %>
-<ul>
-  <li><%= offer.title %></li>
-</ul>
-<% end  %>
+<div class="container">
+  <h1> <%= @offers.count %> results. </h1>
 
 
-<h2>Don't Found what you are looking for?</h2>
-<h3>Create a search/post</h3>
+  <% @offers.each do |offer| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= offer.title %></h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+        <%= link_to "See More", offer_path(offer) %>
+      </div>
+    </div>
+  <% end  %>
 
 
-  <%= link_to "Create a post", new_search_path %>
+    <h2>Don't Found what you are looking for?</h2>
+    <h3>Create a search/post</h3>
+    <%= link_to "Create a post", new_search_path %>
+</div>

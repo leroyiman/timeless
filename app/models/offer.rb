@@ -8,6 +8,13 @@ class Offer < ApplicationRecord
 
   after_create :find_matches
 
+  include PgSearch::Model
+  pg_search_scope :search_by_title,
+    against: [ :title ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
   def find_matches
     searches = Search.all
     # search = Search.find(params[:id])

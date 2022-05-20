@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
+
+
 
   def matching
     @offers = Offer.all
@@ -13,5 +16,4 @@ class ApplicationController < ActionController::Base
 
     end
   end
-  # before_action :authenticate_user!
 end
