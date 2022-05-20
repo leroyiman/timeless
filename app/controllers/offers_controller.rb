@@ -30,7 +30,7 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-    @offer.timeslots.build(timeslot: Date.today)
+    @offer.timeslots.build
   end
 
   def create
