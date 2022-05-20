@@ -1,0 +1,46 @@
+<div class="container">
+    <%if user_signed_in? %>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete%>
+    <% else %>
+    <li class="nav-item">
+    <%= link_to "Login", new_user_session_path %>
+    </li>
+    <% end %>
+  <div class="card-trip">
+    <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+    <div class="card-trip-infos">
+      <div>
+        <h2>This is your profile</h2>
+        <h3>Name: <%= @user.fname %></h2>
+        <p>Email: <%= @user.email %></p>
+      </div>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
+  </div>
+
+  <div class = "container">
+    <h3>Here are your offers</h3>
+    <% @user.offers.each do |offer| %>
+        <div class="card-product">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2><%= offer.title %></h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
+            <%= link_to "See More", offer_path(offer) %>
+          </div>
+        </div>
+      <% end  %>
+
+    <h3>Here are your searches</h3>
+    <% @user.searches.each do |offer| %>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2>I search: <%= offer.title %></h2>
+            <p>Product description with <strong>relevant info</strong> only.</p>
+            <%= link_to "See More", search_path(offer) %>
+          </div>
+        </div>
+      <% end  %>
+  </div>
+
+</div>

@@ -1,6 +1,23 @@
-<h1><%= @offer.title %></h1>
-<% @offer.timeslots.each do |timeslot| %>
-<%= timeslot.timeslot %>
-<% end %>
-<%# <%= render "timeslots/new" %>
-<%= render "bookings/new" %>
+<div class="container">
+  <div class="card-trip">
+    <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+    <div class="card-trip-infos">
+      <div>
+        <h2>Title: <%= @offer.title %></h2>
+        <p>Description: <%= @offer.description %></p>
+      </div>
+
+      <h2 class="card-trip-pricing"><% if @offer.price == 0 %>
+      <%= "Free" %>
+      <% else %>
+       <%= @offer.price %>
+      <% end %>
+
+
+      </h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
+  </div>
+  <%# <%= render "timeslots/new" %>
+  <%= render "bookings/new" %>
+</div>
