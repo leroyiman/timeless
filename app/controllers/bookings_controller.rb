@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user_id: current_user)
     # @bookings_as_owner = sort_by_created(@bookings.filter { |booking| booking.timeslot.offer.user == current_user })
   end
 
