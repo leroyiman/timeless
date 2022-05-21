@@ -1,6 +1,7 @@
 class Offer < ApplicationRecord
 
   belongs_to :user
+  has_many_attached :photos
   has_many :matches, dependent: :destroy
   has_many :timeslots, dependent: :destroy, autosave: true
   has_many :statuses, dependent: :destroy
