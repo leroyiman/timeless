@@ -2,7 +2,7 @@
   <%= simple_form_for(@offer) do |f| %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%# <%= f.input :location,
+    <%= f.input :location,
                   input_html: { data: { geocoder_target: "location" }, class: "d-none" },
                   wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
     <%= f.input :price %>
@@ -10,10 +10,7 @@
     <%= f.input :size %>
     <%= f.input :category %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    
-    <%# <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.fields_for :timeslots do |timeslots_attributes|%>
-      <%= timeslots_attributes.input :timeslot, as: :datetime, html5: true, label: "Time Slot" %>
       <%= timeslots_attributes.input :timeslot, as: :datetime, html5: true, label: "Time Slot" %>
     <% end %>
 

@@ -1,12 +1,12 @@
 class Offer < ApplicationRecord
-
+  geocoded_by :location
   belongs_to :user
   has_many_attached :photos
   has_many :matches, dependent: :destroy
   has_many :timeslots, dependent: :destroy, autosave: true
   has_many :statuses, dependent: :destroy
   accepts_nested_attributes_for :timeslots
-
+  after_validation :geocode, if: :will_save_change_to_location?
   after_create :find_matches
 
   include PgSearch::Model
