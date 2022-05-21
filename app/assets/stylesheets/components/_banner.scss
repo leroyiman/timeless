@@ -1,13 +1,9 @@
-.home {
-  background-color: white;
-}
-
-
 .home-banner {
   background-image: url(home.jpg);
   background-size: cover;
   background-position: center;
-  height: 600px;
+  background-repeat: no-repeat;
+  height: 100%;
   padding: 8px 24px 8px 24px;
   display: flex;
   flex-direction: column;
