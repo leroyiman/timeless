@@ -5,26 +5,26 @@ class OffersController < ApplicationController
     else
       @offers = Offer.all
     end
-    # @markers = @offers.geocoded.map do |offer|
-    #   {
-    #     lat: offer.latitude,
-    #     lng: offer.longitude
-    #     # info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
-    #     # image_url: helpers.asset_url("anchor2.png")
-    #   }
-    # end
+    @markers = @offers.geocoded.map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
+        image_url: helpers.asset_url("sofa.png")
+      }
+    end
   end
 
   def show
     @offer = Offer.find(params[:id])
 
     @timeslot = Timeslot.new
-    # @markers = [{
-    #   lat: @offer.latitude,
-    #   lng: @offer.longitude
-    #   # info_window: render_to_string(partial: "info_window", locals: { offer: @offer }),
-    #   # image_url: helpers.asset_url("anchor2.png")
-    # }]
+    @markers = [{
+      lat: @offer.latitude,
+      lng: @offer.longitude,
+      # info_window: render_to_string(partial: "info_window", locals: { offer: @offer }),
+      image_url: helpers.asset_url("sofa.png")
+    }]
     @booking = Booking.new
   end
 
