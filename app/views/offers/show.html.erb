@@ -1,23 +1,14 @@
-<div class="container">
-  <div class="card-trip">
+<div class="container-main-offer-show">
+<h1 class="text-center"><%= @offer.title %></h1>
+  <div class="card-trip-offer-show">
     <% @offer.photos.each do |photo| %>
        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
-    <div class="card-trip-infos">
+
+    <div class="card-profile-offer-show">
       <div>
-        <h2>Title: <%= @offer.title %></h2>
-        <p>Description: <%= @offer.description %></p>
+       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-offer-show avatar-bordered" />
       </div>
-
-      <h2 class="card-trip-pricing"><% if @offer.price == 0 %>
-      <%= "Free" %>
-      <% else %>
-       <%= @offer.price %>
-      <% end %>
-
-
-      </h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
   </div>
   <%# <%= render "timeslots/new" %>
