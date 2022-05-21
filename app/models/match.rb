@@ -3,10 +3,7 @@ class Match < ApplicationRecord
   belongs_to :offer
   has_one :user, :through => :search
 
-
-  # belongs_to :user, :through => :search
-
-  # after_create :send_email
+  after_create :send_email
 
 
   def send_email
@@ -33,8 +30,8 @@ class Match < ApplicationRecord
      #what the messages look like:
      variable = Mailjet::Send.create(messages: [{
       'From'=> {
-        'Email'=> 'whatever@google.com',
-        'Name'=> 'Me'
+        'Email'=> 'timeless@reachingdata.com',
+        'Name'=> 'Timeless'
       },
       "To" => [
         {
@@ -45,9 +42,11 @@ class Match < ApplicationRecord
         }
       ],
 
-        'Subject'=> 'My first Mailjet Email!',
+        'Subject'=> 'You have a Match :)!',
         'TextPart'=> 'Greetings from Mailjet!',
-        'HTMLPart'=> '<h3>Dear passenger 1, welcome to <a href=\'https://www.mailjet.com/\'>Mailjet</a>!</h3><br />May the delivery force be with you!'
+        'HTMLPart'=> '<h3>Dear Searcher,
+        we are very happy to inform you, that we found a match for your Search. No Need to wait anymore, view the sofa and get it soon! :)
+        Button to Click'
       # "TemplateID" => template_id,
       # "TemplateLanguage" => true,
       # "Variables" => variables
