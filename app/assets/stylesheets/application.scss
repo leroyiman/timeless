@@ -13,3 +13,11 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/show_offer";
+
+
+body {
+  background-color: white;
+  height: 100%;
+  padding: 0 0 60px 0;
+}

@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user_id: current_user)
     # @bookings_as_owner = sort_by_created(@bookings.filter { |booking| booking.timeslot.offer.user == current_user })
   end
 
@@ -32,7 +32,8 @@ class BookingsController < ApplicationController
   def update
     @bookings = Booking.all
     @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
+    @booking.update({ confirmed: params[:confirmed] })
+
     redirect_to bookings_path, notice: "Booking accepted"
   end
 
@@ -45,7 +46,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:timeslot_id, :is_confirmed)
+    params.require(:booking).permit(:timeslot_id, :confirmed)
   end
 
   def sort_by_created(collection)
