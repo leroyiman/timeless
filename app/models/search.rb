@@ -7,7 +7,6 @@ class Search < ApplicationRecord
   def find_matches
     offers = Offer.all
     # search = Search.find(params[:id])
-    offers = offers.where(color: color)
     # offers = offers.where(category: category)
     offers = offers.where(color: color) if color.present?
     offers = offers.where(size: size) if size.present?
