@@ -1,0 +1,35 @@
+<h1>All your requests</h1>
+  <div>
+    <% @bookings.each do |booking| %>
+      <div class="card-product">
+        <div class="card-product-infos">
+          <h2> <%= booking.timeslot.timeslot %> </h2>
+            <div class = 'card p-3 bg-light'>
+              <div style="display:flex;">
+                <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+                  <%= simple_form_for booking do |f| %>
+                    <% if booking.confirmed == nil || booking.confirmed == "no"%>
+                      <%= hidden_field_tag(:confirmed, 'yes')%>
+                      <%= f.button :submit, "Confirm"%>
+                    <% else %>
+                      <%= "You Confirmed the Booking"%>
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+                  <%= simple_form_for booking do |f| %>
+                    <% if booking.confirmed == 'no' %>
+                      <%= "You Declined the Booking"%>
+                    <% else %>
+                      <%= hidden_field_tag(:confirmed, 'no')%>
+                      <%= f.button :submit, "Decline"%>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

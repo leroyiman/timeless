@@ -1,0 +1,16 @@
+<div class="container-main-offer-show">
+<h1 class="text-center"><%= @offer.title %></h1>
+  <div class="card-trip-offer-show">
+    <% @offer.photos.each do |photo| %>
+       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+
+    <div class="card-profile-offer-show">
+      <div>
+       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-offer-show avatar-bordered" />
+      </div>
+    </div>
+  </div>
+  <%# <%= render "timeslots/new" %>
+  <%= render "bookings/new" %>
+</div>

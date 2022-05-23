@@ -1,0 +1,24 @@
+<div>
+  <h1> <%= @offers.count %> results. </h1>
+
+  <div style="width: 100%; height: 200px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+  <% @offers.each do |offer| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= offer.title %></h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+        <%= link_to "See More", offer_path(offer) %>
+      </div>
+    </div>
+  <% end  %>
+
+
+    <h2>Don't Found what you are looking for?</h2>
+    <h3>Create a search/post</h3>
+    <%= link_to "Create a post", new_search_path %>
+</div>
