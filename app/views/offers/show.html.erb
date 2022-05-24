@@ -1,16 +1,58 @@
 <div class="container-main-offer-show">
 <h1 class="text-center"><%= @offer.title %></h1>
-  <div class="card-trip-offer-show">
+  <div class="card-offer-show">
     <% @offer.photos.each do |photo| %>
        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
 
-    <div class="card-profile-offer-show">
+      <div class="card-profile-offer-show">
+        <div>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-offer-show avatar-bordered" />
+        </div>
+        <div>
+          <p>★★★★★ @oliviac</p>
+        </div>
+        <div>
+          <p>10437 Berlin</p>
+        </div>
+        <div>
+          <p>💬</p>
+        </div>
+      </div>
+
+    <div class="card-timeslot-offer-show">
+        <div>
+          <%= simple_form_for [@offer, @booking] do |f| %>
+          <div style="display:flex;">
+            <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+              <%= f.association :timeslot, label_method: :timeslot%>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="card-send-offer-show">
+      <div style="margin-left: 12px;">
+        <%= f.submit 'Send request', class: 'btn btn-secondary' %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="card-description-offer-show">
+      <p><%= @offer.description %></p>
+    </div>
+
+    <div class="card-PCS-offer-show">
       <div>
-       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-offer-show avatar-bordered" />
+        <p>Price: <%= @offer.price %> €</p>
+      </div>
+      <div>
+        <p>Condition: <%= @offer.condition %></p>
+      </div>
+      <div>
+        <p>Size: <%= @offer.size %></p>
       </div>
     </div>
+
   </div>
-  <%# <%= render "timeslots/new" %>
-  <%= render "bookings/new" %>
 </div>

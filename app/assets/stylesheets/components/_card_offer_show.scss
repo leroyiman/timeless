@@ -1,42 +1,63 @@
-.card-trip-offer-show {
-  overflow: hidden;
+.card-offer-show {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-trip-offer-show > img {
+.card-offer-show > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip-offer-show h2 {
+.card-offer-show h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-trip-offer-show p {
+.card-offer-show p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
-.card-trip-offer-show .card-profile-offer-show {
+.card-profile-offer-show {
   margin: 16px;
-  box-shadow: 0 1px 2px rgba(161, 161, 161, 0.8);
-  border: rgb(158, 158, 158) 1px solid;
+  box-shadow: 0 1px 2px rgba(136, 135, 135, 0.8);
   border-radius: 5px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
 }
 
+.card-send-offer-show {
+  margin: 16px;
+  box-shadow: 0 1px 2px rgba(136, 135, 135, 0.8);
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.card-timeslot-offer-show {
+  margin: 16px;
+  box-shadow: 0 1px 2px rgba(136, 135, 135, 0.8);
+  border-radius: 5px;
+  padding: 8px;
+}
+
+
 .card-profile-offer-show .card-user-offer-show {
-  // position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-description-offer-show {
+  border-bottom: 1px solid rgb(167, 166, 166);
+  margin: 16px;
+  padding: 8px;
+}
+
+.card-PCS-offer-show {
+  margin: 16px;
+  padding: 8px;
 }
