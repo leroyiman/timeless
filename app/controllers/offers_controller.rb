@@ -20,7 +20,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
-
+    @user = current_user
     @timeslot = Timeslot.new
     @markers = [{
       lat: @offer.latitude,
