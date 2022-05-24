@@ -18,13 +18,14 @@
 
       <div class="card-profile-offer-show">
         <div>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-offer-show avatar-bordered" />
+          <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
         </div>
         <div>
-          <p>★★★★★ @oliviac</p>
+          <p>@<%=@user.username %></p>
+          <p>★★★★★</p>
         </div>
         <div>
-          <p>10437 Berlin</p>
+          <p><%= @offer.location %></p>
         </div>
         <div>
           <p>💬</p>

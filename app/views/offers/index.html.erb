@@ -1,13 +1,20 @@
 
 <div class="header-index-container-top">
 
-  <div class="search">
+<div class="home-search">
       <%= form_with url: "/offers", method: :get do |form| %>
-        <%= form.text_field :query, placeholder: "What are you looking for?", class: "searchTerm" %>
-        <%= form.submit "Go",class: "searchButton" %>
+        <div class="searchbar">
+          <%= link_to offers_path do %>
+            <i class="fa-solid fa-sliders home-link"></i>
+            <% end %>
+          <%= form.text_field :query, placeholder: "search for furniture", class: "form-control" %>
+          <button type="submit" class="home-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
       <% end %>
-  </div>
-
+    </div>
+  
   <h3>More than <%= @offers.count %> matches in your area </h1>
 
 </div>
