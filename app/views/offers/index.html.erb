@@ -25,7 +25,11 @@
 
   <% @offers.each do |offer| %>
     <div class="card-product">
-      <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <% if offer.photos.first.key.nil? %>
+
+      <% else %>
+        <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <div class="card-product-infos">
         <h4><%= offer.title %></h4>
         <p><%= offer.location %></p>

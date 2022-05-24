@@ -2,7 +2,11 @@
 <h1 class="text-center"><%= @offer.title %></h1>
   <div class="card-trip-offer-show">
     <% @offer.photos.each do |photo| %>
-       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% if photo.key.nil? %>
+
+      <% else %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
     <% end %>
 
     <div class="card-profile-offer-show">
