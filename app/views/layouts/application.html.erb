@@ -10,6 +10,7 @@
     <%= favicon_link_tag asset_path('sofa.png') %>
     <%# <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'> </script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' /> %>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     <script src="https://kit.fontawesome.com/e19203fb96.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
@@ -21,5 +22,14 @@
          <%= yield %>
       </div>
       <%= render 'shared/navbar' %>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    </script>
   </body>
 </html>
