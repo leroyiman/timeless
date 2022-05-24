@@ -1,13 +1,21 @@
 <div class="container-main-offer-show">
 <h1 class="text-center"><%= @offer.title %></h1>
   <div class="card-trip-offer-show">
-    <% @offer.photos.each do |photo| %>
-      <% if photo.key.nil? %>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% @offer.photos.each do |photo| %>
+          <%# <% if photo.key.nil? %>
 
-      <% else %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-    <% end %>
+          <%# else %>
+            <%= cl_image_tag photo.key, class: "swiper-slide" %>
+    <!-- Add Arrows -->
+        <% end %>
+
+      </div>
+        <%# <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> %>
+    </div>
+        <%# <% end %>
 
     <div class="card-profile-offer-show">
       <div>
