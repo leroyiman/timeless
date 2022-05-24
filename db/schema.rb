@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_05_21_110657) do
 
   # These are extensions that must be enabled in order to support this database
@@ -44,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_110657) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.boolean "is_confirmed"
+    t.boolean "is_confirmed", default: false
     t.bigint "user_id", null: false
     t.bigint "timeslot_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -136,6 +137,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_110657) do
     t.string "phone"
     t.string "location"
     t.boolean "is_admin", default: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

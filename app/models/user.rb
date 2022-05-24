@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :searches, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :statuses, dependent: :destroy
+  validates :username, uniqueness: true
 end
