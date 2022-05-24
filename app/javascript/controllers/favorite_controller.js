@@ -16,7 +16,7 @@ export default class extends Controller {
   reset() {
     // this.element.setAttribute("color", "red");
     console.log(this.element);
-    this.element.style.color = "red"
+    this.element.style.color = "black"
     console.log(this.element);
   }
 
