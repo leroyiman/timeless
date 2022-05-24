@@ -9,17 +9,28 @@
       <%= form_with url: "/offers", method: :get do |form| %>
       <%# <%= form_tag offers_path, method: :get do %>
         <%# <%= form.select :category, ["Sofa", "Table", "Lamp"]%>
-        <%= form.text_field :query, placeholder: "find furniture", class: "form-control" %>
-        <%# <%= form.text_field :query %>
-        <%= form.submit "Go",class: "home-btn" %>
+        <div class="searchbar">
+          <%= link_to offers_path do %>
+            <i class="fa-solid fa-sliders home-link"></i>
+            <% end %>
+          <%= form.text_field :query, placeholder: "search for furniture", class: "form-control" %>
+          <%# <%= form.text_field :query %>
+          <%# <%= form.submit "Go",class: "home-btn" %>
+          <button type="submit" class="home-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
         <%# <%= select_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find Furniture"
         %>
         <%#= submit_tag "Search", class: "btn btn-primary" %>
+         <%# <button type="" class="home-link"> %>
+
+        <%# </button> %>
       <% end %>
-      <%= link_to "Advance Search", offers_path, class: "home-link" %>
     </div>
 
     <div>
