@@ -1,4 +1,7 @@
 class OffersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
+
   def index
     if params[:query].present?
       @offers = Offer.search_by_title(params[:query])
@@ -43,7 +46,7 @@ class OffersController < ApplicationController
     if @offer.save
       redirect_to offers_path
     else
-      raise
+      render :new
     end
   end
 

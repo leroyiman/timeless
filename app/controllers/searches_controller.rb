@@ -40,7 +40,7 @@ class SearchesController < ApplicationController
 
       redirect_to searches_path
     else
-      raise
+      render :new
     end
   end
 
