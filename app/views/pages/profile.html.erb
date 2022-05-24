@@ -1,20 +1,20 @@
 <div class="container">
-    <%if user_signed_in? %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete%>
-    <% else %>
-    <li class="nav-item">
-    <%= link_to "Login", new_user_session_path %>
-    </li>
-    <% end %>
   <div class="card-trip">
     <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
     <div class="card-trip-infos">
       <div>
-        <h2>This is your profile</h2>
-        <h3>Name: <%= @user.fname %></h2>
+        <h2>Welcome to your profile:</h2>
+        <h4>Name: <%= @user.fname %></h4>
         <p>Email: <%= @user.email %></p>
+        <%if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete%>
+        <% else %>
+        <li class="nav-item">
+        <%= link_to "Login", new_user_session_path %>
+        </li>
+      <% end %>
       </div>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
     </div>
   </div>
 
