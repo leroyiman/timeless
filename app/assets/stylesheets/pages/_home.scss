@@ -3,11 +3,27 @@
   background-image: url(chair.jpg);
   background-size: cover;
   background-position: center;
-  // background-repeat: no-repeat;
-  // height: 100%;
+  background-repeat: no-repeat;
+  height: 600PX;
   padding: 8px 24px 8px 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
+}
+
+.home-title {
+  margin-top: 30px;
+  p {
+    font-size: 36px;
+    font-family: $body-font;
+  }
+  h1 {
+    font-size: 18px;
+    font-family: $headers-font;
+  }
+}
+
+.home-empty-space {
+  margin-bottom: 30px;
 }

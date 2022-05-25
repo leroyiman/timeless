@@ -17,19 +17,17 @@
         <%# <% end %>
 
       <div class="card-profile-offer-show">
+            <div>
+              <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
+            </div>
+            <div>
+              <p>★★★★★</p>
+              <p>@<%=@user.username %></p>
+              <p><%= @offer.location %></p>
+            </div>
         <div>
-          <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
         </div>
-        <div>
-          <p>@<%=@user.username %></p>
-          <p>★★★★★</p>
-        </div>
-        <div>
-          <p><%= @offer.location %></p>
-        </div>
-        <div>
-          <p>💬</p>
-        </div>
+          <i class="fa-solid fa-envelope"></i>
       </div>
 
     <div class="card-timeslot-offer-show">

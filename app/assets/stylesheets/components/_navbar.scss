@@ -16,13 +16,14 @@
   bottom: 0;
   background: white;
   overflow: hidden;
-  position: fixed;
+  // position: static;
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 60px;
   width: 100%;
   padding: 0px 50px;
+  margin-top: 20px;
   color: rgba(0,0,0,0.3);
 }
 

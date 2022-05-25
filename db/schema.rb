@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_05_23_231521) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.boolean "is_confirmed"
+    t.boolean "is_confirmed", default: false
     t.bigint "user_id", null: false
     t.bigint "timeslot_id", null: false
     t.datetime "created_at", precision: 6, null: false
