@@ -1,44 +1,21 @@
 <div class="home-banner">
-  <div class="home">
     <div class="home-title">
-      <h1>Timeless</h1>
+      <h1>timeless</h1>
       <p>find the perfect match for your home</p>
     </div>
     <div class="home-search">
       <%= form_with url: "/offers", method: :get do |form| %>
-      <%# <%= form_tag offers_path, method: :get do %>
-        <%# <%= form.select :category, ["Sofa", "Table", "Lamp"]%>
         <div class="searchbar">
-          <%= link_to offers_path do %>
-            <i class="fa-solid fa-sliders home-link"></i>
-            <% end %>
-          <%= form.text_field :query, placeholder: "search for furniture", class: "form-control" %>
-          <%# <%= form.text_field :query %>
-          <%# <%= form.submit "Go",class: "home-btn" %>
+        <%= link_to offers_path do %>
+        <i class="fa-solid fa-sliders home-link"></i>
+        <% end %>
+        <%= form.text_field :query, placeholder: "Search for furnitore", class: "form-control" %>
           <button type="submit" class="home-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
+          <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-
-        <%# <%= select_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find Furniture"
-        %>
-        <%#= submit_tag "Search", class: "btn btn-primary" %>
-         <%# <button type="" class="home-link"> %>
-
-        <%# </button> %>
       <% end %>
     </div>
-
-    <div>
-    </div>
-
-    </div>
-  </div>
-
-
-
-
-</div>
+    <span class="home-empty-space">
+    </span>
+<div>

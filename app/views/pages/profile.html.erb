@@ -3,9 +3,8 @@
     <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
     <div class="card-trip-infos">
       <div>
-        <h2>Welcome to your profile:</h2>
-        <h4>Name: <%= @user.fname %></h4>
-        <p>Email: <%= @user.email %></p>
+        <h4>Hi <%= @user.fname %>!</h4>
+        <p><%= @user.email %></p>
         <%if user_signed_in? %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete%>
         <% else %>
@@ -18,20 +17,34 @@
     </div>
   </div>
 
-  <div class = "container">
-    <h3>Here are your offers</h3>
-    <% @user.offers.each do |offer| %>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <h2><%= offer.title %></h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
-            <%= link_to "See More", offer_path(offer) %>
-          </div>
-        </div>
-      <% end  %>
+  <div class="title">
+    <h3>Here are your published items:</h3>
+  </div>
 
-    <h3>Here are your searches</h3>
+  <div class="header-index_results-container">
+  <% @user.offers.each do |offer| %>
+    <div class="card-product">
+      <% if offer.photos.first.key.nil? %>
+      <% else %>
+      <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <div class="card-product-infos">
+      <h4><%= offer.title %></h4>
+      <p><%= link_to "See More", offer_path(offer) %></p>
+      </div>
+      <div class= "card-product-third">
+      <div>
+      </div>
+    </div>
+  </div>
+<% end  %>
+</div>
+
+
+  <div class="title">
+    <h3>Here are your searches:</h3>
+  </div>
+
     <% @user.searches.each do |offer| %>
         <div class="card-product">
           <div class="card-product-infos">
