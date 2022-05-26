@@ -31,23 +31,7 @@
         </div>
       </div>
 
-    <div class="card-timeslot-offer-show">
-        <div>
-          <%= simple_form_for [@offer, @booking] do |f| %>
-          <div style="display:flex;">
-            <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
-              <%= f.association :timeslot, label_method: :timeslot%>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <div class="card-send-offer-show">
-      <div style="margin-left: 12px;">
-        <%= f.submit 'Send request', class: 'btn btn-secondary' %>
-      </div>
-      <% end %>
-    </div>
+    <%= render "bookings/new" %>
 
     <div class="card-description-offer-show">
       <p><%= @offer.description %></p>
