@@ -9,8 +9,7 @@
   justify-content: space-around;
   height: 60px;
   width: 100%;
-  // padding: 0px 50px;
-  margin-top: 20px;
+  padding: 0px 0px;
   color: rgba(0,0,0,0.3);
 }
 
@@ -44,7 +43,16 @@
 
 }
 
-.fa-solid {
+.plus{
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  margin: 18px;
+}
+
+
+.newsearch{
+
   text-decoration: none;
   font-size: 25px;
   color: $purple;
@@ -52,7 +60,14 @@
 
 }
 
+.newplus{
 
+  text-decoration: none;
+  font-size: 30px;
+  color: #000000;
+  margin: 18px;
+
+}
 // .footer {
 //   bottom: 0;
 //   background: white;

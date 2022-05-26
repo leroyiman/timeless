@@ -13,13 +13,14 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new
     @timeslot = Timeslot.find(params[:timeslot_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = User.find(2)
+    @booking.user = User.find(1)
     @offer = Offer.find(params[:offer_id])
 
     if @booking.save
@@ -49,7 +50,7 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:timeslot_id, :confirmed)
   end
 
-  def sort_by_created(collection)
-    collection.sort_by { |boo| boo.created_at }.reverse
-  end
+  # def sort_by_created(collection)
+  #   collection.sort_by { |boo| boo.created_at }.reverse
+  # end
 end
