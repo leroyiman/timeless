@@ -1,28 +1,15 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
 
 .footer {
   bottom: 0;
   background: white;
   overflow: hidden;
-  // position: static;
+  // position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 60px;
   width: 100%;
-  padding: 0px 50px;
+  // padding: 0px 50px;
   margin-top: 20px;
   color: rgba(0,0,0,0.3);
 }

@@ -1,5 +1,10 @@
+
 <div class="container-main-offer-show">
-<h1 class="text-center"><%= @offer.title %></h1>
+<div class="container-header-show">
+  <i><%= link_to '', url_for(:back), class: "fa-solid fa-arrow-left" %></i>
+  <h1 class="text-center"><%= @offer.title %></h1>
+  <i class="fa-solid fa-bookmark"></i>
+</div>
   <div class="card-offer-show">
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -15,10 +20,13 @@
         <div class="swiper-button-prev"></div> %>
     </div>
         <%# <% end %>
-
       <div class="card-profile-offer-show">
             <div>
+              <% if @user.photo.attached? == false %>
+              <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered" style="height:50px; width: 50px;" >
+              <% else %>
               <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
+              <% end %>
             </div>
             <div>
               <p>★★★★★</p>

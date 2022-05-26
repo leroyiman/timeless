@@ -9,4 +9,7 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+
+  def advance
+  end
 end

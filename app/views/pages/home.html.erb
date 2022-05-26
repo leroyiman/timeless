@@ -5,11 +5,11 @@
     </div>
     <div class="home-search">
       <%= form_with url: "/offers", method: :get do |form| %>
-        <div class="searchbar">
-        <%= link_to offers_path do %>
+        <div class="searchbar ">
+        <%= link_to advance_path do %>
         <i class="fa-solid fa-sliders home-link"></i>
         <% end %>
-        <%= form.text_field :query, placeholder: "Search for furnitore", class: "form-control" %>
+        <%= form.text_field :query, placeholder: "Search for furnitore", class: "form-control-search" %>
           <button type="submit" class="home-btn">
           <i class="fa-solid fa-magnifying-glass"></i>
           </button>

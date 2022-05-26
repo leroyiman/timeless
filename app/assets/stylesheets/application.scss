@@ -16,12 +16,18 @@
 @import "pages/show_offer";
 
 
+html {
+  height: 100%;
+}
 body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
   background-color: white;
-  // height: 100%;
-  // padding: 0 0 60px 0;
+}
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 
-.form-background {
-  background-color: rgb(138, 131, 131);
-}
+
