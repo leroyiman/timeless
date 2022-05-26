@@ -12,12 +12,25 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/card_offer_show";
 @import "pages/index";
 @import "pages/show_offer";
 
 
-body {
-  background-color: white;
+html {
   height: 100%;
-  padding: 0 0 60px 0;
+}
+body {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  background-color: white;
+}
+.footer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+a {
+  text-decoration: none;
 }

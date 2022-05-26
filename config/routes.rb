@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'pages#profile', as: 'profile'
 
+  get '/advance', to: 'pages#advance', as: 'advance'
+
+  get '/advance_results', to: 'offers#advance_offers', as: 'offers_advance'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 end

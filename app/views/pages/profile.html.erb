@@ -1,46 +1,67 @@
 <div class="container">
-    <%if user_signed_in? %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete%>
-    <% else %>
-    <li class="nav-item">
-    <%= link_to "Login", new_user_session_path %>
-    </li>
-    <% end %>
   <div class="card-trip">
     <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
     <div class="card-trip-infos">
       <div>
-        <h2>This is your profile</h2>
-        <h3>Name: <%= @user.fname %></h2>
-        <p>Email: <%= @user.email %></p>
+        <h4>Hi <%= @user.fname %>!</h4>
+        <p><%= @user.email %></p>
+        <%if user_signed_in? %>
+        <%= link_to "Edit Profile", edit_user_registration_path %> |
+        <%= link_to "Log out", destroy_user_session_path, method: :delete%>
+        <% else %>
+        <li class="nav-item">
+        <%= link_to "Login", new_user_session_path %>
+        </li>
+      <% end %>
       </div>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+      <% if @user.photo.attached? == false%>
+        <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered">
+      <% else %>
+      <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
+      <% end %>
     </div>
   </div>
 
-  <div class = "container">
-    <h3>Here are your offers</h3>
-    <% @user.offers.each do |offer| %>
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <h2><%= offer.title %></h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
-            <%= link_to "See More", offer_path(offer) %>
-          </div>
-        </div>
-      <% end  %>
+  <div class="title">
+    <h3>Here are your published items:</h3>
+  </div>
 
-    <h3>Here are your searches</h3>
+  <div class="header-index_results-container">
+  <% @user.offers.each do |offer| %>
+    <div class="card-product">
+      <% if offer.photos.first.key.nil? %>
+      <% else %>
+      <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <div class="card-product-infos">
+      <h4><%= offer.title %></h4>
+      <p><%= link_to "See More", offer_path(offer) %></p>
+      <p><%= link_to "Edit Offer", edit_offer_path(offer) %></p>
+      <p><%= link_to "Delete Offer",
+                            offer_path(offer),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" }%></p>
+      </div>
+      <div class= "card-product-third">
+      <div>
+      </div>
+    </div>
+  </div>
+<% end  %>
+</div>
+
+
+  <div class="title">
+    <h3>Here are your searches:</h3>
+  </div>
+
+  <div>
     <% @user.searches.each do |offer| %>
-        <div class="card-product">
-          <div class="card-product-infos">
-            <h2>I search: <%= offer.title %></h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
-            <%= link_to "See More", search_path(offer) %>
-          </div>
+        <div class="card-search">
+            <h2><%= offer.title %></h2>
+            <p><%= link_to "See Search", search_path(offer) %></p>
+            <p><%= link_to "Edit", edit_search_path(offer) %></p>
         </div>
       <% end  %>
   </div>
-
 </div>
