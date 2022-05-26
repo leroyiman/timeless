@@ -24,12 +24,13 @@ body {
   min-height: 100%;
   display: grid;
   grid-template-rows: 1fr auto;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 50px;
 }
-.footer {
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
+// .footer {
+//   grid-row-start: 2;
+//   grid-row-end: 3;
+// }
 
 a {
   text-decoration: none;
