@@ -1,11 +1,13 @@
 <div class="container">
   <div class="card-trip">
-    <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+    <img src="https://static.westwingnow.de/image/upload/seo/t_default.plp_seo/simple/32/0241/1446976/Modulares-Sofa-Lennon-3-Sitzer-in-Beige.jpg" />
     <div class="card-trip-infos">
       <div>
-        <h2>I search: <%= @search.title %></h2>
+        <h2>I search for: <%= @search.title %></h2>
+        <p>Style: <%= @search.style %></p>
+        <p>Condition: <%= @search.condition %></p>
+        <p>Material: <%= @search.material %></p>
       </div>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
     </div>
   </div>
 </div>

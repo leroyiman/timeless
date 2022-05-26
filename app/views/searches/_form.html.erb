@@ -1,15 +1,9 @@
 <div style="margin: 0 30%;">
   <%= simple_form_for(@search) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :location %>
-    <%# <%= f.input :location,
-                  input_html: { data: { geocoder_target: "location" }, class: "d-none" },
-                  wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-    <%= f.input :material %>
-    <%= f.input :size %>
-    <%# <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-
-
+      <%= f.input :title %>
+      <%= f.select :condition,['New', 'Used'] %>
+      <%= f.select :material,['Whool', 'Leader'] %>
+      <%= f.select :size,['Big', 'Small'], class:"dropdown-menu"%>
     <%= f.submit %>
   <% end %>
   <%= link_to "Go Back", offers_path %>

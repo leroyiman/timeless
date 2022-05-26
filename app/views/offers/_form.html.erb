@@ -1,26 +1,28 @@
-<div class="form-background">
+<div class="container">
+  <div class="form-background">
 
-  <div style="margin: 0 30%;">
-    <%= simple_form_for(@offer) do |f| %>
-      <%= f.input :title %>
-      <%= f.input :description %>
-      <%# <%= f.input :location,
-                    input_html: { data: { geocoder_target: "location" }, class: "d-none" },
-                    wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-      <%=f.input :location %>
-      <%= f.input :price %>
-      <%= f.select :condition,['New', 'Used'] %>
-      <%= f.select :material,['Whool', 'Leader'] %>
-      <%= f.select :size,['Big', 'Small'], class:"dropdown-menu"%>
-      <%= f.select :category,['Sofas', 'Tables'] %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-      <%= f.fields_for :timeslots do |timeslots_attributes|%>
-        <%= timeslots_attributes.input :timeslot, as: :datetime, html5: true, label: "Time Slot" %>
+    <div>
+      <%= simple_form_for(@offer) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%# <%= f.input :location,
+                      input_html: { data: { geocoder_target: "location" }, class: "d-none" },
+                      wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+        <%=f.input :location %>
+        <%= f.input :price %>
+        <%= f.select :condition,['New', 'Used'] %>
+        <%= f.select :material,['Whool', 'Leader'] %>
+        <%= f.select :size,['Big', 'Small'], class:"dropdown-menu"%>
+        <%= f.select :category,['Sofas', 'Tables'] %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.fields_for :timeslots do |timeslots_attributes|%>
+          <%= timeslots_attributes.input :timeslot, as: :datetime, html5: true, label: "Time Slot" %>
+        <% end %>
+
+        <%= f.submit %>
       <% end %>
+      <%= link_to "Go Back", offers_path %>
+    </div>
 
-      <%= f.submit %>
-    <% end %>
-    <%= link_to "Go Back", offers_path %>
   </div>
-
 </div>
