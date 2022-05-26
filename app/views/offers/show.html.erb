@@ -23,20 +23,17 @@
 <div>
     <%= link_to profile_path, class: 'textdecoration' do %>
           <div class="card-profile-offer-show textdecoration">
-            <div>
+            <div class="card-profile-part">
               <% if @user.photo.attached? == false %>
-                <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered" style="height:50px; width: 50px;" >
+                <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered-show" style="height:50px; width: 50px;" >
               <% else %>
-                <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
+                <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered-show" %>
               <% end %>
-              </div>
             <div>
-              <p class='textdecoration'>@<%=@user.username %></p>
-              <p class='textdecoration'>★★★★★</p>
-            </div>
-            <div>
+              <p class='textdecoration'>★★★★★ @<%=@user.username %></p>
               <p><%= @offer.location %></p>
             </div>
+          </div>
             <div>
               <i class="fa-solid fa-envelope"></i>
             </div>
