@@ -20,38 +20,43 @@
         <div class="swiper-button-prev"></div> %>
     </div>
         <%# <% end %>
-      <div class="card-profile-offer-show">
+<div>
+    <%= link_to profile_path, class: 'textdecoration' do %>
+          <div class="card-profile-offer-show textdecoration">
             <div>
               <% if @user.photo.attached? == false %>
-              <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered" style="height:50px; width: 50px;" >
+                <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered" style="height:50px; width: 50px;" >
               <% else %>
-              <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
+                <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
               <% end %>
+              </div>
+            <div>
+              <p class='textdecoration'>@<%=@user.username %></p>
+              <p class='textdecoration'>★★★★★</p>
             </div>
             <div>
-              <p>★★★★★</p>
-              <p>@<%=@user.username %></p>
               <p><%= @offer.location %></p>
             </div>
-        <div>
-        </div>
-          <i class="fa-solid fa-envelope"></i>
-      </div>
+            <div>
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+          </div>
+        <% end %>
+    </div>
 
-    <div class="card-timeslot-offer-show">
         <div>
           <%= simple_form_for [@offer, @booking] do |f| %>
-          <div style="display:flex;">
-            <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
-              <%= f.association :timeslot, label_method: :timeslot%>
+          <div>
+            <div class="card-timeslot-offer-show">
+              <%= f.association :timeslot, :label => false, label_method: :timeslot%>
             </div>
           </div>
         </div>
-    </div>
+
 
     <div class="card-send-offer-show">
-      <div style="margin-left: 12px;">
-        <%= f.submit 'Send request', class: 'btn btn-secondary' %>
+      <div>
+        <%= f.submit 'Send request', class: 'btn-request' %>
       </div>
       <% end %>
     </div>
