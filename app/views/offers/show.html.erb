@@ -45,7 +45,7 @@
           <%= simple_form_for [@offer, @booking] do |f| %>
           <div>
             <div class="card-timeslot-offer-show">
-              <%= f.association :timeslot, :label => false, label_method: :timeslot%>
+              <%= f.association :timeslot, label_method: :timeslot,prompt: "Select pick-up time"%>
             </div>
           </div>
         </div>
