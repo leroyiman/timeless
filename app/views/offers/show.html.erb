@@ -1,4 +1,3 @@
-
 <div class="container-main-offer-show">
 <div class="container-header-show">
   <i><%= link_to '', url_for(:back), class: "fa-solid fa-arrow-left" %></i>
@@ -10,7 +9,7 @@
       <div class="swiper-wrapper">
         <% @offer.photos.each do |photo| %>
           <%# <% if photo.key.nil? %>
-          <%# else %>
+
             <%= cl_image_tag photo.key, class: "swiper-slide" %>
     <!-- Add Arrows -->
         <% end %>
