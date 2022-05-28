@@ -22,49 +22,67 @@
 }
 
 .card-profile-offer-show {
-  margin: 16px;
-  box-shadow: 0 1px 2px rgba(136, 135, 135, 0.8);
-  border-radius: 5px;
   padding: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #4b2ce9;
-  padding: 0px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .card-profile-part {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.form-select {
+  text-align: center;
+  background-color: #4b2ce9;
+  box-shadow: 0 1px 2px rgba(136, 135, 135, 0.8);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  background-image: none;
+  padding: 8px;
+  height: 45px;
+}
+
+.card-timeslot-offer-show {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(136, 135, 135, 0.8);
+  border-radius: 5px;
 }
 
 
 .card-send-offer-show {
-  margin: 16px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 16px;
   box-shadow: 0 1px 2px rgba(136, 135, 135, 0.8);
   border-radius: 5px;
   padding: 8px;
   background-color: #4b2ce9;
   text-align: center;
+  width: 50%;
 }
 
-.card-timeslot-offer-show {
-  margin: 16px;
-  box-shadow: 0 1px 2px rgba(136, 135, 135, 0.8);
-  border-radius: 5px;
-  padding: 8px;
+.width {
+  width: 50%;
 }
 
 
 .card-profile-offer-show .card-user-offer-show {
   right: 16px;
   top: -20px;
-  width: 40px;
-}
+  width: 40px;}
 
 .card-description-offer-show {
   border-bottom: 1px solid rgb(167, 166, 166);
-  margin: 16px;
+  margin: 0px 16px 16px 16px;
   padding: 8px;
 }
 
@@ -77,11 +95,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.textdecoration a {
-  text-decoration: none;
-  color: #4b2ce9;
+  padding: 16px;
 }
 
 .btn-request {
@@ -98,4 +112,42 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
   margin: 4px;
+}
+
+.fa-solid {
+  color: #4b2ce9;
+}
+
+.label-timeslot {
+  text-align: center;
+}
+
+.fa-chevron-right {
+  color: white;
+}
+
+.timeslot_and_request_buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.color-fix {
+  color: #4b2ce9;
+}
+
+.pin {
+  position: absolute;
+  background-color: white;
+  padding: 6px;
+  border-radius: 50%;
+}
+
+.pin1 {
+  left: 16px;
+  top: 16px;
+}
+
+.pin2 {
+  right: 16px;
+  top: 16px;
 }
