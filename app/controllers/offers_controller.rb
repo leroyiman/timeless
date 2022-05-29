@@ -14,7 +14,7 @@ class OffersController < ApplicationController
         lat: offer.latitude,
         lng: offer.longitude,
         info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
-        image_url: helpers.asset_url("sofa.png")
+        image_url: helpers.asset_url("purple.png")
       }
     end
   end
@@ -32,7 +32,7 @@ class OffersController < ApplicationController
         lat: offer.latitude,
         lng: offer.longitude,
         info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
-        image_url: helpers.asset_url("sofa.png")
+        image_url: helpers.asset_url("purple.png")
       }
     end
   end
@@ -46,7 +46,7 @@ class OffersController < ApplicationController
       lat: @offer.latitude,
       lng: @offer.longitude,
       # info_window: render_to_string(partial: "info_window", locals: { offer: @offer }),
-      image_url: helpers.asset_url("sofa.png")
+      image_url: helpers.asset_url("purple.png")
     }]
     @booking = Booking.new
   end

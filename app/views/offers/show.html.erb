@@ -1,8 +1,8 @@
 <div class="container-main-offer-show">
 <div class="container-header-show">
-  <i><%= link_to '', url_for(:back), class: "fa-solid fa-arrow-left" %></i>
+  <i><%= link_to '', url_for(:back), class: "fa-solid fa-angle-left fa-lg" %></i>
   <h1 class="text-center"><%= @offer.title %></h1>
-  <i class="fa-solid fa-bookmark"></i>
+  <i class="fa-solid fa-bookmark fa-lg"></i>
 </div>
   <div class="card-offer-show">
     <div class="swiper-container">
@@ -12,6 +12,8 @@
 
             <%= cl_image_tag photo.key, class: "swiper-slide" %>
     <!-- Add Arrows -->
+    <i class="fa-solid fa-heart-crack pin pin1"></i>
+    <i class="fa-solid fa-heart pin pin2"></i>
         <% end %>
 
       </div>
@@ -20,32 +22,33 @@
     </div>
         <%# <% end %>
 <div>
-    <%= link_to profile_path, class: 'textdecoration' do %>
-          <div class="card-profile-offer-show textdecoration">
-            <div class="card-profile-part">
-              <% if @user.photo.attached? == false %>
-                <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered-show" style="height:50px; width: 50px;" >
-              <% else %>
-                <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered-show" %>
-              <% end %>
+    <div class="card-profile-offer-show textdecoration">
+      <%= link_to profile_path do %>
+        <div class="card-profile-part">
+          <% if @user.photo.attached? == false %>
+            <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered-show" style="height:50px; width: 50px;" >
+          <% else %>
+            <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered-show" %>
+          <% end %>
             <div>
-              <p class='textdecoration'>★★★★★ @<%=@user.username %></p>
-              <p><%= @offer.location %></p>
+              <p class="color-fix">@<%=@user.username %>  ★★★★★ </p>
+              <p class="color-fix"><%= @offer.location %></p>
             </div>
           </div>
+      <% end %>
             <div>
-              <i class="fa-solid fa-envelope"></i>
+              <i class="fa-solid fa-envelope fa-lg"></i>
             </div>
           </div>
-        <% end %>
     </div>
 
-        <div>
+    <div class="timeslot_and_request_buttons">
+        <div class="width">
           <%= simple_form_for [@offer, @booking] do |f| %>
           <div>
             <div class="card-timeslot-offer-show">
-              <%= f.association :timeslot, label_method: :timeslot,prompt: "Select pick-up time"%>
-            </div>
+              <%= f.association :timeslot, label_method: :timeslot, :label_method => lambda { |item| item.timeslot.strftime("%-d.%-m.%y %H:%M") }, prompt: "Select pick-up time", label: false, prompt: "Select pick-up time", :class => 'label-timeslot fa-solid fa-chevron-right' %>
+            </div >
           </div>
         </div>
 
@@ -56,6 +59,7 @@
       </div>
       <% end %>
     </div>
+  </div>
 
     <div class="card-description-offer-show">
       <p><%= @offer.description %></p>
