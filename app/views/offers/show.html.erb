@@ -73,5 +73,20 @@
       </div>
     </div>
 
+    <div class="show-actions">
+
+
+    <% if @offer.favorites.empty? %>
+      <%= link_to "Add to favorite", new_offer_favorite_path(@offer), class: "" %>
+    <% else %>
+      <%= link_to "Remove from favorites",
+            offer_favorite_path(@offer),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+    <% end %>
+      <%= link_to "Hide Item", new_offer_hide_path(@offer), class: "" %>
+
+
+    </div>
   </div>
 </div>

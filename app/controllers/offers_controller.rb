@@ -3,6 +3,7 @@ class OffersController < ApplicationController
 
 
   def index
+    @user = current_user
     if params[:query].present?
       @offers = Offer.search_by_title(params[:query])
     else
@@ -19,6 +20,7 @@ class OffersController < ApplicationController
   end
 
   def advance_offers
+      @user = current_user
       if params[:query].present?
         @offers = Offer.where("title ILIKE ?", "%#{params[:title]}%")
       else
@@ -39,6 +41,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     # @timeslot = Timeslot.new
     @user = current_user
+
     @markers = [{
       lat: @offer.latitude,
       lng: @offer.longitude,
@@ -83,7 +86,6 @@ class OffersController < ApplicationController
     @offer.destroy
     redirect_to offers_path
   end
-
 
   private
 

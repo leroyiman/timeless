@@ -44,7 +44,16 @@
       </div>
       <div class= "card-product-third">
           <div>
-            <i class= "fa-regular fa-heart" data-controller="favorite" data-action="click->favorite#favorited"></i>
+             <% if offer.favorites.empty? %>
+              <i class="fa-solid fa-heart"></i>
+            <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.nil? %>
+              <i class="fa-solid fa-heart"></i>
+            <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.is_favorite? %>
+              <%# <i class= "fa-regular fa-heart" data-controller="favorite" data-action="click->favorite#favorited"></i> %>
+             <i class="fa-solid fa-heart" id="heartred"></i>
+            <% else %>
+              <%# <i class="fa-solid fa-thumbs-down"></i> %>
+            <% end %>
           </div>
 
           <div>
