@@ -96,3 +96,6 @@ class OffersController < ApplicationController
   end
 
 end
+
+
+#just a random comment to delete please
