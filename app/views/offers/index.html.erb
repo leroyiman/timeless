@@ -30,22 +30,65 @@
 <div class="header-index_results-container">
 
   <% @offers.each do |offer| %>
-    <div class="card-product">
 
-<div class="container-part1">
-      <% if offer.photos.first.key.nil? %>
-        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
-      <% else %>
-        <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-      <div class="card-product-infos">
-        <h4><%= offer.title %></h4>
-        <p><%= offer.location %></p>
-        <p><%= offer.condition %></p>
-        <p><%= link_to "See More", offer_path(offer) %></p>
+  <% if offer.hides.empty? %>
+
+     <div class="card-product">
+        <div class="container-part1">
+              <% if offer.photos.first.key.nil? %>
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
+              <% else %>
+                <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="card-product-infos">
+                <h4><%= offer.title %></h4>
+                <p><%= offer.location %></p>
+                <p><%= offer.condition %></p>
+                <p><%= link_to "See More", offer_path(offer) %></p>
+              </div>
+        </div>
+
+              <div class= "card-product-third">
+                  <div>
+                    <% if offer.favorites.empty? %>
+                      <i class="fa-solid fa-heart"></i>
+                    <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.nil? %>
+                      <i class="fa-solid fa-heart"></i>
+                    <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.is_favorite? %>
+                      <%# <i class= "fa-regular fa-heart" data-controller="favorite" data-action="click->favorite#favorited"></i> %>
+                    <i class="fa-solid fa-heart" id="heartred"></i>
+                    <% else %>
+                      <%# <i class="fa-solid fa-thumbs-down"></i> %>
+                    <% end %>
+                  </div>
+                  <div>
+                    <p class= "card-product-price"><% if offer.price == 0 %>
+                      <%= 'Free' %>
+                      <% else %>
+                      $<%=offer.price%>
+                      <% end %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+  <% elsif offer.hides.last.is_hide == true && offer.hides.last.user_id == @user.id %>
+
+    <div class="card-product-hide">
+      <div class="container-part1">
+            <h1>HIDE</h1>
+            <% if offer.photos.first.key.nil? %>
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
+            <% else %>
+              <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
+            <div class="card-product-infos">
+              <h4><%= offer.title %></h4>
+              <p><%= offer.location %></p>
+              <p><%= offer.condition %></p>
+              <p><%= link_to "See More", offer_path(offer) %></p>
+            </div>
       </div>
-</div>
-
       <div class= "card-product-third">
           <div>
              <% if offer.favorites.empty? %>
@@ -59,7 +102,6 @@
               <%# <i class="fa-solid fa-thumbs-down"></i> %>
             <% end %>
           </div>
-
           <div>
             <p class= "card-product-price"><% if offer.price == 0 %>
               <%= 'Free' %>
@@ -67,11 +109,53 @@
               $<%=offer.price%>
               <% end %></p>
           </div>
+        </div>
       </div>
+
     </div>
-  <% end  %>
 
+  <% else %>
 
-</div>
+    <div class="card-product">
+        <div class="container-part1">
+              <% if offer.photos.first.key.nil? %>
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
+              <% else %>
+                <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="card-product-infos">
+                <h4><%= offer.title %></h4>
+                <p><%= offer.location %></p>
+                <p><%= offer.condition %></p>
+                <p><%= link_to "See More", offer_path(offer) %></p>
+              </div>
+        </div>
+
+              <div class= "card-product-third">
+                  <div>
+                    <% if offer.favorites.empty? %>
+                      <i class="fa-solid fa-heart"></i>
+                    <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.nil? %>
+                      <i class="fa-solid fa-heart"></i>
+                    <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.is_favorite? %>
+                      <%# <i class= "fa-regular fa-heart" data-controller="favorite" data-action="click->favorite#favorited"></i> %>
+                    <i class="fa-solid fa-heart" id="heartred"></i>
+                    <% else %>
+                      <%# <i class="fa-solid fa-thumbs-down"></i> %>
+                    <% end %>
+                  </div>
+                  <div>
+                    <p class= "card-product-price"><% if offer.price == 0 %>
+                      <%= 'Free' %>
+                      <% else %>
+                      $<%=offer.price%>
+                      <% end %></p>
+                  </div>
+                </div>
+              </div>
+              <% end  %>
+            </div>
+    <% end %>
+
 
 </div>
