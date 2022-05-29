@@ -11,6 +11,14 @@
     </div>
   </div>
 
+  <% if user_signed_in? %>
+  <li class="nav-item dropdown">
+    <a class="nav-link" href="#" data-bs-toggle="dropdown"><%= current_user.email %></a>
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+    </div>
+  </li>
+<% else %>
     <div class="footer">
         <%= link_to "", offers_path, class: "fa-solid fa-couch plus"%>
         <%= link_to "", root_path, class: "fa-solid fa-heart plus"%>
@@ -18,4 +26,5 @@
         <%= link_to "", root_path, class: "fa-solid fa-envelope plus"%>
         <%= link_to "", profile_path, class: "fa-solid fa-user plus"%>
     </div>
+<% end %>
 </div>
