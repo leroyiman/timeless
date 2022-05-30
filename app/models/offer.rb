@@ -11,6 +11,11 @@ class Offer < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true }, presence: {message: "must be a number"}
   validates :location, presence: true, length: { maximum: 500 }
   validates :photos, presence: true, length: { maximum: 3 }
+  has_many :statuses, dependent: :destroy
+  # validates :title, presence: true, length: { maximum: 10 }
+  # validates :price, presence: true, numericality: { only_integer: true }, presence: {message: "must be a number"}
+  # validates :location, presence: true, length: { maximum: 500 }
+  # validates :photos, presence: true, length: { maximum: 3 }
   accepts_nested_attributes_for :timeslots
   after_validation :geocode, if: :will_save_change_to_location?
   after_create :find_matches

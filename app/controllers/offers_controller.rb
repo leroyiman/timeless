@@ -55,7 +55,9 @@ class OffersController < ApplicationController
 
   def new
     @offer = Offer.new
-    @offer.timeslots.build
+    5.times do
+      @offer.timeslots.build
+    end
   end
 
   def create
@@ -66,6 +68,7 @@ class OffersController < ApplicationController
       @offer.user = current_user
     end
     if @offer.save
+
       redirect_to offers_path
     else
       render :new
@@ -94,7 +97,6 @@ class OffersController < ApplicationController
   def offer_params
     params.require(:offer).permit(:title, :description, :location, :price, :category, :size, :color, :condition, :style, :material, :smoke_free, :pet_free, :receipt, photos: [], timeslots_attributes: [:timeslot])
   end
-
 end
 
 
