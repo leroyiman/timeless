@@ -10,6 +10,8 @@ class TimeslotsController < ApplicationController
 
   def new
     @timeslot = Timeslot.new
+    @offer = Offer.new
+
   end
 
   def create
@@ -32,6 +34,6 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:timeslot)
+    params.require(:timeslot).permit(timeslots_attributes: [:timeslot])
   end
 end

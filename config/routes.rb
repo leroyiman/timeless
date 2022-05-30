@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   resources :offers do
     resources :timeslots, only: [:new, :create]
     resources :bookings, only:[:create]
+    resources :favorites, only: [:new, :create, :destroy]
+    resources :hides, only: [:new, :create]
   end
+
+  # patch 'statuses/:id', to: 'statuses#unfavorite', as: 'unfavorite'
+  # post 'statuses/:id', to: 'statuses#favorite', as: 'favorite'
+
+  resources :favorites, only: [:index]
 
   resources :bookings, only:[:index, :update]
 
@@ -14,7 +21,6 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
-
 
   get '/profile', to: 'pages#profile', as: 'profile'
 

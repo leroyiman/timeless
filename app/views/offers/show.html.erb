@@ -12,8 +12,18 @@
 
             <%= cl_image_tag photo.key, class: "swiper-slide" %>
     <!-- Add Arrows -->
-    <i class="fa-solid fa-heart-crack pin pin1"></i>
-    <i class="fa-solid fa-heart pin pin2"></i>
+        <%= link_to "", new_offer_hide_path(@offer), class: "fa-solid fa-heart-crack pin pin1", data: { confirm: "Are you sure you want to hide this item?" } %>
+
+          <% if @offer.favorites.empty? %>
+          <%= link_to "", new_offer_favorite_path(@offer), class: "fa-solid fa-heart pin pin2"%>
+          <% else %>
+          <%= link_to "",
+                offer_favorite_path(@offer),
+                method: :delete,
+                data: { confirm: "Are you sure you want to remove from favorites?" },class: "fa-solid fa-heart pin-red pin2" %>
+        <% end %>
+
+    <%# <i class="fa-solid fa-heart pin pin2"></i> %>
         <% end %>
 
       </div>
@@ -47,7 +57,7 @@
           <%= simple_form_for [@offer, @booking] do |f| %>
           <div>
             <div class="card-timeslot-offer-show">
-              <%= f.association :timeslot, label_method: :timeslot, :label_method => lambda { |item| item.timeslot.strftime("%-d.%-m.%y %H:%M") }, prompt: "Select pick-up time", label: false, prompt: "Select pick-up time", :class => 'label-timeslot fa-solid fa-chevron-right' %>
+              <%# <%= f.association :timeslot, label_method: :timeslot, :label_method => lambda { |item| item.timeslot.strftime("%-d.%-m.%y %H:%M") }, prompt: "Select pick-up time", label: false, prompt: "Select pick-up time", :class => 'label-timeslot fa-solid fa-chevron-right' %>
             </div >
           </div>
         </div>
@@ -77,5 +87,14 @@
       </div>
     </div>
 
+    <div class="show-actions">
+
+
+
+
+
+
+
+    </div>
   </div>
 </div>

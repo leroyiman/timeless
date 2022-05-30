@@ -3,9 +3,11 @@ class OffersController < ApplicationController
 
 
   def index
+    @user = current_user
     if params[:query].present?
       @offers = Offer.search_by_title(params[:query])
     else
+      # @offers = Offer.where.not(title: ['Rails 3', 'Rails 5'])
       @offers = Offer.all
     end
     @markers = @offers.geocoded.map do |offer|
@@ -16,9 +18,11 @@ class OffersController < ApplicationController
         image_url: helpers.asset_url("purple.png")
       }
     end
+
   end
 
   def advance_offers
+      @user = current_user
       if params[:query].present?
         @offers = Offer.where("title ILIKE ?", "%#{params[:title]}%")
       else
@@ -39,6 +43,7 @@ class OffersController < ApplicationController
     @offer = Offer.find(params[:id])
     # @timeslot = Timeslot.new
     @user = current_user
+
     @markers = [{
       lat: @offer.latitude,
       lng: @offer.longitude,
@@ -93,3 +98,6 @@ class OffersController < ApplicationController
     params.require(:offer).permit(:title, :description, :location, :price, :category, :size, :color, :condition, :style, :material, :smoke_free, :pet_free, :receipt, photos: [], timeslots_attributes: [:timeslot])
   end
 end
+
+
+#just a random comment to delete please
