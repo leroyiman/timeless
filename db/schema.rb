@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_26_202241) do
+ActiveRecord::Schema.define(version: 2022_05_29_113930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,12 @@ ActiveRecord::Schema.define(version: 2022_05_26_202241) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.boolean "is_favorite"
     t.bigint "user_id", null: false
@@ -72,11 +78,6 @@ ActiveRecord::Schema.define(version: 2022_05_26_202241) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["offer_id"], name: "index_hides_on_offer_id"
     t.index ["user_id"], name: "index_hides_on_user_id"
-
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "matches", force: :cascade do |t|
@@ -138,6 +139,18 @@ ActiveRecord::Schema.define(version: 2022_05_26_202241) do
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
+  create_table "statuses", force: :cascade do |t|
+    t.boolean "is_favorite"
+    t.boolean "is_requested"
+    t.boolean "is_deleted"
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_statuses_on_offer_id"
+    t.index ["user_id"], name: "index_statuses_on_user_id"
+  end
+
   create_table "timeslots", force: :cascade do |t|
     t.datetime "timeslot"
     t.bigint "offer_id", null: false
@@ -178,5 +191,7 @@ ActiveRecord::Schema.define(version: 2022_05_26_202241) do
   add_foreign_key "messages", "users"
   add_foreign_key "offers", "users"
   add_foreign_key "searches", "users"
+  add_foreign_key "statuses", "offers"
+  add_foreign_key "statuses", "users"
   add_foreign_key "timeslots", "offers"
 end

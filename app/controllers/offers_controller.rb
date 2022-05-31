@@ -41,9 +41,8 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
-    # @timeslot = Timeslot.new
-    @user = current_user
-
+    @timeslot = @offer.timeslots
+    @user = @offer.user
     @markers = [{
       lat: @offer.latitude,
       lng: @offer.longitude,

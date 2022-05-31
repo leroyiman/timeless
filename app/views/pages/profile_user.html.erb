@@ -3,16 +3,8 @@
     <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
     <div class="card-trip-infos">
       <div>
-        <h4>Hi <%= @user.fname %>!</h4>
-        <p><%= @user.email %></p>
-        <%if user_signed_in? %>
-        <%= link_to "Edit Profile", edit_user_registration_path %> |
-        <%= link_to "Log out", destroy_user_session_path, method: :delete%>
-        <% else %>
-        <li class="nav-item">
-        <%= link_to "Login", new_user_session_path %>
-        </li>
-      <% end %>
+        <h4>Owner name: <%= @user.fname %>!</h4>
+        <p>Owner email:<%= @user.email %></p>
       </div>
       <% if @user.photo.attached? == false%>
         <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered">
@@ -23,7 +15,7 @@
   </div>
 
   <div class="title">
-    <h3>Here are your published items:</h3>
+    <h3>Here are the published items:</h3>
   </div>
 
   <div class="header-index_results-container">
@@ -51,18 +43,4 @@
 <% end  %>
 </div>
 
-
-  <div class="title">
-    <h3>Here are your searches:</h3>
-  </div>
-
-  <div>
-    <% @user.searches.each do |offer| %>
-        <div class="card-search">
-            <h2><%= offer.title %></h2>
-            <p><%= link_to "See Search", search_path(offer) %></p>
-            <p><%= link_to "Edit", edit_search_path(offer) %></p>
-        </div>
-      <% end  %>
-  </div>
 </div>
