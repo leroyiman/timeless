@@ -8,7 +8,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "mapbox-gl/dist/mapbox-gl";
-@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+// @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 
 // Your CSS partials
@@ -16,7 +16,8 @@
 @import "components/card_offer_show";
 @import "pages/index";
 @import "pages/show_offer";
-
+@import "pages/search";
+@import "pages/favorites";
 
 html {
   height: 100%;

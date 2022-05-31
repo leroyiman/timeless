@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .home-banner {
-  background-image: url(chair.jpg);
+  background-image: url(vintage-furniture1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,6 +20,7 @@
     font-family: $headers-font;
     margin-top: 21px;
     margin-bottom: 8px;
+    background: rgba(243, 243, 243, 0.5);
   }
 
   h1 {

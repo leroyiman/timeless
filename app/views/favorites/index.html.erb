@@ -1,22 +1,26 @@
 
 <div class="header-index-container-top">
-<h1>Your favorites items: </h1>
-<h3>More than <%= @favorites.count %> favorites: </h1>
+<div class="fav-headlines">
+  <h1 class="fav-headlines1">Your favorites items</h1>
+</div>
 
 <div class="header-index_results-container">
 
   <% @favorites.each do |favorite| %>
     <div class="card-product">
-      <% if favorite.offer.photos.first.key.nil? %>
-        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
-      <% else %>
-        <%= cl_image_tag favorite.offer.photos.first.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-      <div class="card-product-infos">
-        <h4><%= favorite.offer.title %></h4>
-        <p><%= favorite.offer.location %></p>
-        <p><%= favorite.offer.condition %></p>
-        <p><%= link_to "See More", offer_path(favorite.offer) %></p>
+
+     <div class="container-part1">
+        <% if favorite.offer.photos.first.key.nil? %>
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
+        <% else %>
+          <%= cl_image_tag favorite.offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+        <div class="card-product-infos">
+          <h4><%= favorite.offer.title %></h4>
+          <p><%= favorite.offer.location %></p>
+          <p><%= favorite.offer.condition %></p>
+          <p><%= link_to "See More", offer_path(favorite.offer) %></p>
+        </div>
       </div>
       <div class= "card-product-third">
           <div>
