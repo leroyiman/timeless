@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'pages#profile', as: 'profile'
 
+  get '/profile/:id', to: 'pages#profile_user', as: 'profile_user'
+
   get '/advance', to: 'pages#advance', as: 'advance'
 
   get '/advance_results', to: 'offers#advance_offers', as: 'offers_advance'

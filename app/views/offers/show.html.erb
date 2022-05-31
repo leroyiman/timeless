@@ -33,7 +33,7 @@
         <%# <% end %>
 <div>
     <div class="card-profile-offer-show textdecoration">
-      <%= link_to profile_path do %>
+      <%= link_to profile_user_path(@user) do %>
         <div class="card-profile-part">
           <% if @user.photo.attached? == false %>
             <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered-show" style="height:50px; width: 50px;" >
@@ -57,11 +57,10 @@
           <%= simple_form_for [@offer, @booking] do |f| %>
           <div>
             <div class="card-timeslot-offer-show">
-              <%# <%= f.association :timeslot, label_method: :timeslot, :label_method => lambda { |item| item.timeslot.strftime("%-d.%-m.%y %H:%M") }, prompt: "Select pick-up time", label: false, prompt: "Select pick-up time", :class => 'label-timeslot fa-solid fa-chevron-right' %>
+              <%= f.association :timeslot, collection: Timeslot.where(offer_id: params[:id]),class: "label-timeslot fa-solid fa-chevron-right",prompt:"Select pick-up time",label: false,  label_method: lambda { |item| item.timeslot } %>
             </div >
           </div>
         </div>
-
 
     <div class="card-send-offer-show">
       <div>
