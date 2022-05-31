@@ -2,7 +2,7 @@
 <div class="container-header-show">
   <i><%= link_to '', url_for(:back), class: "fa-solid fa-angle-left fa-lg" %></i>
   <h1 class="text-center"><%= @offer.title %></h1>
-  <i class="fa-solid fa-bookmark fa-lg"></i>
+  <i class="fa-solid fa-arrow-up-from-bracket fa-lg"></i>
 </div>
   <div class="card-offer-show">
     <div class="swiper-container">
@@ -12,7 +12,7 @@
 
             <%= cl_image_tag photo.key, class: "swiper-slide" %>
     <!-- Add Arrows -->
-        <%= link_to "", new_offer_hide_path(@offer), class: "fa-solid fa-heart-crack pin pin1", data: { confirm: "Are you sure you want to hide this item?" } %>
+        <%= link_to "", new_offer_hide_path(@offer), class: "fa-solid fa-trash-can pin pin1", data: { confirm: "Are you sure you want to hide this item?" } %>
 
           <% if @offer.favorites.empty? %>
           <%= link_to "", new_offer_favorite_path(@offer), class: "fa-solid fa-heart pin pin2"%>

@@ -42,9 +42,9 @@
               <% end %>
               <div class="card-product-infos">
                 <h4><%= offer.title %></h4>
-                <p><%= offer.location %></p>
-                <p><%= offer.condition %></p>
-                <p><%= link_to "See More", offer_path(offer) %></p>
+                <p><i class="fa-solid fa-location-dot"></i> <%= offer.location %> </p>
+                <p><i class="fa-solid fa-glasses"></i> <%= offer.condition %> </p>
+                <p><i class="fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(offer) %></p>
               </div>
         </div>
 
