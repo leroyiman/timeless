@@ -3,7 +3,7 @@
   <div data-navbarmodal-target="menu" class="not-showing-menu">
     <div class="expendable-menu">
      <div>
-        <%= link_to "", new_offer_path, class: "newoffer" do %>
+        <%= link_to new_offer_path, class: "newoffer" do %>
         <span id="normalhand" class="fa-stack" style="vertical-align: top;">
           <i id="normalhand2" class="fa-solid fa-couch plus fa-stack-2x fa-inverse"></i>
           <i id="normalhand1" class="fas fa-hand-holding fa-stack-1x"></i>
@@ -11,12 +11,12 @@
         <% end %>
       </div>
       <div>
-        <%= link_to "", new_search_path, class: "newsearch"%>
+        <%= link_to new_search_path, class: "newsearch" do %>
          <span id="flippedhand" class="fa-stack" style="vertical-align: top;">
           <i id="flippedhand2" class="fa-solid fa-couch plus fa-stack-2x fa-inverse"></i>
           <i id="flippedhand1" class="fas fa-hand-holding fa-stack-1x fa-flip-horizontal fa-flip-vertical"></i>
         </span>
-
+        <% end %>
       </div>
     </div>
   </div>
@@ -30,27 +30,3 @@
         <%= link_to "", profile_path, class: "fa-solid fa-user plus"%>
     </div>
 </div>
-
-<%# <i class="fal fa-file-search"></i> %>
-<%# <i class="far fa-search-plus"></i> %>
-<%# fa-solid fa-couch plus %>
-<%# <i class="fal fa-loveseat"></i> %>
-
-<%# old %>
-<%# <%= link_to "", new_offer_path, class: "fas fa-search-plus newplus"%>
-<%# <%= link_to "", offers_path, class: "fa-solid fa-couch plus"%>
-<%# <i style="margin: 0;" data-action="click->navbarmodal#modal" class="fas fa-plus fa-xxl" id="plus"></i> %>
-
-
-
-<%# <%= link_to "", offers_path, class: "fa-solid fa-couch plus"%>
-
-
-<%# <i class="far fa-hand-holding"></i> %>
-<%# <i class="far fa-star-shooting"></i> %>
-<%# <i class="fas fa-magic"></i> %>
-<%# <i class="fa-solid fa-wand-magic-sparkles"></i> %>
-<%# meteor
-<i class="fas fa-crosshairs"></i>
-pencil-ruler %>
-<%# fa-flip-horizontal %>
