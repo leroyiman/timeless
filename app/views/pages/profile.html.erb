@@ -2,8 +2,8 @@
   <div class="card-trip">
     <div class="card-trip-infos">
       <div>
-        <h4>Hi <%= @user.fname %>!</h4>
-        <p><%= @user.email %></p>
+        <h4 class="font-sans">Hi <%= @user.fname %>!</h4>
+        <p class="font-sans"><%= @user.email %></p>
         <div>
           <%if user_signed_in? %>
           <%= link_to "Edit Profile", edit_user_registration_path %> |
@@ -24,7 +24,7 @@
   </div>
 
   <div class="title">
-    <h3>Your published items:</h3>
+    <h3 class="font-sans">Your published items:</h3>
   </div>
 
   <div class="header-index_results-container">
@@ -54,7 +54,7 @@
 
 
   <div class="title">
-    <h3>Your searches:</h3>
+    <h3 class="font-sans">Your searches:</h3>
   </div>
 
   <div>

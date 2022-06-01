@@ -15,7 +15,7 @@
       <% end %>
     </div>
 
-  <h3>More than <%= @offers.count %> matches in your area </h1>
+  <h3 class="font-sans">More than <%= @offers.count %> matches in your area </h1>
 
 </div>
 
@@ -41,7 +41,7 @@
                 <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
               <% end %>
               <div class="card-product-infos">
-                <h4><%= offer.title %></h4>
+                <h4 class="font-sans"><%= offer.title %></h4>
                 <p><i class="fa-solid fa-location-dot"></i> <%= offer.location %> </p>
                 <p><i class="fa-solid fa-glasses"></i> <%= offer.condition %> </p>
                 <p><i class="color-primary fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(offer) %></p>
