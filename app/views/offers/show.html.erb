@@ -1,6 +1,6 @@
 <div class="container-main-offer-show">
 <div class="container-header-show">
-  <i><%= link_to '', url_for(:back), class: "fa-solid fa-angle-left fa-lg" %></i>
+  <i><%= link_to '', url_for(:back), class: "color-dark fa-solid fa-angle-left fa-lg" %></i>
   <h1 class="text-center"><%= @offer.title %></h1>
   <i class="fa-solid fa-arrow-up-from-bracket fa-lg"></i>
 </div>
@@ -47,7 +47,7 @@
           </div>
       <% end %>
             <div>
-              <i class="fa-solid fa-envelope fa-lg"></i>
+              <i class="color-gray fa-solid fa-envelope fa-lg"></i>
             </div>
           </div>
     </div>
@@ -57,7 +57,7 @@
           <%= simple_form_for [@offer, @booking] do |f| %>
           <div>
             <div class="card-timeslot-offer-show">
-              <%= f.association :timeslot, collection: Timeslot.where(offer_id: params[:id]),class: "label-timeslot fa-solid fa-chevron-right",prompt:"Select pick-up time",label: false,  label_method: lambda { |item| item.timeslot } %>
+              <%= f.association :timeslot, collection: Timeslot.where(offer_id: params[:id]),class: "label-timeslot fa-solid fa-chevron-right",prompt:"Pick-up time",label: false,  label_method: lambda { |item| item.timeslot } %>
             </div >
           </div>
         </div>

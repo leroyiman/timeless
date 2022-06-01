@@ -31,7 +31,7 @@
 .fa-regular {
   text-decoration: none;
   font-size: 16px;
-  color: $purple;
+  //color: $purple;
   font-weight: 50 ;
   //margin: 18px;
 
@@ -40,16 +40,18 @@
 #plus{
   text-decoration: none;
   font-size: 38px !important;
-  color: $purple;
+  // color: $purple;
   margin: 18px 18px 40px 18px;
+  color: rgb(65, 65, 65);
 
 }
 
 .plus{
   text-decoration: none;
   font-size: 25px;
-  color: $purple;
+  // color: $purple;
   margin: 18px;
+  color: rgb(65, 65, 65);
 }
 
 
@@ -57,20 +59,40 @@
 
   text-decoration: none;
   font-size: 25px;
-  color: $purple;
+  // color: $purple;
   margin: 18px;
-
+  color: rgb(65, 65, 65);
 }
 
 .newplus{
 
   text-decoration: none;
   font-size: 30px;
-  color: $purple;
+  // color: $purple;
   // color: #000000;
   margin: 18px;
+  // color: rgb(44, 44, 44);
+  color: rgb(65, 65, 65);
 
 }
+
+
+.color-primary {
+  color: $purple;
+}
+
+.color-dark {
+  color: rgb(65, 65, 65);
+}
+
+.color-dark a {
+  color: rgb(65, 65, 65);
+}
+
+.fa-solid {
+  // color: $purple;
+}
+
 // .footer {
 //   bottom: 0;
 //   background: white;

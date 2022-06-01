@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .home-banner {
-  background-image: url(vintage-furniture1.jpg);
+  background-image: url(vintage-furniture7.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,14 +16,19 @@
   margin-top: 30px;
 
   p {
-    font-size: 37px;
+    font-size: 32px;
     font-family: $headers-font;
-    margin-top: 21px;
+    margin-top: 16px;
     margin-bottom: 8px;
     background: rgba(243, 243, 243, 0.5);
+    background-image: linear-gradient(to left, rgba(255, 253, 253, 0.7), rgba(243, 243, 243, 0.3));
+    padding-left: 2px;
+    color: rgb(28, 26, 26);
+    border-radius: 2px;
   }
 
   h1 {
+    color: #5cc3b7;
     font-size: 18px;
     font-family: $headers-font;
   }

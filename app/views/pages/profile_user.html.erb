@@ -1,10 +1,9 @@
 <div class="container mb-8">
   <div class="card-trip">
-    <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
     <div class="card-trip-infos">
       <div>
-        <h4>Owner name: <%= @user.fname %>!</h4>
-        <p>Owner email:<%= @user.email %></p>
+        <h4>Owner: <%= @user.fname %></h4>
+        <p>E-mail:<%= @user.email %></p>
       </div>
       <% if @user.photo.attached? == false%>
         <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered">

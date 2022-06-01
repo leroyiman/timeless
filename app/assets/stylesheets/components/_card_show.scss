@@ -2,7 +2,7 @@
   overflow: visible;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-top: 16px;
+  margin: 10px 8px 8px 8px;
   border-radius: 5px;
 }
 
@@ -30,12 +30,12 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  align-items: center;
+  // position: relative;
 }
 
 .card-trip-infos .card-trip-user {
-  position: absolute;
+  // position: absolute;
   right: 16px;
   top: -50px;
   width: 100px;
