@@ -16,15 +16,21 @@
   margin-top: 30px;
 
   p {
-    font-size: 37px;
+    // font-size: 37px;
+    font-size: 32px;
     font-family: $headers-font;
     margin-top: 21px;
     margin-bottom: 8px;
     color: $purple;
+    text-underline-offset: 1px;
   }
 
   h1 {
     font-size: 18px;
     font-family: $headers-font;
+  }
+
+  u {
+    text-decoration-color: $light-green;
   }
 }
