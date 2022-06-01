@@ -31,7 +31,7 @@
 
   <% @offers.each do |offer| %>
 
-  <% if offer.hides.empty? %>
+  <% if offer.hides.empty? OR offer.hides.nil? %>
     <h1>first</h1>
 
      <div class="card-product">
