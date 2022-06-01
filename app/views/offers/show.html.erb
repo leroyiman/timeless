@@ -57,7 +57,7 @@
           <%= simple_form_for [@offer, @booking] do |f| %>
           <div>
             <div class="card-timeslot-offer-show">
-              <%= f.association :timeslot, collection: Timeslot.where(offer_id: params[:id]),class: "label-timeslot fa-solid fa-chevron-right",prompt:"Select pick-up time",label: false,  label_method: lambda { |item| item.timeslot } %>
+              <%= f.association :timeslot, collection: Timeslot.where(offer_id: params[:id]).where.not(timeslot: nil),class: "label-timeslot fa-solid fa-chevron-right",prompt:"Select pick-up time",label: false,  label_method: lambda { |item| item.timeslot } %>
             </div >
           </div>
         </div>

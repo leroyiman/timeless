@@ -7,9 +7,9 @@ class OffersController < ApplicationController
     if params[:query].present?
       @offers = Offer.search_by_title(params[:query])
     else
-      # @offers = Offer.where.not(title: ['Rails 3', 'Rails 5'])
       @offers = Offer.all
     end
+
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,
@@ -18,7 +18,6 @@ class OffersController < ApplicationController
         image_url: helpers.asset_url("purple.png")
       }
     end
-
   end
 
   def advance_offers
