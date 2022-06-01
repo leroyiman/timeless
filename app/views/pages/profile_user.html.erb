@@ -3,8 +3,8 @@
     <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
     <div class="card-trip-infos">
       <div>
-        <h4>Owner name: <%= @user.fname %>!</h4>
-        <p>Owner email:<%= @user.email %></p>
+        <h4>Offerer: <%= @user.fname %>!</h4>
+        <p>Email:<%= @user.email %></p>
       </div>
       <% if @user.photo.attached? == false%>
         <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered">
@@ -26,16 +26,11 @@
           <% if offer.photos.first.nil? %>
               <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
           <% else %>
-          <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill >
           <% end %>
           <div class="card-product-infos">
           <h4><%= offer.title %></h4>
       <p> <i class="fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(offer) %></p>
-      <p> <i class="fa-solid fa-pen"></i> <%= link_to "Edit Offer", edit_offer_path(offer) %> </p>
-      <p> <i class="fa-solid fa-ban"></i> <%= link_to "Delete Offer",
-                            offer_path(offer),
-                            method: :delete,
-                            data: { confirm: "Are you sure?" }%> </p>
           </div>
   </div>
 

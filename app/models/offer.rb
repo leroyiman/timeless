@@ -9,8 +9,8 @@ class Offer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   validates :title, presence: true, length: { maximum: 10 }
   validates :price, presence: false, numericality: { only_integer: true }, presence: {message: "must be a number"}
-  validates :location, presence: false, length: { maximum: 500 }
-  validates :photos, presence: false, length: { maximum: 3 }
+  validates :location, presence: true, length: { maximum: 500 }
+  validates :photos, presence: true, length: { maximum: 3 }
   has_many :statuses, dependent: :destroy
   # validates :title, presence: true, length: { maximum: 10 }
   # validates :price, presence: true, numericality: { only_integer: true }, presence: {message: "must be a number"}
