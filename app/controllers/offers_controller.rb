@@ -3,22 +3,25 @@ class OffersController < ApplicationController
 
 
   def index
+    @user = current_user
     if params[:query].present?
       @offers = Offer.search_by_title(params[:query])
     else
       @offers = Offer.all
     end
+
     @markers = @offers.geocoded.map do |offer|
       {
         lat: offer.latitude,
         lng: offer.longitude,
         info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
-        image_url: helpers.asset_url("sofa.png")
+        image_url: helpers.asset_url("purple.png")
       }
     end
   end
 
   def advance_offers
+      @user = current_user
       if params[:query].present?
         @offers = Offer.where("title ILIKE ?", "%#{params[:title]}%")
       else
@@ -30,27 +33,30 @@ class OffersController < ApplicationController
         lat: offer.latitude,
         lng: offer.longitude,
         info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
-        image_url: helpers.asset_url("sofa.png")
+        image_url: helpers.asset_url("purple.png")
       }
     end
   end
 
   def show
     @offer = Offer.find(params[:id])
-    # @timeslot = Timeslot.new
-    @user = current_user
+    @timeslot = @offer.timeslots
+    @user = @offer.user
     @markers = [{
       lat: @offer.latitude,
       lng: @offer.longitude,
       # info_window: render_to_string(partial: "info_window", locals: { offer: @offer }),
-      image_url: helpers.asset_url("sofa.png")
-    }]
+      image_url: helpers.asset_url("purple.png")
+      }]
+    @chatroom = Chatroom.new
     @booking = Booking.new
   end
 
   def new
     @offer = Offer.new
-    @offer.timeslots.build
+    5.times do
+      @offer.timeslots.build
+    end
   end
 
   def create
@@ -61,6 +67,7 @@ class OffersController < ApplicationController
       @offer.user = current_user
     end
     if @offer.save
+
       redirect_to offers_path
     else
       render :new
@@ -84,11 +91,12 @@ class OffersController < ApplicationController
     redirect_to offers_path
   end
 
-
   private
 
   def offer_params
     params.require(:offer).permit(:title, :description, :location, :price, :category, :size, :color, :condition, :style, :material, :smoke_free, :pet_free, :receipt, photos: [], timeslots_attributes: [:timeslot])
   end
-
 end
+
+
+#just a random comment to delete please

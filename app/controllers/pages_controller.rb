@@ -10,6 +10,12 @@ class PagesController < ApplicationController
   end
 
 
+  def profile_user
+    @user = User.find(params[:id])
+  end
+
   def advance
   end
+
+
 end

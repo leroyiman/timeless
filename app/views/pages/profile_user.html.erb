@@ -1,0 +1,46 @@
+<div class="container mb-8">
+  <div class="card-trip">
+    <img src="https://images.pexels.com/photos/417023/pexels-photo-417023.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" />
+    <div class="card-trip-infos">
+      <div>
+        <h4>Offerer: <%= @user.fname %>!</h4>
+        <p>Email:<%= @user.email %></p>
+      </div>
+      <% if @user.photo.attached? == false%>
+        <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered">
+      <% else %>
+      <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="title">
+    <h3>Here are the published items:</h3>
+  </div>
+
+  <div class="header-index_results-container">
+  <% @user.offers.each do |offer| %>
+    <div class="card-product">
+
+  <div class="container-part1">
+          <% if offer.photos.first.nil? %>
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
+          <% else %>
+          <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill >
+          <% end %>
+          <div class="card-product-infos">
+          <h4><%= offer.title %></h4>
+      <p> <i class="fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(offer) %></p>
+          </div>
+  </div>
+
+
+      <div class= "card-product-third">
+      <div>
+      </div>
+    </div>
+  </div>
+<% end  %>
+</div>
+
+</div>

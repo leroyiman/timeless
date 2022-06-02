@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_23_231521) do
+ActiveRecord::Schema.define(version: 2022_06_01_072100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,37 @@ ActiveRecord::Schema.define(version: 2022_05_23_231521) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "offeruser"
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.index ["offer_id"], name: "index_chatrooms_on_offer_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.boolean "is_favorite"
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_favorites_on_offer_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "hides", force: :cascade do |t|
+    t.boolean "is_hide"
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_hides_on_offer_id"
+    t.index ["user_id"], name: "index_hides_on_user_id"
+  end
+
   create_table "matches", force: :cascade do |t|
     t.boolean "is_notified"
     t.bigint "search_id", null: false
@@ -62,6 +93,16 @@ ActiveRecord::Schema.define(version: 2022_05_23_231521) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["offer_id"], name: "index_matches_on_offer_id"
     t.index ["search_id"], name: "index_matches_on_search_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "chatroom_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -103,18 +144,6 @@ ActiveRecord::Schema.define(version: 2022_05_23_231521) do
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
-  create_table "statuses", force: :cascade do |t|
-    t.boolean "is_favorite"
-    t.boolean "is_requested"
-    t.boolean "is_deleted"
-    t.bigint "user_id", null: false
-    t.bigint "offer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["offer_id"], name: "index_statuses_on_offer_id"
-    t.index ["user_id"], name: "index_statuses_on_user_id"
-  end
-
   create_table "timeslots", force: :cascade do |t|
     t.datetime "timeslot"
     t.bigint "offer_id", null: false
@@ -145,11 +174,17 @@ ActiveRecord::Schema.define(version: 2022_05_23_231521) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "timeslots"
   add_foreign_key "bookings", "users"
+  add_foreign_key "chatrooms", "offers"
+  add_foreign_key "chatrooms", "users"
+  add_foreign_key "favorites", "offers"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "hides", "offers"
+  add_foreign_key "hides", "users"
   add_foreign_key "matches", "offers"
   add_foreign_key "matches", "searches"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "offers", "users"
   add_foreign_key "searches", "users"
-  add_foreign_key "statuses", "offers"
-  add_foreign_key "statuses", "users"
   add_foreign_key "timeslots", "offers"
 end

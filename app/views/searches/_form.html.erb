@@ -29,12 +29,6 @@
         <%# <label for="category">Category</label> <br>
         <%= f.select :category, ['Living Room', 'Kitchen', 'Bedroom', 'Office', 'Kids room', 'Bathroom', 'Hallway', 'Outdoor'] %>
 
-        <%= f.input :smoke_free, label: "Smoke-free home" %>
-
-        <%= f.input :pet_free, label: "Pet-free home" %>
-
-        <%= f.input :receipt, label: "Purchase receipt" %>
-
         <%= f.submit %>
         <%# <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-none' %>
         <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
