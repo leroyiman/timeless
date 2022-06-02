@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_many :matches
   has_many :searches, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :chatrooms, dependent: :destroy
   validates :username, uniqueness: true
 end

@@ -4,7 +4,7 @@ class Offer < ApplicationRecord
   has_many_attached :photos
   has_many :matches, dependent: :destroy
   has_many :hides, dependent: :destroy
-
+  has_many :chatrooms, dependent: :destroy
   has_many :timeslots, dependent: :destroy, autosave: true
   has_many :favorites, dependent: :destroy
   validates :title, presence: true, length: { maximum: 10 }
