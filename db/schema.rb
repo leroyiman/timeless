@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2022_06_01_072147) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "offeruser"
     t.bigint "user_id", null: false
     t.bigint "offer_id", null: false
     t.index ["offer_id"], name: "index_chatrooms_on_offer_id"
@@ -146,6 +145,18 @@ ActiveRecord::Schema.define(version: 2022_06_01_072147) do
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
+  create_table "statuses", force: :cascade do |t|
+    t.boolean "is_favorite"
+    t.boolean "is_requested"
+    t.boolean "is_deleted"
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_statuses_on_offer_id"
+    t.index ["user_id"], name: "index_statuses_on_user_id"
+  end
+
   create_table "timeslots", force: :cascade do |t|
     t.datetime "timeslot"
     t.bigint "offer_id", null: false
@@ -188,5 +199,7 @@ ActiveRecord::Schema.define(version: 2022_06_01_072147) do
   add_foreign_key "messages", "users"
   add_foreign_key "offers", "users"
   add_foreign_key "searches", "users"
+  add_foreign_key "statuses", "offers"
+  add_foreign_key "statuses", "users"
   add_foreign_key "timeslots", "offers"
 end

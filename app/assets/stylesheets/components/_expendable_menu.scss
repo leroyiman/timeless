@@ -13,17 +13,17 @@
 
 
 .fa-stack {
-  color: $purple;
+  color: $dark-gray;
+  // color: white;
   margin: 8px 8px 4px 8px;
   border-radius: 50%;
-  -webkit-text-stroke: 0.5px $light-green;
+  // -webkit-text-stroke: 0.5px $white;
   height: 60px;
   width: 60px;
-  box-shadow: $shadow-md;
-  position: relative;
-  // display: inline-block;
+  border: 1px solid $light-gray;
+  // position: relative;
   background: white;
-  // background: #f8f8ff;
+  // background: $dark-gray;
 }
 
 #normalhand1 {
@@ -34,17 +34,19 @@
 
 #normalhand2 {
   font-size: 12px;
-  position: absolute;
   padding: 16px 8px 24px 24px;
+  color: $dark-gray;
+  // color: white;
 }
 
 #flippedhand1 {
   font-size: 32px;
-  margin-top: 17px;
+  margin-top: 7px;
 }
 
 #flippedhand2 {
   font-size: 12px;
-  position: absolute;
   padding: 32px 22px 12px 9px;
+  color: $dark-gray;
+  // color: white;
 }

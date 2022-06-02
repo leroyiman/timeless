@@ -12,7 +12,7 @@
   padding: 0px 0px;
   color: rgba(0,0,0,0.3);
   border-radius: 5px;
-
+  border-top: 1px solid $light-gray;
 }
 
 .footer-links {
@@ -38,9 +38,8 @@
 
 #plus {
   text-decoration: none;
-  font-size: 38px !important;
+  font-size: 32px !important;
   // color: $purple;
-  margin: 18px 18px 40px 18px;
   color: rgb(40, 40, 40);
 
 
@@ -49,8 +48,7 @@
 .plus {
   text-decoration: none;
   font-size: 25px;
-  // color: $purple;
-  margin: 18px;
+  margin: 0px 18px 0px 18px;
   color: rgb(40, 40, 40);
 }
 
@@ -60,7 +58,7 @@
   text-decoration: none;
   font-size: 25px;
   // color: $purple;
-  margin: 18px;
+  // margin: 18px;
   color: rgb(40, 40, 40);
 }
 
