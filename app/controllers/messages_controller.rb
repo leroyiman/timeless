@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     if @message.save
       ChatroomChannel.broadcast_to(
         @chatroom,
-        render_to_string(partial: "message", locals: {message: @message})
+        render_to_string(partial: "message", locals: { message: @message })
       )
       head :ok
     else
@@ -26,6 +26,4 @@ class MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:content, :chatroom_id, :user_id)
   end
-
-
 end

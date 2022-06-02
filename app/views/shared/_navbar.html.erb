@@ -2,20 +2,30 @@
 
   <div data-navbarmodal-target="menu" class="not-showing-menu">
     <div class="expendable-menu">
-      <div>
-        <%= link_to "", new_offer_path, class: "fa-solid fa-plus newplus"%>
+     <div>
+        <%= link_to new_offer_path, class: "newoffer" do %>
+        <span id="normalhand" class="fa-stack" style="vertical-align: top;">
+          <i id="normalhand2" class="fa-solid fa-couch plus fa-stack-2x fa-inverse"></i>
+          <i id="normalhand1" class="fas fa-hand-holding fa-stack-1x"></i>
+        </span>
+        <% end %>
       </div>
       <div>
-        <%= link_to "", new_search_path, class: "fa-solid fa-magnifying-glass newsearch"%>
+        <%= link_to new_search_path, class: "newsearch" do %>
+         <span id="flippedhand" class="fa-stack" style="vertical-align: top;">
+          <i id="flippedhand2" class="fa-solid fa-couch plus fa-stack-2x fa-inverse"></i>
+          <i id="flippedhand1" class="fas fa-hand-holding fa-stack-1x fa-flip-horizontal fa-flip-vertical"></i>
+        </span>
+        <% end %>
       </div>
     </div>
   </div>
 
 
     <div class="footer">
-        <%= link_to "", offers_path, class: "fa-solid fa-couch plus"%>
-        <%= link_to "", favorites_path, class: "fa-solid fa-heart plus"%>
-        <i style="margin: 0;" data-action="click->navbarmodal#modal" class="fa-regular fa-square-plus" id="plus"></i>
+        <%= link_to "", offers_path, class: "fas fa-home plus"%>
+        <%= link_to "", root_path, class: "fa-solid fa-heart plus"%>
+        <i style="margin: 0;" data-action="click->navbarmodal#modal" class="fa-solid fa-couch fa-xs plus" id="plus"></i>
         <%= link_to "", root_path, class: "fa-solid fa-envelope plus"%>
         <%= link_to "", profile_path, class: "fa-solid fa-user plus"%>
     </div>
