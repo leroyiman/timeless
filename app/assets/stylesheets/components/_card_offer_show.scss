@@ -131,6 +131,10 @@
   color: $purple;
 }
 
+.margin-fix {
+  margin-bottom: 0px;
+}
+
 .pin {
   position: absolute;
   background-color: rgb(255, 255, 255);
@@ -157,5 +161,11 @@
 }
 
 .color-gray {
-  color: rgb(185, 184, 184);
+  color: rgb(164, 163, 163);
+  background-color: none;
+}
+
+button {
+  border: none;
+  background-color: white;
 }

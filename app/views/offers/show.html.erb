@@ -60,8 +60,8 @@
             <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered-show" %>
           <% end %>
             <div>
-              <p class="color-fix">@<%= @user.username %>  ★★★★★ </p>
-              <p class="color-fix"><%= @offer.location %></p>
+              <p class="color-fix margin-fix">@<%= @user.username %>  ★★★★★ </p>
+              <p class="color-fix margin-fix"><%= @offer.location %></p>
             </div>
           </div>
       <% end %>
