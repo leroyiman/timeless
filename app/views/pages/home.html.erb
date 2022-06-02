@@ -1,17 +1,18 @@
 <div class="home-banner">
     <div class="home-title">
-      <h1>Timeless</h1>
-      <p>Find <u>the perfect</u> <br> secondhand <u>match</u> <br> for your home</p>
+      <h1>wAbiSaBi</h1>
+      <p>a sustainable way <br /> to find soulful furniture</p>
     </div>
+    <div class="dot"><%= image_tag('gold1.png', style: 'height:36px;width:auto')%></div>
     <div class="home-search">
       <%= form_with url: "/offers", method: :get do |form| %>
         <div class="searchbar ">
         <%= link_to advance_path do %>
-        <i class="fa-solid fa-sliders home-link fa-lg"></i>
+        <i class="color-dark fa-solid fa-sliders fa-lg"></i>
         <% end %>
-        <%= form.text_field :query, placeholder: "e.g. sofa, chouch, chair", class: "form-control-search" %>
+        <%= form.text_field :query, placeholder: "e.g. sofa, table, chair", class: "form-control-search" %>
           <button type="submit" class="home-btn">
-          <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+          <i class="fa-solid fa-magnifying-glass fa-lg color-dark"></i>
           </button>
         </div>
       <% end %>

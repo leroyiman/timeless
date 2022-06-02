@@ -18,6 +18,8 @@
 @import "pages/show_offer";
 @import "pages/search";
 @import "pages/favorites";
+@import "pages/offer";
+
 
 html {
   height: 100%;
@@ -36,4 +38,9 @@ body {
 
 a {
   text-decoration: none;
+  color: $purple;
+}
+
+a:hover {
+  color: #daa00e;
 }

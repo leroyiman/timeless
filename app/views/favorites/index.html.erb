@@ -1,7 +1,7 @@
 
 <div class="header-index-container-top">
 <div class="fav-headlines">
-  <h1 class="fav-headlines1">Your favorites items</h1>
+  <h1 class="fav-headlines1">Your favorite items</h1>
 </div>
 
 <div class="header-index_results-container">
@@ -17,9 +17,9 @@
         <% end %>
         <div class="card-product-infos">
           <h4><%= favorite.offer.title %></h4>
-          <p><%= favorite.offer.location %></p>
-          <p><%= favorite.offer.condition %></p>
-          <p><%= link_to "See More", offer_path(favorite.offer) %></p>
+          <p><i class="fa-solid fa-location-dot"></i> <%= favorite.offer.location %></p>
+          <p><i class="fa-solid fa-glasses"></i> <%= favorite.offer.condition %></p>
+          <p> <i class="color-primary fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(favorite.offer) %></p>
         </div>
       </div>
       <div class= "card-product-third">

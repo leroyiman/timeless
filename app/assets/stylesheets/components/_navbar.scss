@@ -31,23 +31,64 @@
 .fa-regular {
   text-decoration: none;
   font-size: 16px;
-  color: $purple;
+  //color: $purple;
   font-weight: 50 ;
   margin: 18px;
 }
 
 #plus {
   text-decoration: none;
-  font-size: 30px !important;
-  color: $purple;
+  font-size: 38px !important;
+  // color: $purple;
   margin: 18px 18px 40px 18px;
+  color: rgb(40, 40, 40);
+
+
 }
 
 .plus {
   text-decoration: none;
   font-size: 25px;
+  // color: $purple;
+  margin: 18px;
+  color: rgb(40, 40, 40);
+}
+
+
+.newsearch{
+
+  text-decoration: none;
+  font-size: 25px;
+  // color: $purple;
+  margin: 18px;
+  color: rgb(40, 40, 40);
+}
+
+.newplus{
+
+  text-decoration: none;
+  font-size: 30px;
+  // color: $purple;
+  // color: #000000;
+  margin: 18px;
+  // color: rgb(44, 44, 44);
+  color: rgb(40, 40, 40);
+
+}
+
+
+.color-primary {
   color: $purple;
 }
+
+.color-dark {
+  color: rgb(45, 45, 45);
+}
+
+.color-dark a {
+  color: rgb(45, 45, 45);
+}
+
 
 // .footer a:active {
 //   border-top: 10px solid $light-green !important;
