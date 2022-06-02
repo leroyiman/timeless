@@ -1,15 +1,50 @@
 .expendable-menu{
   display: flex;
-  bottom: 50px;
+  bottom: 70px;
   position: fixed;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: white;
-
-
 }
 
 .not-showing-menu{
   display: none;
+}
+
+
+.fa-stack {
+  color: $purple;
+  margin: 8px 8px 4px 8px;
+  border-radius: 50%;
+  -webkit-text-stroke: 0.5px $light-green;
+  height: 60px;
+  width: 60px;
+  box-shadow: $shadow-md;
+  position: relative;
+  // display: inline-block;
+  background: white;
+  // background: #f8f8ff;
+}
+
+#normalhand1 {
+  font-size: 32px;
+  margin-top: 12px;
+  padding-left: 4px;
+}
+
+#normalhand2 {
+  font-size: 12px;
+  position: absolute;
+  padding: 16px 8px 24px 24px;
+}
+
+#flippedhand1 {
+  font-size: 32px;
+  margin-top: 17px;
+}
+
+#flippedhand2 {
+  font-size: 12px;
+  position: absolute;
+  padding: 32px 22px 12px 9px;
 }
