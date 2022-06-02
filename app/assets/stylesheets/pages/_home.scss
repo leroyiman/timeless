@@ -17,6 +17,7 @@
   position: relative;
 
   p {
+    // font-size: 37px;
     font-size: 32px;
     font-family: $headers-font;
     margin-top: 16px;
@@ -26,12 +27,17 @@
     padding-left: 2px;
     color: rgb(28, 26, 26);
     border-radius: 2px;
+
   }
 
   h1 {
     color: #5cc3b7;
     font-size: 18px;
     font-family: $headers-font;
+  }
+
+  u {
+    text-decoration-color: $light-green;
   }
 }
 

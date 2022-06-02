@@ -8,6 +8,7 @@
         <%# form.input :field, as: :slider, min: 0, max: 10
         <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
         <input type="text" id="textInput" value=""> %>
+        <%= f.input :category, prompt: "Select category", collection: ['Living Room', 'Kitchen', 'Bedroom', 'Office', 'Kids room', 'Bathroom', 'Hallway', 'Outdoor'] %>
 
         <%= f.input :size, prompt: "Select size", collection: ['Small', 'Medium', 'Big'] %>
         <%# <label for="size">Size</label> <br>
@@ -24,10 +25,9 @@
         <%= f.input :style, prompt: "Select style", collection: ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistics', 'Rustic'] %>
 
         <%= f.input :condition, prompt: "Select condition", collection: ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
-        <%# <label for="condition">Condition</label> <br>
-        <%= f.select :condition, ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
-        <%# <label for="category">Category</label> <br>
-        <%= f.select :category, ['Living Room', 'Kitchen', 'Bedroom', 'Office', 'Kids room', 'Bathroom', 'Hallway', 'Outdoor'] %>
+
+        <%= f.input :condition, prompt: "Select condition", collection: ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
+
 
         <%= f.submit %>
         <%# <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-none' %>

@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_29_113930) do
+
+ActiveRecord::Schema.define(version: 2022_06_01_072147) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +60,11 @@ ActiveRecord::Schema.define(version: 2022_05_29_113930) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "offeruser"
+    t.bigint "user_id", null: false
+    t.bigint "offer_id", null: false
+    t.index ["offer_id"], name: "index_chatrooms_on_offer_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -136,19 +143,9 @@ ActiveRecord::Schema.define(version: 2022_05_29_113930) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
+    t.integer "price"
     t.index ["user_id"], name: "index_searches_on_user_id"
-  end
-
-  create_table "statuses", force: :cascade do |t|
-    t.boolean "is_favorite"
-    t.boolean "is_requested"
-    t.boolean "is_deleted"
-    t.bigint "user_id", null: false
-    t.bigint "offer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["offer_id"], name: "index_statuses_on_offer_id"
-    t.index ["user_id"], name: "index_statuses_on_user_id"
   end
 
   create_table "timeslots", force: :cascade do |t|
@@ -181,6 +178,8 @@ ActiveRecord::Schema.define(version: 2022_05_29_113930) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "timeslots"
   add_foreign_key "bookings", "users"
+  add_foreign_key "chatrooms", "offers"
+  add_foreign_key "chatrooms", "users"
   add_foreign_key "favorites", "offers"
   add_foreign_key "favorites", "users"
   add_foreign_key "hides", "offers"
@@ -191,7 +190,5 @@ ActiveRecord::Schema.define(version: 2022_05_29_113930) do
   add_foreign_key "messages", "users"
   add_foreign_key "offers", "users"
   add_foreign_key "searches", "users"
-  add_foreign_key "statuses", "offers"
-  add_foreign_key "statuses", "users"
   add_foreign_key "timeslots", "offers"
 end

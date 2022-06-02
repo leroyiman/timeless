@@ -1,5 +1,31 @@
 <h1>All your requests</h1>
-  <div>
+
+<ul class="list-inline tabs-underlined">
+  <li>
+    <a href="#" class="tab-underlined active">New Requests</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">Confirmed Requests</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">Declined Requests</a>
+  </li>
+</ul>
+
+    <div data-controller="booking_show">
+
+      <div data-timeslotmodal-target="timeslot" id="timeslot">
+        <%= f.fields_for :timeslots do |timeslots_attributes|%>
+          <div class="d-none">
+            <%= timeslots_attributes.input :timeslot, as: :datetime, html5: true, label: "Pick-up time" %>
+          </div>
+        <% end %>
+      </div>
+      <div id="timeslot_container"></div>
+      <div class="timeslot_button">
+        <button id="button" data-action="click->timeslot#modal">Want to add a Timeslot? </button>
+      </div>
+    </div>
     <% @bookings.each do |booking| %>
       <div class="card-product">
         <div class="card-product-infos">

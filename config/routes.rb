@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :bookings, only:[:create]
     resources :favorites, only: [:new, :create, :destroy]
     resources :hides, only: [:new, :create]
+    resources :chatrooms, only: [:new, :create]
   end
 
   # patch 'statuses/:id', to: 'statuses#unfavorite', as: 'unfavorite'

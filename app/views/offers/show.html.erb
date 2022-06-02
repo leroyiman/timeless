@@ -5,12 +5,22 @@
   <i class="fa-solid fa-arrow-up-from-bracket fa-lg"></i>
 </div>
   <div class="card-offer-show">
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
+    <%# <div class="swiper-container">
+      <div class="swiper-wrapper"> %>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <%# <%= cl_image_tag @offer.photos.first.key, heigth: 500,  class: "d-block w-100" %>
+                </div>
         <% @offer.photos.each do |photo| %>
-          <%# <% if photo.key.nil? %>
-
-            <%= cl_image_tag photo.key, class: "swiper-slide" %>
+                <div class="carousel-item">
+                  <%= cl_image_tag photo.key, heigth: 500,  class: "d-block w-100" %>
+                </div>
     <!-- Add Arrows -->
         <%= link_to "", new_offer_hide_path(@offer), class: "fa-solid fa-trash-can pin pin1", data: { confirm: "Are you sure you want to hide this item?" } %>
 
@@ -25,6 +35,15 @@
 
     <%# <i class="fa-solid fa-heart pin pin2"></i> %>
         <% end %>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
 
       </div>
         <%# <div class="swiper-button-next"></div>
@@ -38,16 +57,17 @@
           <% if @user.photo.attached? == false %>
             <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered-show" style="height:50px; width: 50px;" >
           <% else %>
-            <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered-show" %>
+            <%# <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered-show" %> %>
           <% end %>
             <div>
-              <p class="color-fix">@<%=@user.username %>  ★★★★★ </p>
+              <p class="color-fix">@<%= @user.username %>  ★★★★★ </p>
               <p class="color-fix"><%= @offer.location %></p>
             </div>
           </div>
       <% end %>
             <div>
-              <i class="color-gray fa-solid fa-envelope fa-lg"></i>
+            <%= render "chatrooms/new" %>
+              <%# <i class="color-gray fa-solid fa-envelope fa-lg"></i> %>
             </div>
           </div>
     </div>
@@ -57,7 +77,7 @@
           <%= simple_form_for [@offer, @booking] do |f| %>
           <div>
             <div class="card-timeslot-offer-show">
-              <%= f.association :timeslot, collection: Timeslot.where(offer_id: params[:id]),class: "label-timeslot fa-solid fa-chevron-right",prompt:"Pick-up time",label: false,  label_method: lambda { |item| item.timeslot } %>
+              <%= f.association :timeslot, collection: Timeslot.where(offer_id: params[:id]).where.not(timeslot: nil),class: "label-timeslot fa-solid fa-chevron-right",prompt:"Pick-up time",label: false,  label_method: lambda { |item| item.timeslot } %>
             </div >
           </div>
         </div>

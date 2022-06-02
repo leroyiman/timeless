@@ -15,7 +15,7 @@
       <% end %>
     </div>
 
-  <h3 class="font-sans">More than <%= @offers.count %> matches in your area </h1>
+  <h3>More than <%= @offers.count %> matches in your area </h1>
 
 </div>
 
@@ -31,7 +31,8 @@
 
   <% @offers.each do |offer| %>
 
-  <% if offer.hides.empty? %>
+  <% if offer.hides.empty? OR offer.hides.nil? %>
+    <h1>first</h1>
 
      <div class="card-product">
         <div class="container-part1">
@@ -41,17 +42,17 @@
                 <%= cl_image_tag offer.photos.first.key, height: 300, width: 400, crop: :fill %>
               <% end %>
               <div class="card-product-infos">
-                <h4 class="font-sans"><%= offer.title %></h4>
-                <p><i class="fa-solid fa-location-dot"></i> <%= offer.location %> </p>
-                <p><i class="fa-solid fa-glasses"></i> <%= offer.condition %> </p>
-                <p><i class="color-primary fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(offer) %></p>
+                <h4><%= offer.title %></h4>
+                <p><%= offer.location %></p>
+                <p><%= offer.condition %></p>
+                <p><%= link_to "See More", offer_path(offer) %></p>
               </div>
         </div>
 
               <div class= "card-product-third">
                   <div>
                     <% if offer.favorites.nil? || offer.favorites.empty? %>
-                      <i class="color-primary fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
                     <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.nil? %>
                       <i class="fa-solid fa-heart"></i>
                     <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.is_favorite? %>
@@ -73,9 +74,10 @@
             </div>
 
   <% elsif offer.hides.last.is_hide == true && offer.hides.last.user_id == @user.id %>
-
+    <h1>elsif</h1>
     <div class="card-product-hide">
       <div class="container-part1">
+            <h1>HIDE</h1>
             <% if offer.photos.first.key.nil? %>
               <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
             <% else %>
@@ -114,6 +116,7 @@
     </div>
 
   <% else %>
+    <h1>else</h1>
 
     <div class="card-product">
         <div class="container-part1">
