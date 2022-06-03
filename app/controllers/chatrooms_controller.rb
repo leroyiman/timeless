@@ -1,8 +1,8 @@
 class ChatroomsController < ApplicationController
 
-  # def index
-  #   @chatrooms = Chatroom.all
-  # end
+  def index
+    @chatrooms = Chatroom.joins(:offer).where(user_id: current_user.id).or(Chatroom.joins(:offer).where(offer: {user_id: current_user.id}))
+  end
 
   def show
     @chatroom = Chatroom.find(params[:id])
@@ -15,16 +15,13 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    # @offer = Offer.find(params[:id])
+    if chatroom = Chatroom.find_by(user_id: current_user.id, offer_id: params[:offer_id])
+      return redirect_to chatroom_path(chatroom)
+    end
+
     @chatroom = Chatroom.new(chatroom_params)
     @chatroom.user = current_user
-    # @chatroom.offer = @offer.to_i
-    # @chatroom.name = @offer.title
-    # @chatroom.offeruser = @offer.user
-
-    # @chatroom.user = current_user
     @chatroom.save
-
     redirect_to chatroom_path(@chatroom)
   end
 

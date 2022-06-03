@@ -1,5 +1,5 @@
-<div id="message-<%= message.id %>" data-user-id="<%= message.user.id%>">
-
+<% message_class = message.user == current_user ? "message-right" : "message-left" %>
+<div class="<%=message_class%>" id="message-<%= message.id %>" data-user-id="<%= message.user.id%>">
   <small>
     <strong><%= message.user.username %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
