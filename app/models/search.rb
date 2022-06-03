@@ -1,6 +1,6 @@
 class Search < ApplicationRecord
   belongs_to :user
-  has_many :matches
+  has_many :matches , dependent: :destroy
 
   after_create :find_matches
 
