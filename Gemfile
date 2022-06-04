@@ -86,3 +86,6 @@ gem 'pg_search', '~> 2.3.0'
 
 #Mailjet
 gem 'mailjet'
+
+#Twilio
+gem 'twilio-ruby'
