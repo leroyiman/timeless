@@ -24,4 +24,8 @@ class PagesController < ApplicationController
     @declinebookings = @bookings.where(confirmed: "no")
   end
 
+  def carousel
+
+  end
+
 end
