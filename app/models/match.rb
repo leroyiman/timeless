@@ -4,7 +4,12 @@ class Match < ApplicationRecord
   has_one :user, :through => :search
 
   after_create :send_email
+  after_create :send_sms
 
+  # def send_sms
+  #   client = TwilioClient.new
+  #   client.send_text("Hello Edu match")
+  # end
 
   def send_email
     p "Mail sended?"
