@@ -17,5 +17,11 @@ class PagesController < ApplicationController
   def advance
   end
 
+  def bookings
+    @bookings = Booking.where(user_id: current_user)
+    @newbookings = @bookings.where(confirmed: nil)
+    @confirmbookings = @bookings.where(confirmed: "yes")
+    @declinebookings = @bookings.where(confirmed: "no")
+  end
 
 end

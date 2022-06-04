@@ -37,13 +37,13 @@ class Offer < ApplicationRecord
       Match.create(search_id: search.id, offer_id: id)
     end
 
-    matching_searches = searches.where(color: color)
+    # matching_searches = searches.where(color: color)
 
-    return unless matching_searches.present?
+    # return unless matching_searches.present?
 
-    matching_searches.each do |offer|
-      Match.create(search_id: id, offer_id: offer.id)
-    end
+    # matching_searches.each do |offer|
+    #   Match.create(search_id: id, offer_id: offer.id)
+    # end
   end
 
 end

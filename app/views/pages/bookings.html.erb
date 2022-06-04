@@ -1,0 +1,126 @@
+
+<div class="container">
+  <h1>All your requests</h1>
+
+  <div>
+    <ul class="list-inline tabs-underlined">
+      <li>
+        <%= link_to "New Request", profile_bookings_path, class: "tab-underlined active", id:"tabnewrequests", data: {controller: "booking-show", action: "click->booking-show#active1"} %>
+      </li>
+      <li>
+        <%= link_to "Confirm Request", profile_bookings_path, class: "tab-underlined ",id:"tabconfirmrequests", data: {controller: "booking-show", action: "click->booking-show#active2"} %>
+      </li>
+      <li>
+        <%= link_to "Decline Request", profile_bookings_path, class: "tab-underlined ", id:"tabdeclinerequests", data: {controller: "booking-show", action: "click->booking-show#active3"} %>
+      </li>
+    </ul>
+
+    <div id="newrequests" class="">
+      <% @newbookings.each do |booking| %>
+      <h1>New Requests</h1>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2> <%= booking.timeslot.timeslot %> </h2>
+              <div class = 'card p-3 bg-light'>
+                <div style="display:flex;">
+                  <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+                    <%= simple_form_for booking do |f| %>
+                      <% if booking.confirmed == nil || booking.confirmed == "no" %>
+                        <%= hidden_field_tag(:confirmed, 'yes')%>
+                        <%= f.button :submit, "Confirm"%>
+                      <% else %>
+                        <%= "You Confirmed the Booking"%>
+                      <% end %>
+                    <% end %>
+                  </div>
+
+                  <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+                    <%= simple_form_for booking do |f| %>
+                      <% if booking.confirmed == 'no' %>
+                        <%= "You Declined the Booking"%>
+                      <% else %>
+                        <%= hidden_field_tag(:confirmed, 'no')%>
+                        <%= f.button :submit, "Decline"%>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="confirmedbooking" class="d-none">
+      <% @confirmbookings.each do |booking| %>
+        <h1>Confirm Requests</h1>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2> <%= booking.timeslot.timeslot %> </h2>
+              <div class = 'card p-3 bg-light'>
+                <div style="display:flex;">
+                  <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+                    <%= simple_form_for booking do |f| %>
+                      <% if booking.confirmed == nil || booking.confirmed == "no"%>
+                        <%= hidden_field_tag(:confirmed, 'yes')%>
+                        <%= f.button :submit, "Confirm"%>
+                      <% else %>
+                        <%= "You Confirmed the Booking"%>
+                      <% end %>
+                    <% end %>
+                  </div>
+
+                  <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+                    <%= simple_form_for booking do |f| %>
+                      <% if booking.confirmed == 'no' %>
+                        <%= "You Declined the Booking"%>
+                      <% else %>
+                        <%= hidden_field_tag(:confirmed, 'no')%>
+                        <%= f.button :submit, "Decline"%>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div id="declinedbooking" class="d-none">
+      <% @declinebookings.each do |booking| %>
+      <h1>Decline Requests</h1>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <h2> <%= booking.timeslot.timeslot %> </h2>
+              <div class = 'card p-3 bg-light'>
+                <div style="display:flex;">
+                  <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+                    <%= simple_form_for booking do |f| %>
+                      <% if booking.confirmed == nil || booking.confirmed == "no"%>
+                        <%= hidden_field_tag(:confirmed, 'yes')%>
+                        <%= f.button :submit, "Confirm"%>
+                      <% else %>
+                        <%= "You Confirmed the Booking"%>
+                      <% end %>
+                    <% end %>
+                  </div>
+
+                  <div style="width: 49%;, margin: 0 10px; margin-left: 8px;">
+                    <%= simple_form_for booking do |f| %>
+                      <% if booking.confirmed == 'no' %>
+                        <%= "You Declined the Booking"%>
+                      <% else %>
+                        <%= hidden_field_tag(:confirmed, 'no')%>
+                        <%= f.button :submit, "Decline"%>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

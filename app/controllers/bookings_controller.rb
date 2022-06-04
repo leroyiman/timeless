@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   end
 
   def index
+    # Problems with the index routing. No Head and no Navbar when loading the page. Currently working through the pages#bookings Method and View!! :)
     @bookings = Booking.where(user_id: current_user)
     # @bookings_as_owner = sort_by_created(@bookings.filter { |booking| booking.timeslot.offer.user == current_user })
   end
@@ -23,7 +24,7 @@ class BookingsController < ApplicationController
     @booking.user = User.find(1)
     @offer = Offer.find(params[:offer_id])
 
-    if @booking.save
+    if @booking.save!
       redirect_to offer_path(@offer), notice: "Your request has been sent. The owner will confirm your request within the next 24 hours"
     else
       raise
@@ -35,7 +36,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update({ confirmed: params[:confirmed] })
 
-    redirect_to bookings_path, notice: "Booking accepted"
+    redirect_to profile_bookings_path, notice: "Booking Updated"
   end
 
   def destroy
