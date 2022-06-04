@@ -26,7 +26,7 @@ class SearchesController < ApplicationController
     end
     if @search.save
 
-      redirect_to searches_path
+      redirect_to profile_path
     else
       render :new
     end
