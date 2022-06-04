@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .home-banner {
-  background-image: url(vintage-furniture11.jpg);
+  background-image: url(vintage-furniture14.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,11 +23,13 @@
     margin-top: 16px;
     margin-bottom: 8px;
     // background: rgba(243, 243, 243, 0.5);
-    background-image: linear-gradient(to right, rgba(255, 253, 253, 1), rgba(243, 243, 243, 0.3));
+    // background-image: linear-gradient(to right, rgba(255, 253, 253, 1), rgba(243, 243, 243, 0.3));
     padding-left: 2px;
-    color: rgb(28, 26, 26);
+    // color: rgb(28, 26, 26);
+    // color: #efbc3b;
+    color: #68cec2;
     border-radius: 2px;
-
+    // text-decoration: underline solid $gold;
   }
 
   h1 {
@@ -39,6 +41,10 @@
   u {
     text-decoration-color: $light-green;
   }
+}
+
+.gold {
+  color: #f2c554;
 }
 
 .dot img {
