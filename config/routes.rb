@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
+  get '/carousel', to: 'pages#carousel'
+
 
   get '/profile', to: 'pages#profile', as: 'profile'
 

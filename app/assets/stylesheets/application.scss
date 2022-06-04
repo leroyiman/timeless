@@ -29,8 +29,9 @@ body {
   min-height: 100%;
   display: grid;
   grid-template-rows: 1fr auto;
-  background-color: rgb(255, 255, 255);
+  background-color: #F2F2F2;
   padding-bottom: 50px;
+  color: #333;
 }
 
 a {
@@ -41,5 +42,3 @@ a {
 a:hover {
   color: #daa00e;
 }
-
-*= require_tree .
