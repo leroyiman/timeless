@@ -6,10 +6,10 @@ class Match < ApplicationRecord
   after_create :send_email
   after_create :send_sms
 
-  # def send_sms
-  #   client = TwilioClient.new
-  #   client.send_text("Hello Edu match")
-  # end
+  def send_sms(name)
+    client = TwilioClient.new
+    client.send_text("Hello #{name} match")
+  end
 
   def send_email
     p "Mail sended?"
@@ -36,7 +36,7 @@ class Match < ApplicationRecord
      variable = Mailjet::Send.create(messages: [{
       'From'=> {
         'Email'=> 'wabisabi@ombuhub.com',
-        'Name'=> 'Timeless'
+        'Name'=> 'Wabisabi'
       },
       "To" => [
         {
