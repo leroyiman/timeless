@@ -1,10 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 import { end } from "@popperjs/core"
+let count = 0
 
 export default class extends Controller {
 
   static targets = ["timeslot"]
-
 
   connect() {
     console.log("Hello, Stimulus!", this.element)
@@ -13,13 +13,17 @@ export default class extends Controller {
 
 
   modal(event) {
-      event.preventDefault()
-
-      this.timeslots[0].parentElement.parentElement.parentElement.classList.remove("d-none")
-      console.log(this.timeslots[0])
-      this.timeslots.shift()
-      console.log(this.timeslots[0])
-
+    event.preventDefault()
+    this.timeslots[0].parentElement.parentElement.parentElement.classList.remove("d-none")
+    console.log(this.timeslots[0])
+    this.timeslots.shift()
+    console.log(this.timeslots[0])
+    count++
+    if ( count == 5 ) {
+      document.getElementById("button-timeslot-plus").classList.add("d-none")
+    } else {
+      console.log(count)
+    }
       // let clone = document.getElementById("timeslot").cloneNode(true)
       // console.log(clone)
       // document.getElementById("timeslot_container").appendChild(clone)
