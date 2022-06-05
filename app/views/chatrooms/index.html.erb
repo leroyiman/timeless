@@ -1,3 +1,17 @@
-<% @chatrooms.each do |chatroom| %>
-<%= chatroom.name %>
-<% end %>
+<div class="chatrooms-container">
+  <% @chatrooms.each do |chatroom| %>
+    <%= link_to chatroom_path(chatroom) do %>
+      <div class="notification">
+        <% if chatroom.offer.photos.first.nil? %>
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" style="height:50px; width: 50px;" >
+        <% else %>
+          <%= cl_image_tag chatroom.offer.photos.first.key, class: 'avatar-large' %>
+        <% end %>
+        <div class="notification-content">
+          <p><small>Price: <%=chatroom.offer.price%> € </small></p>
+          <p><strong><%= chatroom.name %></strong> </p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
