@@ -6,8 +6,10 @@
         <p class="font-sans"><%= @user.email %></p>
         <div>
           <%if user_signed_in? %>
-          <%= link_to "Edit Profile", edit_user_registration_path %> |
-          <%= link_to "Log out", destroy_user_session_path, method: :delete%>
+          | <%= link_to "See Bookings", profile_bookings_path %> |
+          <br>
+          | <%= link_to "Edit Profile", edit_user_registration_path %>
+          | <%= link_to "Log out", destroy_user_session_path, method: :delete%> |
           <% else %>
           <li class="nav-item">
           <%= link_to "Login", new_user_session_path %>
@@ -58,11 +60,13 @@
   </div>
 
   <div>
-    <% @user.searches.each do |offer| %>
+    <% @user.searches.each do |search| %>
         <div class="card-searches">
-            <h4 class="title-searches"><%= offer.title %></h4>
-            <p class="searches-links"> <i class="color-primary fa-solid fa-arrow-right"></i> &nbsp<%= link_to "See search", search_path(offer) %></p>
-            <p class="searches-links"> <i class="color-primary fa-solid fa-pen"></i> &nbsp<%= link_to "Edit", edit_search_path(offer) %></p>
+            <h4 class="title-searches"><%= search.title %></h4>
+            <p class="searches-links"><%= link_to "", search_path(search),class: "color-primary fa-solid fa-arrow-right" %></p>
+            <p class="searches-links"><%= link_to "", edit_search_path(search),class: "color-primary fa-solid fa-pen" %></p>
+            <p class="searches-links"><%= link_to "", search_path(search),
+                            method: :delete, data: { confirm: "Are you sure?" },class: "color-dark fa-solid fa-ban" %></p>
         </div>
       <% end  %>
   </div>

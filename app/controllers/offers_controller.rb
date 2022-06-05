@@ -68,7 +68,7 @@ class OffersController < ApplicationController
     end
     if @offer.save
 
-      redirect_to offers_path
+      redirect_to offers_path(@offer)
     else
       render :new
     end

@@ -24,17 +24,15 @@
 html {
   height: 100%;
 }
+
 body {
   min-height: 100%;
   display: grid;
   grid-template-rows: 1fr auto;
-  background-color: rgb(255, 255, 255);
+  background-color: #F2F2F2;
   padding-bottom: 50px;
+  color: #333;
 }
-// .footer {
-//   grid-row-start: 2;
-//   grid-row-end: 3;
-// }
 
 a {
   text-decoration: none;

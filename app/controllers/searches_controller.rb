@@ -26,7 +26,7 @@ class SearchesController < ApplicationController
     end
     if @search.save
 
-      redirect_to searches_path
+      redirect_to profile_path
     else
       render :new
     end
@@ -46,7 +46,7 @@ class SearchesController < ApplicationController
   def destroy
     @search = Search.find(params[:id])
     @search.destroy
-    redirect_to searchs_path
+    redirect_to profile_path
   end
 
   private
