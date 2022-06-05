@@ -1,84 +1,114 @@
   <div class="form-background">
 
     <div>
-      <%= simple_form_for(@offer) do |f| %>
-        <%= f.input :title, label: "Item name", placeholder: "e.g. table, sofa, chair" %>
+    <%# <h4>to Find a new home for your furniture</h4> %>
+      <%= simple_form_for(@offer, class: "offer-form") do |f| %>
+      <div class="form-inputs">
 
-        <%= f.input :description, label: "Description" %>
+        <%= f.input :title,
+            label: "Item name",
+            placeholder: "e.g. table, sofa, chair" %>
+
+        <%= f.input :description,
+            label: "Description",
+            placeholder: "give additional info about the item" %>
+
         <%= f.input :location,
-              input_html: { data: { geocoder_target: "location" }, class: "d-none" },
-              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+            label: "Pick-up location",
+            input_html: { data: { geocoder_target: "location" }, class: "d-none" },
+            wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
 
-        <%= f.input :price %>
-        <%# <%= f.input :price, input_html: { min: '0', step: 'any' } %>
-        <%# <%= f.input :price, as: :slider, min: '0', max: '100' %>
-        <%# form.input :field, as: :slider, min: 0, max: 10
-        <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
-        <input type="text" id="textInput" value=""> %>
+        <%= f.input :price,
+            label: "Price",
+            placeholder: "0" %>
+            <%# <%= f.input :price, input_html: { min: '0', step: 'any' } %>
+            <%# <%= f.input :price, as: :slider, min: '0', max: '100' %>
+            <%# form.input :field, as: :slider, min: 0, max: 10
+            <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
+            <input type="text" id="textInput" value=""> %>
 
-        <%= f.input :size, prompt: "Select size", collection: ['Small', 'Medium', 'Big'] %>
-        <%# <label for="size">Size</label> <br>
-        <%= f.select :size, ['Small', 'Medium', 'Big'], class:"dropdown-menu"%>
+        <%= f.input :size,
+            prompt: "Select size",
+            collection: ['Small', 'Medium', 'Big'] %>
 
-        <%# <%= f.input :color, as: :check_boxes, collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored'], wrapper: :horizontal_collection_inline %>
-        
+        <%# <%= f.input :size,
+            as: :radio_buttons,
+            collection_wrapper_tag: :horizontal_collection_inline,
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'size-item',
+            input_html: {class: 'size-selector'},
+            collection: ['Small', 'Medium', 'Big'] %>
+
+
+
+        <%# <%= f.input :color,
+            as: :check_boxes,
+            collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored'],
+            wrapper: :horizontal_collection_inline %>
+
+          <%= f.input :color,
+            prompt: "Select a color",
+            collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored']%>
+
         <%# <label for="color">Color</label> <br> %>
         <%# <%= f.select :color, ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multicolor'], class:"dropdown-menu"%>
 
-        <%= f.input :material, label: "Material", placeholder: "e.g. textile, PU leather" %>
+        <%= f.input :material,
+            label: "Material",
+            placeholder: "e.g. textile, PU leather" %>
 
-        <%# <label for="style">Style</label> <br>
-        <%= f.select :style, ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistic', 'Rustic'], class:"dropdown-menu"%>
-        <%= f.input :style, prompt: "Select style", collection: ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistics', 'Rustic'] %>
+        <%= f.input :style,
+            prompt: "Select style",
+            input_html: { class: 'dropdown-form-style' },
+            collection: ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistics', 'Rustic']%>
 
-        <%= f.input :condition, prompt: "Select condition", collection: ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
-        <%# <label for="condition">Condition</label> <br>
-        <%= f.select :condition, ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
+        <%= f.input :condition,
+            prompt: "Select condition",
+            collection: ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
 
-        <%= f.input :category, prompt: "Select category", collection: ['Living Room', 'Kitchen', 'Bedroom', 'Office', 'Kids room', 'Bathroom', 'Hallway', 'Outdoor'] %>
-        <%# <label for="category">Category</label> <br>
-        <%= f.select :category, ['Living Room', 'Kitchen', 'Bedroom', 'Office', 'Kids room', 'Bathroom', 'Hallway', 'Outdoor'] %>
+        <%= f.input :category,
+            prompt: "Select category",
+            collection: ['Living Room', 'Kitchen', 'Bedroom', 'Office', 'Kids room', 'Bathroom', 'Hallway', 'Outdoor'] %>
 
-        <%= f.input :smoke_free, label: "Smoke-free home" %>
+        <%= f.input :smoke_free,
+            label: "Smoke-free home" %>
 
-        <%= f.input :pet_free, label: "Pet-free home" %>
+        <%= f.input :pet_free,
+            label: "Pet-free home" %>
 
-        <%= f.input :receipt, label: "Purchase receipt" %>
+        <%= f.input :receipt,
+            label: "Purchase receipt" %>
 
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos,
+            as: :file,
+            input_html: { multiple: true } %>
 
-    <div data-controller="timeslot">
-
-      <div data-timeslotmodal-target="timeslot" id="timeslot">
-        <%= f.fields_for :timeslots do |timeslots_attributes|%>
-          <div class="d-none">
-            <%= timeslots_attributes.input :timeslot, as: :datetime, html5: true, label: "Pick-up time" %>
+      <div data-controller="timeslot">
+        <div data-timeslotmodal-target="timeslot" id="timeslot">
+          <%= f.fields_for :timeslots do |timeslots_attributes|%>
+            <div class="d-none">
+              <%= timeslots_attributes.input :timeslot,
+                  as: :datetime,
+                  html5: true,
+                  label: "Pick-up timeslot",
+                  input_html: {class: "hide-svg"} %>
+            </div>
+          <% end %>
+        </div>
+        <div id="timeslot_container"></div>
+          <div class="timeslot_button">
+          <button id="button-timeslot-plus" data-action="click->timeslot#modal">Add up to 5 pick-up timeslots <i class="fas fa-plus timeslot"></i></button>
           </div>
-        <% end %>
+        </div>
       </div>
-      <div id="timeslot_container"></div>
-      <div class="timeslot_button">
-        <button id="button" data-action="click->timeslot#modal">Want to add a Timeslot? </button>
-      </div>
-    </div>
-        <%= f.submit%>
+
+      <div class="container-buttons">
+        <%= f.submit class: "btn-green" %>
         <%# <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-none' %>
-        <%= link_to "Cancel", :back, {:class=>"btn btn-default"}%>
+        <%= link_to "Cancel", :back, class: "btn-white" %>
+      </div>
       <% end %>
       <%# <%= link_to "Go Back", offers_path %>
     </div>
 
   </div>
-
-
- <%# <div data-controller="timeslot">
-
-      <div data-timeslotmodal-target="timeslot" id="timeslot">
-        <%= f.fields_for :timeslots do |timeslots_attributes|%>
-          <%# <%= timeslots_attributes.input :timeslot, as: :datetime, html5: true, label: "Pick-up time" %>
-        <%# <% end %>
-      <%# </div>
-      <div id="timeslot_container"></div>
-      <button id="button" data-action="click->timeslot#modal">Click for more </button>
-
-    </div> %>

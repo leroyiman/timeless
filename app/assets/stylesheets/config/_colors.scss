@@ -8,21 +8,24 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 
-// color palette from Aida
+// color palette from Anneli
 $purple: #3f9389;
 $green: #3f9389;
 $gold: #daa00e;
+$gold-light: #fdf8eb;
 $mint-green: #5cc3b7;
-$dark-gray: rgb(40, 40, 40);
+
+// form-focus imput fields
+$mint-green-light: RGBA(92,195,183,0.05);
+// $mint-green-light: #eef5f5;
+
+$dark-gray: #282828;
 
 $light-green: #0DFF00;
 $white: #FFFFFF;
 $black: #000000;
 $light-gray: #E0DFE1;
 
-// colors Anneli
-$dark-gray: #282828;
-$mint-green: #5cc3b7;
 
 // shadows from Alizeh
 $shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -30,3 +33,8 @@ $shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0
 $shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
 $shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06);
 
+// shadow Anneli
+$shadow-new: 0 1px 2px rgba(136, 135, 135, 0.8);
+
+//shadow Vanya
+$shadow-light: 0 1px 2px rgba(136, 135, 135, 0.3);

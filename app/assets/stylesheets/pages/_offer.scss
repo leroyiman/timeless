@@ -1,7 +1,204 @@
 .container-newoffer {
-margin: 16px;
+  margin: 16px;
 }
 
 .create-offer {
-  color: $purple;
+  color: $green;
 }
+
+.hide-svg {
+  background-image: none !important;
+}
+
+.form-select {
+    background-color: $gold-light;
+    box-shadow: $shadow-light;
+    // box-shadow: $shadow-sm;
+    // color: rgb(134, 133, 133);
+    border-radius: 5px;
+    border: none;
+    // background-image: none;
+    padding: 0px 10px 0px 5px;
+    height: 45px;
+    // font-family: $body-font;
+    // font-weight: 300;
+  }
+
+.form-select:focus {
+  // background-color: RGBA(92,195,183,0.05);
+  border-color: $green !important;
+  outline: 0;
+  box-shadow: $shadow-light;
+}
+
+.form-control {
+  background-color: $white;
+  border-color: $mint-green;
+  font-family: $body-font;
+  font-weight: 300;
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  background-color: $mint-green-light;
+  border-color: $green !important;
+  outline: 0;
+  box-shadow: 2px 2px 2px 0px $mint-green;
+}
+
+#new_offer {
+  padding: 20px 0px 20px 0px;
+}
+
+.mb-3 {
+  margin-top: 1.5rem;
+}
+
+.form-label {
+  font-weight: bolder;
+}
+
+.col-form-label {
+  font-weight: bolder;
+}
+
+abbr[title] {
+  text-decoration-line: none;
+  }
+
+.form-check .form-check-input {
+  background-color: $white;
+  border-color: $mint-green;
+}
+
+.form-check-input:checked {
+  background-color: $green;
+  border-color: $green;
+}
+
+.form-check-input:focus {
+  border-color: $green !important;
+  outline: 0;
+  box-shadow: $shadow-light;
+}
+
+.timeslot_container {
+  background-color: none;
+  border: none;
+}
+
+.timeslot_button {
+  margin-top: 1.5rem;
+  padding-bottom: 4px;
+}
+
+#button-timeslot-plus {
+  background-color: $gold-light;
+  border: none;
+  height: 45px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: $shadow-light;
+  padding: 8px;
+  text-align: left;
+  // font-weight: bolder;
+}
+
+i.fas.fa-plus.timeslot {
+  color: $gray;
+  margin-left: 140px;
+  -webkit-text-stroke: 1.5px $gold-light;
+}
+
+.d-flex.flex-row.justify-content-between {
+  background-image: none;
+}
+
+.offer-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.form-inputs {
+  max-height: calc(100vh - 230px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.mx-1 {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+// #timeslot {
+//   :root {
+//   --swiper-theme-color: $green !important;
+//   }
+// }
+
+
+// Make size like buttons (radio, one choice only)
+// .size-wrapper {
+//   display: flex;
+//   justify-content: space-between;
+//   flex-wrap: wrap;
+// }
+
+// .size-item {
+//   flex: 0 0 30%;
+// }
+
+// .size-selector {
+//   position: absolute;
+//   transform: scale(0);
+// }
+
+// .size-selector + label {
+//   display: flex;
+//   flex-direction: column;
+//   cursor: pointer;
+//   box-sizing: border-box;
+//   width: 30%;
+//   font-size: 12px;
+//   text-align: center;
+//   padding: 10px 10px 30px 10px;
+//   border: 1px solid $green;
+//   border-radius: 5px;
+//   background-color: white;
+// }
+
+// .size-selector:checked + label {
+//   color: white !important;
+// }
+
+
+// #category_small + label {
+//   color: #FD1015;
+// }
+
+// #category_small:checked + label {
+//   background-color: #FD1015;
+//   border-color: #FD1015;
+// }
+
+
+// #category_medium + label {
+//   color: #FFC65A;
+// }
+
+// #category_medium:checked + label {
+//   background-color: #FFC65A;
+//   border-color: #FFC65A;
+// }
+
+
+// #category_big + label {
+//   color: #62DDF5;
+// }
+
+// #category_big:checked + label {
+//   background-color: #62DDF5;
+//   border-color: #62DDF5;
+// }
