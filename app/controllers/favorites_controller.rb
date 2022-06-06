@@ -20,7 +20,6 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.where(user_id: @user, offer_id: @offer)
     @favorite.last.destroy
     redirect_to offer_path(params[:offer_id])
-
   end
 end
 

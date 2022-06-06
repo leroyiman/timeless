@@ -6,10 +6,10 @@ class Match < ApplicationRecord
   after_create :send_email
   # after_create :send_sms
 
-  def send_sms(name)
-    client = TwilioClient.new
-    client.send_text("Hello #{name} match")
-  end
+  # def send_sms(name)
+  #   client = TwilioClient.new
+  #   client.send_text("Hello #{name} match")
+  # end
 
   def send_email
     p "Mail sended?"
