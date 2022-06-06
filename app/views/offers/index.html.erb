@@ -47,18 +47,16 @@
                 <p><i class="color-primary fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(offer) %></p>
               </div>
         </div>
-
               <div class= "card-product-third">
                   <div>
                     <% if offer.favorites.nil? || offer.favorites.empty? %>
-                      <i class="color-primary fa-solid fa-heart"></i>
+                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart"%>
                     <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.nil? %>
-                      <i class="fa-solid fa-heart"></i>
+                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart "%>
                     <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.is_favorite? %>
-                      <%# <i class= "fa-regular fa-heart" data-controller="favorite" data-action="click->favorite#favorited"></i> %>
-                    <i class="fa-solid fa-heart" id="heartred"></i>
+                     <%= link_to "",offer_favorite_path(offer_id: offer.id, user_id: current_user, id: offer.favorites.last.id ),method: :delete,class: "fa-solid fa-heart pin-gold  " , remote: true%>
                     <% else %>
-                      <%# <i class="fa-solid fa-thumbs-down"></i> %>
+                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart "%>
                     <% end %>
                   </div>
                   <div>

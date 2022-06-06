@@ -11,6 +11,7 @@ class FavoritesController < ApplicationController
     @favorite.is_favorite = true
     @favorite.save
     redirect_to offer_path(params[:offer_id])
+
   end
 
   def destroy
@@ -21,8 +22,6 @@ class FavoritesController < ApplicationController
     redirect_to offer_path(params[:offer_id])
 
   end
-
-
 end
 
 
