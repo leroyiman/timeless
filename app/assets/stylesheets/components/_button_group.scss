@@ -1,0 +1,39 @@
+// primary CTA & secondary buttons on Create Offer screen
+
+.container-buttons {
+  margin: 8px;
+  margin: 18px 0px 4px 0px;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  bottom: 0;
+  background: transparent !important;
+}
+
+.btn-green {
+  height: 38px;
+  width: 45%;
+  color: $white;
+  background: $green;
+  border: none;
+  // font-weight: bold;
+  padding: 4px 18px 4px 18px;
+  border-radius: 5px;
+}
+
+.btn-white {
+  height: 38px;
+  width: 45%;
+  color: $green;
+  background: $white;
+  border: 1px solid $green;
+  // font-weight: bold;
+  padding: 4px 18px 4px 18px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn-white:hover {
+  text-decoration: none;
+  color: $green !important;
+}
