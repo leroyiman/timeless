@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  resources :matches, only: [:index, :show]
+
   resources :offers do
     resources :timeslots, only: [:new, :create]
     resources :bookings, only:[:create]
