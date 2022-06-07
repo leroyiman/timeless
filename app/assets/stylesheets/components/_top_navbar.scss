@@ -12,10 +12,10 @@
 // Create offer
 .top-navbar-new-offer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 24px 0px 24px 0px;
-  border-bottom: 1px solid $gold;
+  padding: 24px 8px 24px 8px;
+  // border-bottom: 1px solid $gold;
   background-color: $white;
   position: sticky;
   top: 0;
