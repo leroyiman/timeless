@@ -1,11 +1,47 @@
 .info_window {
   display: flex;
+  padding: 8px;
+  border: #daa00e 1px solid;
+  border-radius: 5px;
+  // align-items: center;
 }
 
 .info_window_info {
-  padding: 8px;
+  padding: 2px;
+  display: flex;
+  // align-items: center;
+  flex-direction: column;
+}
+
+.info_window_img img {
+  padding: 2px;
+  border-radius: 5px;
 }
 
 .info_window_img {
-  padding: 8px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.price-info-window {
+ margin: 0px;
+}
+
+
+.mapboxgl-popup-content {
+  // text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  padding: 0px;
+}
+
+.mapboxgl-popup {
+  max-width: 180px;
+}
+
+.title-info-window {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: medium;
+  margin: 0px;
 }

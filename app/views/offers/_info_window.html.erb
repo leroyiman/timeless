@@ -1,14 +1,14 @@
 <div class="info_window">
-  <div class="info_window_info">
-    <strong><h4><%= offer.title %></h4></strong>
-    <p>Price: $<%= offer.price %><p>
-  </div>
-
-  <div  class="info_window_img">
+<div  class="info_window_img">
     <% if offer.photos.first.nil? %>
       <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="50" height="50">
     <% else %>
       <%= cl_image_tag offer.photos.first.key, height: 50, width: 50, crop: :fill %>
     <% end %>
+  </div>
+
+  <div class="info_window_info">
+    <strong><h4 class="title-info-window"><%= offer.title %></h4></strong>
+    <p class="price-info-window">€ <%= offer.price %><p>
   </div>
 </div>
