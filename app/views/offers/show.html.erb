@@ -36,7 +36,8 @@
           <%= link_to "",
                 offer_favorite_path(@offer),
                 method: :delete,
-                data: { confirm: "Are you sure you want to remove from favorites?" },class: "fa-solid fa-heart pin-red pin2" %>
+                data: { confirm: "Are you sure you want to remove from favorites?" },
+                class: "fa-solid fa-heart pin-red pin2" %>
           <% end %>
   </button>
 </div>
@@ -53,7 +54,12 @@
           <% if @user.photo.attached? == false %>
             <img src="https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392" alt="" class="card-trip-user avatar-bordered-show" style="height:50px; width: 50px;" >
           <% else %>
-            <%= cl_image_tag @user.photo.key, crop: :fill, gravity: :face,aspect_ratio: 1, zoom: 2,class: "card-trip-user avatar-bordered-show" %>
+            <%= cl_image_tag @user.photo.key,
+                crop: :fill,
+                gravity: :face,
+                aspect_ratio: 1,
+                zoom: 2,
+                class: "card-trip-user avatar-bordered-show" %>
           <% end %>
             <div>
               <p class="color-fix margin-fix">@<%= @user.username %>  ★★★★★ </p>
@@ -73,15 +79,20 @@
           <%= simple_form_for [@offer, @booking] do |f| %>
           <div>
             <div class="card-timeslot-offer-show">
-              <%= f.association :timeslot, collection: Timeslot.where(offer_id: params[:id]).where.not(timeslot: nil),class: "label-timeslot fa-solid fa-chevron-right",prompt:"Pick-up time",label: false,  label_method: lambda { |item| item.timeslot.strftime("%-d.%-m.%y %H:%M")
- } %>
+              <%= f.association :timeslot,
+                  collection: Timeslot.where(offer_id: params[:id]).where.not(timeslot: nil),
+                  class: "label-timeslot fa-solid fa-chevron-right",
+                  prompt:"Select pick-up time",
+                  label: false,
+                  label_method: lambda { |item| item.timeslot.strftime("%-d.%-m.%y %H:%M") },
+                  classs: "dropdown-timeslot-show-scr" %>
             </div >
           </div>
         </div>
 
     <div class="card-send-offer-show">
       <div>
-        <%= f.submit 'Send request', class: 'btn-request' %>
+        <%= f.submit 'Send request', class: 'btn-request-green' %>
       </div>
       <% end %>
     </div>
