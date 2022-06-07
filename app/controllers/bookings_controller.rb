@@ -37,14 +37,14 @@ class BookingsController < ApplicationController
     @user = User.find(@booking.user_id)
     @user_name = @user.fname
     @booking.update({ confirmed: params[:confirmed] })
-    
+
       #commented CODE because each messeage cost money, this need to be discommented the day of demo
 
-      # if @booking.confirmed == "yes"
-      #   TwilioClient.new.send_text("Hello #{@user_name}, Your booking was confirmed, Chat with the Offer Owner for more details.")
-      # else
-      #   TwilioClient.new.send_text("Hello #{@user_name}, Your booking was declined, check in Wabisabi.com new offers")
-      # end
+      if @booking.confirmed == "yes"
+        TwilioClient.new.send_text("Hello #{@user_name}, Your booking for #{@booking.title} was confirmed, Chat with the Offer Owner for more details.")
+      else
+        TwilioClient.new.send_text("Hello #{@user_name}, Your booking was declined, check in Wabisabi.com new offers")
+      end
     redirect_to profile_bookings_path, notice: "Booking Updated"
   end
 
