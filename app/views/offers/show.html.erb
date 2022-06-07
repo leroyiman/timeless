@@ -101,17 +101,45 @@
       <p><%= @offer.description %></p>
     </div>
 
-    <div class="card-PCS-offer-show">
+ <div class="card-PCS-offer-show">
       <div>
-        <p>Price: <%= @offer.price %> €</p>
+        <p><span class="underline-show">Price</span>: <%= @offer.price %> €</p>
       </div>
       <div>
-        <p>Condition: <%= @offer.condition %></p>
+        <p><span class="underline-show">Pickup Location</span>: <%= @offer.location %></p>
       </div>
       <div>
-        <p>Size: <%= @offer.size %></p>
+        <p><span class="underline-show">Condition</span>: <%= @offer.condition %></p>
+      </div>
+      <div>
+        <p><span class="underline-show">Size</span>: <%= @offer.size %></p>
+      </div>
+      <div>
+        <p><span class="underline-show">Color</span>: <%= @offer.color %></p>
+      </div>
+      <div>
+        <p><span class="underline-show">Material</span>: <%= @offer.material %></p>
+      </div>
+      <div>
+        <p><span class="underline-show">Style</span>: <%= @offer.style %></p>
+      </div>
+      <div>
+        <p><span class="underline-show">Condition</span>: <%= @offer.condition %></p>
+      </div>
+      <div>
+        <p><span class="underline-show">Category</span>: <%= @offer.category %></p>
+      </div>
+       <div>
+        <p><span class="underline-show">Smoke-free</span>: <%= @offer.smoke_free %></p>
+      </div>
+       <div>
+        <p><span class="underline-show">Pet-free home</span>: <%= @offer.pet_free %></p>
+      </div>
+       <div>
+        <p><span class="underline-show">Purchase receipt</span>: <%= @offer.pet_free %></p>
       </div>
     </div>
+
 
     <div class="show-actions">
 
