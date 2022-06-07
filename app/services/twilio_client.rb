@@ -6,7 +6,7 @@ class TwilioClient
   end
 
   def send_text(message)
-    client.api.account.messages.create(
+    @client.messages.create(
       to: "+4915238261306",
       from: phone_number,
       body: message
@@ -18,7 +18,6 @@ class TwilioClient
   def account_sid
     ENV['TWILIO_ACCOUNT_SID']
   end
-
 
   def auth_token
     ENV['TWILIO_AUTH_TOKEN']

@@ -89,3 +89,6 @@ gem 'mailjet'
 
 #Twilio
 gem 'twilio-ruby'
+
+
+gem 'blazer'

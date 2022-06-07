@@ -51,3 +51,28 @@
   align-items: center;
   // position: relative;
 }
+
+.profile-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-green-profile {
+  margin: 8px;
+  height: 38px;
+  width: 45%;
+  color: $white;
+  background: $green;
+  border: none;
+  // font-weight: bold;
+  padding: 4px 18px 4px 18px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+// img {
+//   height: 50px;
+//   width: 50px;
+// }
+
