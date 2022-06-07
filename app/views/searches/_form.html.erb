@@ -2,36 +2,51 @@
 <h2>Create new search</h2>
     <div>
       <%= simple_form_for(@search) do |f| %>
-        <%= f.input :title, label: "Item name", placeholder: "e.g. table, sofa, chair" %>
-        <%# <%= f.input :price, input_html: { min: '0', step: 'any' } %>
-        <%# <%= f.input :price, as: :slider, min: '0', max: '100' %>
-        <%# form.input :field, as: :slider, min: 0, max: 10
-        <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
-        <input type="text" id="textInput" value=""> %>
-        <%= f.input :category, prompt: "Select category", collection: ['Living Room', 'Kitchen', 'Bedroom', 'Office', 'Kids room', 'Bathroom', 'Hallway', 'Outdoor'] %>
 
-        <%= f.input :size, prompt: "Select size", collection: ['Small', 'Medium', 'Big'] %>
-        <%# <label for="size">Size</label> <br>
-        <%= f.select :size, ['Small', 'Medium', 'Big'], class:"dropdown-menu"%>
+        <%= f.input :title,
+            label: "Item name",
+            placeholder: "e.g. table, sofa, chair" %>
 
-        <%= f.input :color, as: :check_boxes, collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored'], wrapper: :horizontal_collection_inline %>
-        <%# <label for="color">Color</label> <br> %>
-        <%# <%= f.select :color, ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multicolor'], class:"dropdown-menu"%>
+        <%= f.input :price,
+            label: "Price",
+            placeholder: "0" %>
 
-        <%= f.input :material, label: "Material", placeholder: "e.g. textile, PU leather" %>
+        <%= f.input :size,
+            prompt: "Select size",
+            collection: ['Small', 'Medium', 'Big'] %>
 
-        <%# <label for="style">Style</label> <br>
-        <%= f.select :style, ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistic', 'Rustic'], class:"dropdown-menu"%>
-        <%= f.input :style, prompt: "Select style", collection: ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistics', 'Rustic'] %>
+          <%= f.input :color,
+            prompt: "Select a color",
+            collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored']%>
 
-        <%= f.input :condition, prompt: "Select condition", collection: ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
+        <%= f.input :material,
+            label: "Material",
+            placeholder: "e.g. textile, PU leather" %>
 
-        <%= f.input :condition, prompt: "Select condition", collection: ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
+        <%= f.input :style,
+            prompt: "Select style",
+            input_html: { class: 'dropdown-form-style' },
+            collection: ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistics', 'Rustic']%>
 
+        <%= f.input :condition,
+            prompt: "Select condition",
+            collection: ['Used - Like new', 'Used - Very good', 'Used - Good', 'Used - Acceptable'] %>
 
-        <%= f.submit %>
+        <%= f.input :category,
+            prompt: "Select category",
+            collection: ['Living Room', 'Kitchen', 'Bedroom', 'Office', 'Kids room', 'Bathroom', 'Hallway', 'Outdoor'] %>
+
+        <%= f.input :smoke_free,
+            label: "Smoke-free home" %>
+
+        <%= f.input :pet_free,
+            label: "Pet-free home" %>
+
+        <%= f.submit class: "btn-green" %>
         <%# <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-none' %>
-        <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
+        <%= link_to "Cancel", :back, class: "btn-white" %>
+      </div>
+
       <% end %>
       <%# <%= link_to "Go Back", offers_path %>
     </div>

@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  authenticate :user, ->(user) { user.is_admin? } do
+    mount Blazer::Engine, at: "blazer"
+  end
+
   root to: 'pages#home'
+
+  resources :matches, only: [:index, :show]
 
   resources :offers do
     resources :timeslots, only: [:new, :create]
@@ -37,5 +44,6 @@ Rails.application.routes.draw do
   get '/advance_results', to: 'offers#advance_offers', as: 'offers_advance'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 
 end

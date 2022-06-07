@@ -6,8 +6,6 @@
         <p class="font-sans"><%= @user.email %></p>
         <div>
           <%if user_signed_in? %>
-          | <%= link_to "See Bookings", profile_bookings_path %> |
-          <br>
           | <%= link_to "Edit Profile", edit_user_registration_path %>
           | <%= link_to "Log out", destroy_user_session_path, method: :delete%> |
           <% else %>
@@ -15,6 +13,7 @@
           <%= link_to "Login", new_user_session_path %>
           </li>
           <% end %>
+
       </div>
       </div>
       <% if @user.photo.attached? == false%>
@@ -24,6 +23,15 @@
       <% end %>
     </div>
   </div>
+
+    <div class="profile-btn">
+      <%= link_to "See Bookings", profile_bookings_path, class: "btn-green-profile" %>
+      <%= link_to "See Matches", matches_path, class: "btn-green-profile" %>
+      <% if current_user.is_admin == true %>
+          <%= link_to "DB", "/blazer/queries/new",class: "btn-green-profile" %>
+      <% else %>
+      <% end %>
+    </div>
 
   <div class="title">
     <h3 class="font-sans">Your published items</h3>
