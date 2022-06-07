@@ -3,24 +3,30 @@
   data-chatroom-subscription-user-id-value="<%= current_user.id %>"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <h1>#<%= @chatroom.name %></h1>
+  <div class="top-navbar-new-offer">
+    <button onclick="history.back()"><i class="fa-solid fa-angle-left fa-lg"></i></button>
 
+    <h3 class="text-center">#<%= @chatroom.name %></h1>
+    <i class="fa-solid"></i>
+  </div>
+  <div class="container-messages">
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
           <%= render "messages/message", message: message %>
     <% end %>
   </div>
 </div>
-<%= simple_form_for [@chatroom, @message],
-  remote: true,
-  html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
-%>
+  <%= simple_form_for [@chatroom, @message],
+    remote: true,
+    html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f|
+  %>
   <%= f.input :content,
     label: false,
-    placeholder: "Message ##{@chatroom.name}" ,
+    placeholder: "Message about ##{@chatroom.name}" ,
     data: {chatroom_subscription_target:"input"},
     wrapper_html: {class: "flex-grow-1"}
   %>
 
-  <%= f.submit "Send", class: "btn btn-primary" %>
+  <%= f.submit "Send", class: "btn btn-chat-green" %>
 <% end %>
+</div>

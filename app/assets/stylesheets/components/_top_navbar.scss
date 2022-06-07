@@ -6,7 +6,7 @@
 }
 
 .topnav {
-  color: $green;
+  color: $gray;
 }
 
 // Create offer
@@ -25,11 +25,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 0px 24px 0px;
-  border-bottom: 1px solid $gold;
+  padding: 24px 8px 24px 8px;
   background-color: $white;
   position: sticky;
   top: 0;
+  width: 390px;
+  height: 65px;
+  // position: relative;
+  z-index : 1;
+}
+
+.top-navbar-new-offer:before {
+  content : "";
+  position: absolute;
+  margin: auto;
+  left    : 0;
+  right: 0;
+  bottom  : 0;
+  height  : 1px;
+  width   : 93%;  /* or 100px */
+  border-bottom: 1px solid $gold;
 }
 
 .top-navbar-new-offer h3 {

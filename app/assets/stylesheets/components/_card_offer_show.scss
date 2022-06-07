@@ -49,30 +49,35 @@
 //   height: 45px;
 // }
 
+// .dropdown-timeslot-show-scr {
+//  max-height: 38px !important;
+// }
 
 .card-timeslot-offer-show {
   margin-left: 8px;
-  margin-right: 8px;
+  margin-right: 0px;
   margin-bottom: 16px;
-  box-shadow: $shadow-sm;
+  box-shadow: $shadow-light;
   border-radius: 5px;
 }
 
 
 .card-send-offer-show {
-  margin-left: 8px;
-  margin-right: 8px;
-  margin-bottom: 16px;
-  box-shadow: $shadow-sm;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: $purple;
+  // margin-left: 8px;
+  // margin-right: 8px;
+  // margin-bottom: 16px;
+  padding: 0px;
+  // box-shadow: $shadow-sm;
+  // border-radius: 5px;
+  padding-top: 24px;
+  // background-color: $purple;
   text-align: center;
   width: 50%;
 }
 
 .width {
-  width: 50%;
+  width: 85%;
+  margin-right: 36px;
 }
 
 
@@ -99,14 +104,6 @@
   padding: 16px;
 }
 
-.btn-request {
-  background-color: $purple;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  color: white;
-}
-
 .avatar-bordered-show {
   width: 50px;
   border-radius: 50%;
@@ -126,6 +123,8 @@
 .timeslot_and_request_buttons {
   display: flex;
   justify-content: center;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 .color-fix {
@@ -168,7 +167,9 @@
 
 .button-envelope button {
   border: none;
-  background-color: white;
+  background-color: $white;
+  color: $green;
+  padding-bottom: 24px;
 }
 
 

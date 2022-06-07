@@ -37,3 +37,29 @@
   text-decoration: none;
   color: $green !important;
 }
+
+
+// button Show item screen
+.btn-request-green {
+  background-color: $green;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  color: $white;
+  padding: 4px 18px 4px 18px;
+  height: 38px;
+  border-radius: 5px;
+}
+
+//button Chat screen Send
+
+.btn-chat-green {
+  color: $white;
+  text-align: center;
+  background-color: $green;
+  text-decoration: none;
+  border-color: $green;
+  border-radius: 0px 5px 5px 0px;
+  height: 38px;
+  margin-top: 8px;
+}

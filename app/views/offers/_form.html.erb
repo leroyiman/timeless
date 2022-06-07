@@ -47,8 +47,8 @@
             wrapper: :horizontal_collection_inline %>
 
           <%= f.input :color,
-            prompt: "Select a color",
-            collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored']%>
+            prompt: "Select color",
+            collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored'] %>
 
         <%# <label for="color">Color</label> <br> %>
         <%# <%= f.select :color, ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multicolor'], class:"dropdown-menu"%>
@@ -60,7 +60,7 @@
         <%= f.input :style,
             prompt: "Select style",
             input_html: { class: 'dropdown-form-style' },
-            collection: ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistics', 'Rustic']%>
+            collection: ['Modern', 'Classic', 'Contemporary', 'Scandinavian', 'DDR', 'Minimalistics', 'Rustic'] %>
 
         <%= f.input :condition,
             prompt: "Select condition",

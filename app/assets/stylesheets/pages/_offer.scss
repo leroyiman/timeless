@@ -19,7 +19,7 @@
     border: none;
     // background-image: none;
     padding: 0px 10px 0px 5px;
-    height: 45px;
+    height: 38px;
     // font-family: $body-font;
     // font-weight: 300;
   }
@@ -47,7 +47,7 @@
 }
 
 #new_offer {
-  padding: 20px 0px 20px 0px;
+  padding: 20px 16px 20px 16px;
 }
 
 .mb-3 {
@@ -93,20 +93,23 @@ abbr[title] {
 }
 
 #button-timeslot-plus {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
   background-color: $gold-light;
   border: none;
-  height: 45px;
+  height: 38px;
   width: 100%;
   border-radius: 5px;
   box-shadow: $shadow-light;
   padding: 8px;
-  text-align: left;
+  // text-align: left;
   // font-weight: bolder;
 }
 
 i.fas.fa-plus.timeslot {
   color: $gray;
-  margin-left: 140px;
+  margin: 4px;
   -webkit-text-stroke: 1.5px $gold-light;
 }
 
@@ -122,7 +125,7 @@ i.fas.fa-plus.timeslot {
 }
 
 .form-inputs {
-  max-height: calc(100vh - 230px);
+  max-height: calc(100vh - 215px);
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -132,6 +135,13 @@ i.fas.fa-plus.timeslot {
   margin-left: 0 !important;
 }
 
+input:focus::placeholder {
+  color: transparent;
+}
+
+textarea:focus::placeholder {
+  color: transparent;
+}
 // #timeslot {
 //   :root {
 //   --swiper-theme-color: $green !important;
