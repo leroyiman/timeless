@@ -7,7 +7,11 @@ class OffersController < ApplicationController
     if params[:query].present?
       @offers = Offer.search_by_title(params[:query])
     else
-      @offers = Offer.joins("LEFT JOIN hides ON offers.id = hides.offer_id AND hides.user_id = #{@user.id}").where("hides.offer_id is null").order("created_at DESC")
+      if current_user.nil?
+        @offers = Offer.all
+      else
+        @offers = Offer.joins("LEFT JOIN hides ON offers.id = hides.offer_id AND hides.user_id = #{@user.id}").where("hides.offer_id is null").order("created_at DESC")
+      end
     end
 
     @markers = @offers.geocoded.map do |offer|
