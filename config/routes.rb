@@ -17,9 +17,6 @@ Rails.application.routes.draw do
     resources :chatrooms, only: [:new, :create]
   end
 
-  # patch 'statuses/:id', to: 'statuses#unfavorite', as: 'unfavorite'
-  # post 'statuses/:id', to: 'statuses#favorite', as: 'favorite'
-
   resources :favorites, only: [:index]
 
   resources :bookings, only:[:index, :update]
