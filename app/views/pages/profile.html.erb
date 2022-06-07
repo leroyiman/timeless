@@ -1,13 +1,10 @@
 <div class="container mb-8">
-  <div class="card-trip">
+  <div class="card-profile">
     <div class="card-trip-infos">
       <div>
         <h4>Welcome home, <%= @user.fname %>.</h4>
-        <p class="font-sans"><%= @user.email %></p>
         <div>
           <%if user_signed_in? %>
-          | <%= link_to "See Bookings", profile_bookings_path %> |
-          <br>
           | <%= link_to "Edit Profile", edit_user_registration_path %>
           | <%= link_to "Log out", destroy_user_session_path, method: :delete%> |
           <% else %>
@@ -15,6 +12,7 @@
           <%= link_to "Login", new_user_session_path %>
           </li>
           <% end %>
+
       </div>
       </div>
       <% if @user.photo.attached? == false%>
@@ -24,6 +22,15 @@
       <% end %>
     </div>
   </div>
+
+    <div class="profile-btn">
+      <%= link_to "See Bookings", profile_bookings_path, class: "btn-green-profile" %>
+      <%= link_to "See Matches", matches_path, class: "btn-green-profile" %>
+      <% if current_user.is_admin == true %>
+          <%= link_to "DB", "/blazer/queries/new",class: "btn-green-profile" %>
+      <% else %>
+      <% end %>
+    </div>
 
   <div class="title">
     <h3 class="font-sans">Your published items</h3>
@@ -42,9 +49,9 @@
       <% end %>
       <div class="card-product-infos">
       <h4><%= offer.title %></h4>
-      <p class="color-dark"> <i class="color-dark fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(offer) %></p>
-      <p class="color-dark"> <i class="color-dark fa-solid fa-pen"></i> <%= link_to "Edit Offer", edit_offer_path(offer) %> </p>
-      <p class="color-dark"> <i class="color-dark fa-solid fa-ban"></i> <%= link_to "Delete Offer",
+      <p class="color-dark"> <i class="color-dark fa-solid fa-arrow-right"></i> <%= link_to "see more", offer_path(offer) %></p>
+      <p class="color-dark"> <i class="color-dark fa-solid fa-pen"></i> <%= link_to "edit offer", edit_offer_path(offer) %> </p>
+      <p class="color-dark"> <i class="color-dark fa-solid fa-ban"></i> <%= link_to "delete offer",
                             offer_path(offer),
                             method: :delete,
                             data: { confirm: "Are you sure?" }%> </p>
@@ -63,10 +70,10 @@
     <% @user.searches.each do |search| %>
         <div class="card-searches">
             <h4 class="title-searches"><%= search.title %></h4>
-            <p class="searches-links"><%= link_to "", search_path(search),class: "color-primary fa-solid fa-arrow-right" %></p>
-            <p class="searches-links"><%= link_to "", edit_search_path(search),class: "color-primary fa-solid fa-pen" %></p>
-            <p class="searches-links"><%= link_to "", search_path(search),
-                            method: :delete, data: { confirm: "Are you sure?" },class: "color-dark fa-solid fa-ban" %></p>
+            <p class="color-dark"><i class="color-dark fa-solid fa-arrow-right"></i> <%= link_to "more", search_path(search)%></p>
+            <p class="color-dark"><i class="color-dark fa-solid fa-pen"></i> <%= link_to "edit", edit_search_path(search)%></p>
+            <p class="color-dark"><i class="color-dark fa-solid fa-ban"></i> <%= link_to "delete", search_path(search),
+                            method: :delete, data: { confirm: "Are you sure?" }%></p>
         </div>
       <% end  %>
   </div>

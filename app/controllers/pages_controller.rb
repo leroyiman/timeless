@@ -2,13 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-
   end
 
   def profile
     @user = current_user
   end
-
 
   def profile_user
     @user = User.find(params[:id])
@@ -25,7 +23,6 @@ class PagesController < ApplicationController
   end
 
   def carousel
-
   end
 
 end

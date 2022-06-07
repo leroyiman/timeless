@@ -14,8 +14,65 @@
   padding: 0px;
 }
 
+.card-profile {
+  overflow: visible;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 10px 8px 8px 8px;
+  border-radius: 5px;
+  border-bottom: 1px solid #daa00e;
+}
+
+
+.card-profile > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-profile h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-profile p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-profile .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // position: relative;
+}
+
+.profile-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-green-profile {
+  margin: 8px;
+  height: 38px;
+  width: 45%;
+  color: $white;
+  background: $green;
+  border: none;
+  // font-weight: bold;
+  padding: 4px 18px 4px 18px;
+  border-radius: 5px;
+  text-align: center;
+}
 
 // img {
 //   height: 50px;
 //   width: 50px;
 // }
+
