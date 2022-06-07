@@ -22,7 +22,7 @@
 }
 
 .card-profile-offer-show {
-  padding: 8px;
+  padding-top: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,6 +35,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.card-profile-part p {
+ font-size: small;
 }
 
 // .form-select {
@@ -60,9 +64,7 @@
 
 
 .card-send-offer-show {
-  margin-left: 8px;
-  margin-right: 8px;
-  margin-bottom: 16px;
+  margin: 2px;
   box-shadow: $shadow-sm;
   border-radius: 5px;
   padding: 10px;
@@ -126,6 +128,8 @@
 .timeslot_and_request_buttons {
   display: flex;
   justify-content: center;
+  align-items: baseline;
+  margin: 0px;
 }
 
 .color-fix {
@@ -169,4 +173,9 @@
 .button-envelope button {
   border: none;
   background-color: white;
+}
+
+.underline-show {
+  text-decoration: underline 4px;
+  text-decoration-color: #f5e8c7;
 }
