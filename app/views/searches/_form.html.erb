@@ -1,10 +1,16 @@
   <div class="form-background">
     <div>
-      <%= simple_form_for(@search) do |f| %>
+      <%= simple_form_for(@search, class: "offer-form") do |f| %>
+      <div class="form-inputs">
 
         <%= f.input :title,
             label: "Item name",
             placeholder: "e.g. table, sofa, chair" %>
+
+        <%= f.input :location,
+            label: "Pick-up location",
+            input_html: { data: { geocoder_target: "location" }, class: "d-none" },
+            wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
 
         <%= f.input :price,
             label: "Price",
@@ -14,9 +20,9 @@
             prompt: "Select size",
             collection: ['Small', 'Medium', 'Big'] %>
 
-          <%= f.input :color,
-            prompt: "Select a color",
-            collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored']%>
+        <%= f.input :color,
+          prompt: "Select color",
+          collection: ['Red', 'Blue', 'Green', 'White', 'Black', 'Gray', 'Brown', 'Yellow', 'Orange', 'Pink', 'Purple', 'Multi-colored'] %>
 
         <%= f.input :material,
             label: "Material",
@@ -41,13 +47,16 @@
         <%= f.input :pet_free,
             label: "Pet-free home" %>
 
+        <%= f.input :receipt,
+          label: "Purchase receipt" %>
+
+      </div>
+      <div class="container-buttons">
         <%= f.submit class: "btn-green" %>
-        <%# <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-none' %>
         <%= link_to "Cancel", :back, class: "btn-white" %>
       </div>
 
       <% end %>
-      <%# <%= link_to "Go Back", offers_path %>
     </div>
 
   </div>

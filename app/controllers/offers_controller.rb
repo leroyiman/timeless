@@ -90,7 +90,7 @@ class OffersController < ApplicationController
   end
 
   def destroy
-    @offer = offer.find(params[:id])
+    @offer = Offer.find(params[:id])
     @offer.destroy
     redirect_to offers_path
   end
