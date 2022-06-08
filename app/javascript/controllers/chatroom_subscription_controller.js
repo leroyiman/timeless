@@ -34,11 +34,6 @@ export default class extends Controller {
     document.getElementById("message_content").value = ""
   }
 
-  // resetForm(event) {
-  //   event.target.reset()
-  //   console.log(event.target)
-  // }
-
   disconnect() {
     console.log("Unsubscribed from the chatroom")
     this.channel.unsubscribe()
