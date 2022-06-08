@@ -92,7 +92,7 @@
         </div>
 
     <div class="card-send-offer-show">
-      <div>
+      <div class="button-send">
         <%= f.submit 'Send request', class: 'btn-request-green' %>
       </div>
       <% end %>
@@ -132,7 +132,8 @@
         <p><span class="underline-show">Category</span>: <%= @offer.category %></p>
       </div>
        <div>
-        <p><span class="underline-show">Smoke-free</span>: <%= @offer.smoke_free %></p>
+        <p><span class="underline-show">Smoke-free</span>: <%= @offer.smoke_free %>
+          </p>
       </div>
        <div>
         <p><span class="underline-show">Pet-free home</span>: <%= @offer.pet_free %></p>
@@ -141,6 +142,9 @@
         <p><span class="underline-show">Purchase receipt</span>: <%= @offer.pet_free %></p>
       </div>
     </div>
+
+
+
 
 
     <div class="show-actions">

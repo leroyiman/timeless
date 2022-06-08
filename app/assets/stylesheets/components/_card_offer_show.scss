@@ -1,6 +1,8 @@
 .card-offer-show {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-top: 0.5px solid #f5d278;
+  border-bottom: 0.5px solid #f5d278;
 }
 
 .card-offer-show > img {
@@ -37,6 +39,10 @@
   align-items: center;
 }
 
+.card-profile-part p {
+  font-size: smaller;
+}
+
 // .form-select {
 // //   text-align: center;
 //   // background-color: rgb(225, 225, 225);
@@ -61,6 +67,9 @@
   border-radius: 5px;
 }
 
+.card-timeslot-offer-show select {
+  box-shadow: $shadow-light;
+}
 
 .card-send-offer-show {
   // margin-left: 8px;
@@ -75,6 +84,11 @@
   width: 50%;
 }
 
+.button-send {
+  box-shadow: $shadow-lg;
+}
+
+
 .width {
   width: 85%;
   margin-right: 20px;
@@ -87,7 +101,8 @@
   width: 40px;}
 
 .card-description-offer-show {
-  border-bottom: 1px solid rgb(167, 166, 166);
+  // border-bottom: 1px solid rgb(167, 166, 166);
+  border-bottom: 1px solid $gold;
   margin: 0px 16px 16px 16px;
   padding: 8px;
 }
