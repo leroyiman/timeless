@@ -2,13 +2,14 @@
   overflow: hidden;
   // height: 150px;
   background: white;
-  box-shadow: $shadow-sm;
+  box-shadow: $shadow-md;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-radius: 5px;
   margin: 10px 8px 8px 8px;
   justify-content: space-between;
+  border: 0.5px solid #f5d278;
 }
 
 .card-product-fav {
