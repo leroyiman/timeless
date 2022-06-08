@@ -27,11 +27,13 @@
   border-radius: 5px;
   background-color: $white;
   border: 0.5px solid #fbe7b5;
+  // padding: 0px 10px 0px 10px;
 
   a {
     display: flex;
     align-items: center;
-    padding-left: 5px;
+    // padding-left: 5px;
+    padding: 0px 10px 0px 10px;
     text-decoration: none;
   }
 }
@@ -62,6 +64,11 @@
   width: 90%;
   padding-top: 6px;
   margin: 9px;
+}
+
+.form-control-search:focus-visible {
+  border: none !important;
+  text-decoration: none;
 }
 
 .searchbar {

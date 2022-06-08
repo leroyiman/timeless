@@ -47,20 +47,20 @@
               <div class= "card-product-third">
                   <div>
                     <% if offer.favorites.nil? || offer.favorites.empty? %>
-                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart"%>
+                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart fav-card"%>
                     <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.nil? %>
-                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart "%>
+                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart fav-card"%>
                     <% elsif offer.favorites.where(user_id: @user, offer_id: offer.id ).first.is_favorite? %>
                      <%= link_to "",offer_favorite_path(offer_id: offer.id, user_id: current_user, id: offer.favorites.last.id ),method: :delete,class: "fa-solid fa-heart pin-gold  " , remote: true%>
                     <% else %>
-                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart "%>
+                      <%= link_to "", new_offer_favorite_path(offer_id: offer.id), class: "fa-solid fa-heart fav-card "%>
                     <% end %>
                   </div>
                   <div>
                     <p class= "card-product-price"><% if offer.price == 0 %>
                       <%= 'Free' %>
                       <% else %>
-                      $<%=offer.price%>
+                      €<%=offer.price%>
                       <% end %></p>
                   </div>
                 </div>
