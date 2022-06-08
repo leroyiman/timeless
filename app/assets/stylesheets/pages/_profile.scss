@@ -19,7 +19,7 @@
   background: white;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin: 10px 8px 8px 8px;
-  border-radius: 5px;
+  // border-radius: 5px;
   border-bottom: 1px solid #daa00e;
 }
 
@@ -60,19 +60,14 @@
 
 .btn-green-profile {
   margin: 8px;
-  height: 38px;
+  //height: 38px;
   width: 45%;
-  color: $white;
-  background: $green;
-  border: none;
+  color: #daa00e;
+  background: rgb(255, 255, 255);
+  border: 0.5px solid #f5d278;
   // font-weight: bold;
   padding: 4px 18px 4px 18px;
   border-radius: 5px;
   text-align: center;
+  box-shadow: $shadow-sm;
 }
-
-// img {
-//   height: 50px;
-//   width: 50px;
-// }
-
