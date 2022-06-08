@@ -20,7 +20,9 @@
       <h1>New Requests</h1>
         <div class="card-product">
           <div class="card-product-infos">
-            <h3><%=Offer.find(booking.timeslot.offer_id).title  %></h3>
+            <%# <h3><%=Offer.find(booking.timeslot.offer_id).title  %>
+            <h3><%=booking.timeslot.offer.title %> </h3>
+
             <h3><%= booking.timeslot.timeslot.strftime("%-d.%-m.%y %H:%M")%></h3>
               <div class = 'card p-3 bg-light'>
                 <div style="display:flex;">
@@ -57,7 +59,7 @@
         <h1>Confirm Requests</h1>
         <div class="card-product">
           <div class="card-product-infos">
-            <h3><%=Offer.find(booking.timeslot.offer_id).title  %></h3>
+            <h3><%=booking.timeslot.offer.title %> </h3>
             <h3><%= booking.timeslot.timeslot.strftime("%-d.%-m.%y %H:%M")%></h3>
               <div class = 'card p-3 bg-light'>
                 <div style="display:flex;">
@@ -94,7 +96,7 @@
       <h1>Decline Requests</h1>
         <div class="card-product">
           <div class="card-product-infos">
-            <h3><%=Offer.find(booking.timeslot.offer_id).title  %></h3>
+            <h3><%=booking.timeslot.offer.title %> </h3>
             <h3><%= booking.timeslot.timeslot.strftime("%-d.%-m.%y %H:%M")%></h3>
               <div class = 'card p-3 bg-light'>
                 <div style="display:flex;">
