@@ -28,8 +28,9 @@
     <% end %>
   </div>
 
-        <%= link_to "", new_offer_hide_path(@offer), class: "fa-solid fa-trash-can pin pin1", data: { confirm: "Are you sure you want to hide this item?" } %>
-          <% if current_user.favorites.empty? %>
+      <%= link_to "", new_offer_hide_path(@offer), class: "fa-solid fa-trash-can pin pin1", data: { confirm: "Are you sure you want to hide this item?" } %>
+        <% if current_user.present? %>
+          <% if current_user&.favorites.empty? %>
             <%= link_to "", new_offer_favorite_path(@offer), class: "fa-solid fa-heart pin pin2"%>
           <% else %>
           <%= link_to "",
@@ -38,6 +39,7 @@
                 data: { confirm: "Are you sure you want to remove from favorites?" },
                 class: "fa-solid fa-heart pin-red pin2" %>
           <% end %>
+        <% end %>
   </button>
 </div>
 
