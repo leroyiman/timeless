@@ -72,10 +72,21 @@
 .notification {
   display: flex;
   align-items: center;
-  margin-bottom: 8px;
+  justify-content: space-around;
+  margin: 10px 8px 8px 8px;
   background: white;
+  box-shadow: $shadow-md;
   padding: 8px 16px;
-  border: 1px solid rgb(235,235,235);
+  justify-content: space-between;
+  border: 0.5px solid #f5d278;
+  border-radius: 5px;
+}
+
+.notification-image{
+  height: 100%;
+  width: 90px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .notification .notification-content {
