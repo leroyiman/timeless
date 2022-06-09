@@ -2,7 +2,7 @@
   <div class="card-profile">
     <div class="card-trip-infos">
       <div>
-        <h4>Welcome home, <%= @user.fname %>.</h4>
+        <h4 class="padding-right-profile">Welcome home, <%= @user.fname %>!</h4>
         <div>
           <%if user_signed_in? %>
           | <%= link_to "Edit Profile", edit_user_registration_path %>
@@ -24,7 +24,7 @@
   </div>
 
     <div class="profile-btn">
-      <%= link_to "See Bookings", profile_bookings_path, class: "btn-green-profile" %>
+      <%= link_to "See Requests", profile_bookings_path, class: "btn-green-profile" %>
       <%= link_to "See Matches", matches_path, class: "btn-green-profile" %>
       <% if current_user.is_admin == true %>
           <%= link_to "DB", "/blazer/queries/new",class: "btn-green-profile" %>
@@ -33,7 +33,7 @@
     </div>
 
   <div class="title">
-    <h3 class="font-sans">Your published items</h3>
+    <h3 class="font-sans">Your item offers</h3>
   </div>
 
   <div class="header-index_results-container">
@@ -63,7 +63,7 @@
 
 
   <div class="title">
-    <h3 class="font-sans">Your searches</h3>
+    <h3 class="font-sans">Your item searches</h3>
   </div>
 
   <div>

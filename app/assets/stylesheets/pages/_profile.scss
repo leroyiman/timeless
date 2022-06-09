@@ -45,7 +45,8 @@
 
 
 .card-profile .card-trip-infos {
-  padding: 16px;
+  // padding: 16px;
+  padding: 16px 8px 16px 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,4 +84,8 @@
 
 .padding-login {
   margin-top: 16px;
+}
+
+.padding-right-profile {
+  padding-right: 8px;
 }
