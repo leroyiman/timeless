@@ -105,13 +105,10 @@
 
  <div class="card-PCS-offer-show">
       <div>
-        <p><span class="underline-show">Price</span>: <%= @offer.price %> €</p>
+        <p><span class="underline-show">Pick-up Location</span>: <%= @offer.location %></p>
       </div>
       <div>
-        <p><span class="underline-show">Pickup Location</span>: <%= @offer.location %></p>
-      </div>
-      <div>
-        <p><span class="underline-show">Condition</span>: <%= @offer.condition %></p>
+        <p><span class="underline-show">Price</span>: €<%= @offer.price %></p>
       </div>
       <div>
         <p><span class="underline-show">Size</span>: <%= @offer.size %></p>
@@ -119,7 +116,7 @@
       <div>
         <p><span class="underline-show">Color</span>: <%= @offer.color %></p>
       </div>
-      <div>
+        <div>
         <p><span class="underline-show">Material</span>: <%= @offer.material %></p>
       </div>
       <div>
