@@ -132,14 +132,29 @@
         <p><span class="underline-show">Category</span>: <%= @offer.category %></p>
       </div>
        <div>
-        <p><span class="underline-show">Smoke-free</span>: <%= @offer.smoke_free %>
-          </p>
+        <p><span class="underline-show">Smoke-free</span>:
+        <% if  @offer.smoke_free == true %>
+            ✔️
+          <% else %>
+            ❌
+          <% end %>
+        </p>
       </div>
        <div>
-        <p><span class="underline-show">Pet-free home</span>: <%= @offer.pet_free %></p>
+        <p><span class="underline-show">Pet-free home</span>:
+        <% if  @offer.pet_free == true %>
+            ✔️
+          <% else %>
+            ❌
+          <% end %></p>
       </div>
        <div>
-        <p><span class="underline-show">Purchase receipt</span>: <%= @offer.pet_free %></p>
+        <p><span class="underline-show">Purchase receipt</span>:
+        <% if  @offer.receipt == true %>
+            ✔️
+          <% else %>
+            ❌
+          <% end %></p></p>
       </div>
     </div>
 
