@@ -1,20 +1,28 @@
 
-<div class="container">
-  <h1>All your requests</h1>
-
+<div class="container-request">
   <div>
-    <ul class="list-inline tabs-underlined">
-      <li>
-        <%= link_to "New Request", profile_bookings_path, class: "tab-underlined active", id:"tabnewrequests", data: {controller: "booking-show", action: "click->booking-show#active1"} %>
-      </li>
-      <li>
-        <%= link_to "Confirm Request", profile_bookings_path, class: "tab-underlined ",id:"tabconfirmrequests", data: {controller: "booking-show", action: "click->booking-show#active2"} %>
-      </li>
-      <li>
-        <%= link_to "Decline Request", profile_bookings_path, class: "tab-underlined ", id:"tabdeclinerequests", data: {controller: "booking-show", action: "click->booking-show#active3"} %>
-      </li>
-    </ul>
-
+    <h1 class="request-header">Your requests</h1>
+  </div>
+  <div>
+    <div class="taps">
+      <ul class="list-inline tabs-underlined">
+      <div>
+        <li>
+          <%= link_to "New Request", profile_bookings_path, class: "tab-underlined active", id:"tabnewrequests", data: {controller: "booking-show", action: "click->booking-show#active1"} %>
+        </li>
+        </div>
+        <div>
+        <li>
+          <%= link_to "Confirm Request", profile_bookings_path, class: "tab-underlined ",id:"tabconfirmrequests", data: {controller: "booking-show", action: "click->booking-show#active2"} %>
+        </li>
+        </div>
+        <div>
+        <li>
+          <%= link_to "Decline Request", profile_bookings_path, class: "tab-underlined ", id:"tabdeclinerequests", data: {controller: "booking-show", action: "click->booking-show#active3"} %>
+        </li>
+        </div>
+      </ul>
+    </div>
     <div id="newrequests" class="">
       <% @newbookings.each do |booking| %>
       <h1>New Requests</h1>
