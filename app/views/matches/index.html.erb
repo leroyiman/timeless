@@ -1,43 +1,52 @@
-<div class="container-matches">
-  <h3 class="matches-header">Here are your matches</h3>
 
+<div class="chatrooms-container">
+
+  <div class="top-navbar-new-offer">
+  <button onclick="history.back()"><i class="fa-solid fa-angle-left fa-lg"></i></button>
+  <h3 class="text-center">Your Matches</h3>
+  <div></div>
+  </div>
+<div class="header-index_results-container">
   <% @matches.each do |match| %>
-      <div class="card-product">
-          <div class="container-part1">
-                <% if match.offer.photos.first.nil? %>
-                  <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
-                <% else %>
-                  <%= cl_image_tag match.offer.photos.first.key, height: 300, width: 400, crop: :fill %>
-                <% end %>
-                <div class="card-product-infos">
-                  <h4 class="font-sans"><%= match.offer.title %></h4>
-                  <p><i class="fa-solid fa-location-dot"></i> <%= match.offer.location %> </p>
-                  <p><i class="fa-solid fa-glasses"></i> <%= match.offer.condition %> </p>
-                  <p><i class="color-primary fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(match.offer) %></p>
-                </div>
-          </div>
-                <div class= "card-product-third">
-                    <div>
-                      <% if match.offer.favorites.nil? || match.offer.favorites.empty? %>
-                        <%= link_to "", new_offer_favorite_path(offer_id: match.offer.id), class: "fa-solid fa-heart"%>
-                      <% elsif match.offer.favorites.where(user_id: @user, offer_id: match.offer.id ).first.nil? %>
-                        <%= link_to "", new_offer_favorite_path(offer_id: match.offer.id), class: "fa-solid fa-heart "%>
-                      <% elsif match.offer.favorites.where(user_id: @user, offer_id: match.offer.id ).first.is_favorite? %>
-                      <%= link_to "",offer_favorite_path(offer_id: match.offer.id, user_id: current_user, id: match.offer.favorites.last.id ),method: :delete,class: "fa-solid fa-heart pin-gold  " , remote: true%>
+       <div class="card-product">
+        <div class="container-part1">
+              <% if match.offer.photos.first.nil? %>
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="" width="400" height="300">
+              <% else %>
+                <%= cl_image_tag match.offer.photos.first.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
+              <div class="card-product-infos">
+                <h4 class="font-sans"><%= match.offer.title %></h4>
+                <p><i class="fa-solid fa-location-dot"></i> <%= match.offer.location %> </p>
+                <p><i class="fa-solid fa-glasses"></i> <%= match.offer.condition %> </p>
+                <p><i class="color-primary fa-solid fa-arrow-right"></i> <%= link_to "See More", offer_path(match.offer), data: {turbolinks: false} %></p>
+              </div>
+        </div>
+              <div class= "card-product-third">
+                  <div>
+                    <p class= "card-product-price"><% if match.offer.price == 0 %>
+                      <%= 'Free' %>
                       <% else %>
-                        <%= link_to "", new_offer_favorite_path(offer_id: match.offer.id), class: "fa-solid fa-heart "%>
-                      <% end %>
-                    </div>
-                    <div>
-                      <p class= "card-product-price"><% if match.offer.price == 0 %>
-                        <%= 'Free' %>
-                        <% else %>
-                        €<%=match.offer.price%>
-                        <% end %></p>
-                    </div>
+                      $<%=match.offer.price%>
+                      <% end %></p>
                   </div>
                 </div>
               </div>
-        <% end %>
-  </div>
+            </div>
+      <% end %>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
