@@ -1,0 +1,35 @@
+.container-request {
+  margin: 16px;
+}
+
+.request-header {
+  text-align: center;
+}
+
+.tabs-underlined .tab-underlined {
+  padding: 0px;
+  margin: 0px;
+}
+
+.list-inline {
+  padding-left: 15px;
+  //padding-right: 16px;
+  list-style: none;
+}
+
+.taps {
+  margin-top: 24px;
+  // margin-left: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs-underlined li {
+  padding: 8px;
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+  border-bottom: 3px solid $gold;
+  color: $green;
+}

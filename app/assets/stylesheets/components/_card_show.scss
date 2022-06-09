@@ -1,9 +1,21 @@
 .card-trip {
-  overflow: visible;
+  // overflow: visible;
+  // background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // margin: 10px 8px 8px 8px;
+  // border-radius: 5px;
+
+  overflow: hidden;
+  // height: 150px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 10px 8px 8px 8px;
+  box-shadow: $shadow-md;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   border-radius: 5px;
+  margin: 10px 8px 8px 8px;
+  justify-content: space-between;
+  border: 0.5px solid #f5d278;
 }
 
 .card-trip > img {

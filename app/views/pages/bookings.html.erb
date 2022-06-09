@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="top-navbar-new-offer">
     <button onclick="history.back()"><i class="fa-solid fa-angle-left fa-lg"></i></button>
@@ -18,7 +17,6 @@
         <%= link_to "Declined", profile_bookings_path, class: "tab-underlined ", id:"tabdeclinerequests", data: {controller: "booking-show", action: "click->booking-show#active3"} %>
       </li>
     </ul>
-
     <div id="newrequests" class="">
       <% @newbookings.each do |booking| %>
       <h1>New Requests</h1>
