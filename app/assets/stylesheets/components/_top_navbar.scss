@@ -21,20 +21,6 @@
   top: 0;
 }
 
-.top-navbar-edit-offer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 8px 24px 8px;
-  background-color: $white;
-  position: sticky;
-  top: 0;
-  width: 390px;
-  height: 65px;
-  // position: relative;
-  z-index : 1;
-}
-
 .top-navbar-new-offer:before {
   content : "";
   position: absolute;
@@ -55,4 +41,46 @@
   border: none;
   background: none;
   color: $green;
+}
+
+.top-navbar-edit-offer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 8px 24px 8px;
+  background-color: $white;
+  position: sticky;
+  top: 0;
+  width: 390px;
+  height: 65px;
+  // position: relative;
+  z-index : 1;
+}
+
+// Offer Show
+.top-navbar-offer-show {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 16px 24px 16px;
+  // border-bottom: 1px solid $gold;
+  background-color: $white;
+  position: sticky;
+  top: 0;
+}
+
+.top-navbar-offer-show button {
+  border: none;
+  background: none;
+  color: $green;
+}
+
+.upload {
+  color: $green;
+  font-size: 1.2em;
+}
+
+
+.top-navbar-offer-show h3 {
+  margin: 0;
 }

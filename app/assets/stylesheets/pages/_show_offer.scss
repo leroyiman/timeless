@@ -2,3 +2,43 @@
   margin-top: 8px;
   margin-bottom: 8px;
 }
+
+.underline-show {
+  // text-decoration: underline 2px;
+  // text-decoration-color:#f5e8c7;
+  font-weight: bolder;
+}
+
+.info-from-owner {
+  // color: $green;
+  padding-left: 4px;
+}
+
+.info-from-owner-missing {
+  // color: black;
+  padding-left: 4px;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.checked {
+  color: $green;
+  // padding-left: 8px;
+  padding-right: 4px;
+}
+
+.unchecked {
+  color: orange;
+  // padding-left: 8px;
+  padding-right: 4px;
+}
+
+.card-PCS-offer-show p {
+  margin-bottom: 0.8rem;
+}
+
+.checked-group-show-offer {
+padding-top: 20px;
+// border-top: 1px solid $gold;
+}

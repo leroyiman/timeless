@@ -23,3 +23,8 @@
   -webkit-align-items: center;
   align-items: center;
 }
+
+.w-100 {
+  max-height: 275px !important;
+  object-fit: cover;
+}

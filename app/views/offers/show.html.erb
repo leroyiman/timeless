@@ -1,10 +1,10 @@
 <div class="container-main-offer-show">
-<div class="container-header-show">
-  <i><%= link_to '', url_for(:back), class: "color-dark fa-solid fa-angle-left fa-lg" %></i>
-  <h1 class="text-center"><%= @offer.title %></h1>
-  <i class="fa-solid fa-arrow-up-from-bracket fa-lg"></i>
-</div>
 
+   <div class="top-navbar-offer-show">
+    <button onclick="history.back()"><i class="fa-solid fa-angle-left fa-lg"></i></button>
+    <h3 class="text-center"><%= @offer.title %></h1>
+    <i class="fa-solid fa-arrow-up-from-bracket fa-lg upload"></i>
+  </div>
 
   <div class="card-offer-show">
     <%# <div class="swiper-container">
@@ -105,65 +105,115 @@
 
  <div class="card-PCS-offer-show">
       <div>
-        <p><span class="underline-show">Pick-up Location</span>: <%= @offer.location %></p>
+        <p><span class="underline-show"> Pick-up Location: </span>
+          <span class="info-from-owner"> <%= @offer.location %> </span>
+        </p>
       </div>
+
       <div>
-        <p><span class="underline-show">Price</span>: €<%= @offer.price %></p>
+        <p><span class="underline-show"> Price: </span>
+          <span class="info-from-owner"> €<%= @offer.price %> </span>
+        </p>
       </div>
+
       <div>
-        <p><span class="underline-show">Size</span>: <%= @offer.size %></p>
-      </div>
-      <div>
-        <p><span class="underline-show">Color</span>: <%= @offer.color %></p>
-      </div>
-        <div>
-        <p><span class="underline-show">Material</span>: <%= @offer.material %></p>
-      </div>
-      <div>
-        <p><span class="underline-show">Style</span>: <%= @offer.style %></p>
-      </div>
-      <div>
-        <p><span class="underline-show">Condition</span>: <%= @offer.condition %></p>
-      </div>
-      <div>
-        <p><span class="underline-show">Category</span>: <%= @offer.category %></p>
-      </div>
-       <div>
-        <p><span class="underline-show">Smoke-free</span>:
-        <% if  @offer.smoke_free == true %>
-            ✔️
+        <p><span class="underline-show"> Size: </span>
+          <% if @offer.size.present? %>
+            <span class="info-from-owner"> <%= @offer.size %> </span>
           <% else %>
-            not specified
+            <span class="info-from-owner-missing"> N/A. Message owner for details. </span>
           <% end %>
         </p>
       </div>
-       <div>
-        <p><span class="underline-show">Pet-free home</span>:
-        <% if  @offer.pet_free == true %>
-            ✔️
+
+      <div>
+        <p><span class="underline-show">Color:</span>
+          <% if  @offer.color.present? %>
+            <span class="info-from-owner"> <%= @offer.color %> </span>
           <% else %>
-            not specified
-          <% end %></p>
+            <span class="info-from-owner-missing"> N/A. Message owner for details.</span>
+          <% end %>
+        </p>
       </div>
-       <div>
-        <p><span class="underline-show">Purchase receipt</span>:
-        <% if  @offer.receipt == true %>
-            ✔️
+
+      <div>
+        <p><span class="underline-show">Material:</span>
+          <% if  @offer.material.present? %>
+            <span class="info-from-owner"> <%= @offer.material %> </span>
           <% else %>
-            not specified
-          <% end %></p></p>
+            <span class="info-from-owner-missing"> N/A. Message owner for details.</span>
+          <% end %>
+        </p>
       </div>
+
+      <div>
+        <p><span class="underline-show">Style:</span>
+          <% if  @offer.style.present? %>
+            <span class="info-from-owner"> <%= @offer.style %> </span>
+          <% else %>
+            <span class="info-from-owner-missing"> N/A. Message owner for details.</span>
+          <% end %>
+        </p>
+      </div>
+      <div>
+        <p><span class="underline-show">Condition:</span>
+          <% if  @offer.condition.present? %>
+            <span class="info-from-owner"> <%= @offer.condition %> </span>
+          <% else %>
+            <span class="info-from-owner-missing"> N/A. Message owner for details.</span>
+          <% end %>
+        </p>
+      </div>
+
+      <div>
+        <p><span class="underline-show">Category:</span>
+          <% if  @offer.category.present? %>
+            <span class="info-from-owner"> <%= @offer.category %> </span>
+          <% else %>
+            <span class="info-from-owner-missing"> N/A. Message owner for details.</span>
+          <% end %>
+        </p>
+
+      </div>
+
+      <div class="checked-group-show-offer">
+        <p>
+          <% if  @offer.smoke_free == true %>
+            <i class="fas fa-check-square checked"></i>
+          <% else %>
+            <i class="fas fa-times-square unchecked"></i>
+          <% end %>
+          <span class="underline-show">Smoke-free home</span>
+        </p>
+
+      </div>
+
+      <div>
+        <p>
+          <% if  @offer.pet_free == true %>
+            <i class="fas fa-check-square checked"></i>
+          <% else %>
+            <i class="fas fa-times-square unchecked"></i>
+          <% end %>
+          <span class="underline-show">Pet-free home</span>
+        </p>
+      </div>
+
+      <div>
+        <p>
+          <% if  @offer.receipt == true %>
+            <i class="fas fa-check-square checked"></i>
+          <% else %>
+            <i class="fas fa-times-square unchecked"></i>
+          <% end %>
+          <span class="underline-show">Purchase receipt</span>
+        </p>
+      </div>
+
     </div>
 
 
-
-
-
     <div class="show-actions">
-
-
-
-
 
 
 
