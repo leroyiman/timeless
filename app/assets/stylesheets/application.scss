@@ -19,7 +19,8 @@
 @import "pages/search";
 @import "pages/favorites";
 @import "pages/offer";
-
+@import "pages/matches";
+@import "pages/request";
 
 html {
   height: 100%;
@@ -41,4 +42,8 @@ a {
 
 a:hover {
   color: #daa00e;
+}
+
+.container-simple {
+  margin: 16px;
 }
