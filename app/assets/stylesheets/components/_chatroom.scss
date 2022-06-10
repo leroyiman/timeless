@@ -21,6 +21,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     padding-bottom: 80px;
+    font-family: $body-font;
   }
 
   #new_message {
@@ -78,25 +79,32 @@
 .message-right{
   text-align: right;
   // background: $mint-green-new;
-  background-color: $mint-green;
-  color: $white;
-  border-radius: 5px;
-  margin: 8px 0px 8px 52px;
+  // background-color: RGBA(92,195,183,0.8);
+  background-color: RGBA(92,195,183,0.1);
+  color: $black;
+  border-radius: 15px 15px 0px 15px;
+  margin: 10px 0px 10px 52px;
   padding: 4px 8px 4px 8px;
-  max-inline-size: 306px !important;
-  box-shadow: $shadow-light;
+  // max-inline-size: 306px !important;
+  box-shadow: 0px 0px 0.7px $green;
 }
 
 .message-left{
   text-align: left;
   // background: $mint-green-new;
-  background-color: $mint-green;
-  color: $white;
-  border-radius: 5px;
-  margin: 52px 8px 0px 8px;
+  // background-color: $light-gray;
+  background-color: RGBA(253,248,235,1);
+  color: $black;
+  border-radius: 15px 15px 15px 0px;
+  margin: 10px 52px 10px 0px;
   padding: 4px 8px 4px 8px;
-  max-inline-size: 306px !important;
-  box-shadow: $shadow-light;
+  box-shadow: 0px 0px 0.7px $gold;
+}
+
+.messages p {
+  font-weight: 400;
+  padding-top: 4px;
+  margin-bottom: 4px;
 }
 
 
@@ -107,22 +115,23 @@
   margin: 10px 8px 8px 8px;
   background: white;
   box-shadow: $shadow-md;
-  padding: 8px 16px;
+  padding: 14px 16px 14px 16px;
   justify-content: space-between;
   border: 0.5px solid #f5d278;
   border-radius: 5px;
 }
 
 .notification-image{
-  height: 100%;
-  width: 90px;
+  height: 90px;
+  width: 120px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .notification .notification-content {
   flex-grow: 1;
-  padding: 0 24px;
+  padding: 0px 16px;
+  height: 90px;
 }
 
 .notification p {
